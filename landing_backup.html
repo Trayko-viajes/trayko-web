@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#001d37",
+              "tertiary": "#864f00",
+              "outline": "#717782",
+              "inverse-surface": "#2d3133",
+              "on-surface-variant": "#414751",
+              "error": "#ba1a1a",
+              "surface-container-high": "#e6e8ea",
+              "surface-container-highest": "#e0e3e5",
+              "outline-variant": "#c0c7d3",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-bright": "#f7f9fb",
+              "on-primary-container": "#fdfcff",
+              "on-background": "#191c1e",
+              "surface-tint": "#0061a5",
+              "inverse-primary": "#9fcaff",
+              "surface-variant": "#e0e3e5",
+              "secondary-fixed-dim": "#5adace",
+              "on-tertiary-container": "#fffbff",
+              "on-primary": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-dim": "#d8dadc",
+              "primary": "#005ea1",
+              "secondary": "#006a63",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#00504a",
+              "on-secondary-fixed": "#00201d",
+              "surface-container-lowest": "#ffffff",
+              "background": "#f7f9fb",
+              "on-surface": "#191c1e",
+              "secondary-fixed": "#79f7ea",
+              "tertiary-fixed": "#ffdcbd",
+              "surface": "#f7f9fb",
+              "on-primary-fixed-variant": "#00497e",
+              "secondary-container": "#79f7ea",
+              "primary-fixed-dim": "#9fcaff",
+              "primary-container": "#2178c3",
+              "tertiary-container": "#a96400",
+              "tertiary-fixed-dim": "#ffb86e",
+              "on-tertiary-fixed-variant": "#693c00",
+              "on-secondary-container": "#007169",
+              "on-tertiary-fixed": "#2c1600",
+              "on-tertiary": "#ffffff",
+              "inverse-on-surface": "#eff1f3",
+              "primary-fixed": "#d2e4ff",
+              "surface-container-low": "#f2f4f6",
+              "surface-container": "#eceef0"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Plus Jakarta Sans', sans-serif; }
+      .bg-primary-gradient {
+        background: linear-gradient(135deg, #2178c3 0%, #006a63 100%);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+<div class="max-w-7xl mx-auto glass-card rounded-full px-8 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-extrabold tracking-tighter text-primary">Trayko</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Destinos</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Características</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Ayuda</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined block" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="text-sm font-semibold px-4 py-2 hover:text-primary transition-colors">Log In</button>
+<button class="bg-primary-gradient text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg shadow-primary/20">Reservar</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+<!-- Hero Image Context -->
+<div class="absolute inset-0 z-0">
+<img alt="Sleek intercity bus driving through the Andes" class="w-full h-full object-cover" data-alt="Modern intercity bus on a scenic coastal road with snowy Andes mountains in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx-APsFMJ0oL7GepY1KxM7xF93IyZLgubr6M2NEfZW3yfPIMOxcB3OQVnPd1Yv1E9gGDEToD_DEeKZVl6-yrf9CgbLuNB2__PJrdOGvJB13oAgmvA9geRnplIrnGyz-_Wdzbx_kC1Mq3lDbWYX5jjGLzTR7musfy7xYv9c5D3O6yf0gr9ZRrPKDrcIogoku2aOjQ9sXwOD6oGSMHOemGyjoJpTUX4ysY-W3b_vZDT6PFDcsYKM8TCY5jeLEx85vKjDojY3WLZUJaQ"/>
+<div class="absolute inset-0 bg-gradient-to-b from-surface/20 via-surface/10 to-surface"></div>
+</div>
+<div class="relative z-10 max-w-5xl w-full text-center">
+<h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-6 leading-tight">
+                Tu viaje entre ciudades, <span class="text-transparent bg-clip-text bg-primary-gradient">simplificado.</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant font-medium mb-12 max-w-2xl mx-auto">
+                Reserva tus boletos de bus de forma fácil, segura y al mejor precio en Chile.
+            </p>
+<!-- Search Widget -->
+<div class="glass-card p-4 md:p-2 rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row items-center gap-2 max-w-4xl mx-auto">
+<div class="w-full md:flex-1 flex items-center gap-3 px-6 py-4 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<div class="text-left">
+<label class="block text-[10px] font-bold uppercase tracking-wider text-outline">Origen</label>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-sm font-bold placeholder:text-on-surface-variant w-full" placeholder="¿Desde dónde?" type="text"/>
+</div>
+</div>
+<div class="hidden md:block w-px h-10 bg-outline-variant/30"></div>
+<div class="w-full md:flex-1 flex items-center gap-3 px-6 py-4 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="near_me">near_me</span>
+<div class="text-left">
+<label class="block text-[10px] font-bold uppercase tracking-wider text-outline">Destino</label>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-sm font-bold placeholder:text-on-surface-variant w-full" placeholder="¿A dónde vas?" type="text"/>
+</div>
+</div>
+<div class="hidden md:block w-px h-10 bg-outline-variant/30"></div>
+<div class="w-full md:flex-1 flex items-center gap-3 px-6 py-4 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="calendar_today">calendar_today</span>
+<div class="text-left">
+<label class="block text-[10px] font-bold uppercase tracking-wider text-outline">Fecha</label>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-sm font-bold placeholder:text-on-surface-variant w-full" placeholder="¿Cuándo?" type="text"/>
+</div>
+</div>
+<button class="w-full md:w-auto bg-primary-gradient text-white px-10 py-5 rounded-full font-extrabold text-sm shadow-xl shadow-primary/30 flex items-center justify-center gap-2">
+                    Buscar Viaje
+                    <span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-24 bg-surface px-6">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="group p-10 bg-surface-container-lowest rounded-xl hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-gradient flex items-center justify-center mb-6 text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-3xl" data-icon="bolt">bolt</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Búsqueda Rápida</h3>
+<p class="text-on-surface-variant leading-relaxed">Encuentra tu próximo destino en segundos con nuestro motor de búsqueda optimizado.</p>
+</div>
+<!-- Feature 2 -->
+<div class="group p-10 bg-surface-container-lowest rounded-xl hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-gradient flex items-center justify-center mb-6 text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-3xl" data-icon="payments">payments</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Precios Transparentes</h3>
+<p class="text-on-surface-variant leading-relaxed">Sin cargos ocultos ni sorpresas de último minuto. Lo que ves es lo que pagas.</p>
+</div>
+<!-- Feature 3 -->
+<div class="group p-10 bg-surface-container-lowest rounded-xl hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-gradient flex items-center justify-center mb-6 text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-3xl" data-icon="verified_user">verified_user</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Seguridad Garantizada</h3>
+<p class="text-on-surface-variant leading-relaxed">Pagos cifrados y soporte 24/7 para que viajes con total tranquilidad por todo Chile.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Destinations Section -->
+<section class="py-24 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto mb-12 flex items-end justify-between">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tight mb-2">Destinos Populares</h2>
+<p class="text-on-surface-variant font-medium">Las rutas más buscadas de esta temporada</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-8 overflow-x-auto hide-scrollbar pb-12 snap-x px-4">
+<!-- Destination Card 1 -->
+<div class="min-w-[340px] md:min-w-[450px] aspect-[4/5] relative rounded-xl overflow-hidden snap-center group">
+<img alt="Puerto Varas scenery" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Beautiful scenic view of Puerto Varas with the lake and Osorno volcano" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsiPxG9ATOSjjr_4jdwzVWXQTZoR327qe6uMmNbkGKPHW1BqESpfViir12J-n_t0bboPuTdfELarOdUJIbuL__Gehk4NZh-JyIIAKR9lAXmu_6e3quCv1fPQ4xroM2ZoYyzeoNMbPlK_a_N0V4N7Wr1M_ntkL5m3anhFNl0lNp4pjxZrYX-0Yo7ls42k8bHWRzxO62PnQ6fOigMA1cfha5igifSvDewn43y3FVryoigzts0p1E7E30bW3qW3tI5N7k8qIqTgf-dGQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 flex items-end justify-between">
+<div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">Escapada Sur</span>
+<h3 class="text-3xl font-extrabold text-white">Puerto Varas</h3>
+</div>
+<div class="glass-card px-4 py-2 rounded-2xl text-center">
+<p class="text-[10px] font-bold text-primary uppercase tracking-wider">Desde</p>
+<p class="text-xl font-extrabold text-on-surface">$18.900</p>
+</div>
+</div>
+</div>
+<!-- Destination Card 2 -->
+<div class="min-w-[340px] md:min-w-[450px] aspect-[4/5] relative rounded-xl overflow-hidden snap-center group">
+<img alt="San Pedro de Atacama desert" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Majestic desert landscape of San Pedro de Atacama under a clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0oqAdxm9-JENsdpydqbmSB-RFpL_fSLGdPF0Lng-soEiCKKWtKeeDyrNOp6iV2hMuruQRlzcnfKXgJogIpJb__T1tngIAkRPmh8o0fL-3A6oqg5HJs8Et4chBpX_zU8jvf--vyg3MxOh_fTpM_ubyNIEB3Yt6HqLXrMV8xLyQ8tei4paoNERZ2aAogjZ6DdJhwPrdrm-Y-5UWemZMpfkiicKGMN1w2UE_dmSPnBnFWyz0BIYHGN-GTuikaVgL_WQd7cYZWsw4rr8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 flex items-end justify-between">
+<div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">Norte Místico</span>
+<h3 class="text-3xl font-extrabold text-white">San Pedro de Atacama</h3>
+</div>
+<div class="glass-card px-4 py-2 rounded-2xl text-center">
+<p class="text-[10px] font-bold text-primary uppercase tracking-wider">Desde</p>
+<p class="text-xl font-extrabold text-on-surface">$24.500</p>
+</div>
+</div>
+</div>
+<!-- Destination Card 3 -->
+<div class="min-w-[340px] md:min-w-[450px] aspect-[4/5] relative rounded-xl overflow-hidden snap-center group">
+<img alt="Valparaíso coastal view" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Colorful hills and houses of Valparaiso overlooking the Pacific Ocean" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL8qttS1eNNr4NC898t96_FEl3r3X1vgSx-QJrfQh3N-ygqENublwgdTDZP_tsVWsP1_asrFqqWoVaDwV7tRYag7t13botbhk-7Oxxq7H2BiauxqEtH4u3Sya7kbHlicnDezGZ-mRNbzjXBBL8Q5XhHdngfmFZ95Bdj0_C230rb68fpFLrDDsfymmqom_B1hSrZyMjlI5UreXdCKjjUaCjgSuj4yNPMGXWRrs8BKZpAUadYzC6DjvKoP7nJBgPBYBGB0uc1EIWewM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 flex items-end justify-between">
+<div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">Costa Central</span>
+<h3 class="text-3xl font-extrabold text-white">Valparaíso</h3>
+</div>
+<div class="glass-card px-4 py-2 rounded-2xl text-center">
+<p class="text-[10px] font-bold text-primary uppercase tracking-wider">Desde</p>
+<p class="text-xl font-extrabold text-on-surface">$7.200</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<section class="py-24 bg-surface-container-low px-6">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-extrabold tracking-tight mb-4">Cómo funciona</h2>
+<p class="text-on-surface-variant font-medium">Tu viaje perfecto en tres simples pasos</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-primary-gradient flex items-center justify-center mb-6 text-white shadow-xl shadow-primary/20 relative">
+<span class="material-symbols-outlined text-4xl" data-icon="search">search</span>
+<div class="absolute -top-2 -right-2 w-8 h-8 bg-white text-primary rounded-full flex items-center justify-center font-bold shadow-md">1</div>
+</div>
+<h3 class="text-xl font-bold mb-3">Busca tu ruta</h3>
+<p class="text-on-surface-variant">Ingresa origen, destino y fecha para encontrar las mejores opciones disponibles.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-primary-gradient flex items-center justify-center mb-6 text-white shadow-xl shadow-primary/20 relative">
+<span class="material-symbols-outlined text-4xl" data-icon="compare_arrows">compare_arrows</span>
+<div class="absolute -top-2 -right-2 w-8 h-8 bg-white text-primary rounded-full flex items-center justify-center font-bold shadow-md">2</div>
+</div>
+<h3 class="text-xl font-bold mb-3">Compara y Elige</h3>
+<p class="text-on-surface-variant">Filtra por precio, horario o comodidad y elige la opción que mejor se adapte a ti.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-primary-gradient flex items-center justify-center mb-6 text-white shadow-xl shadow-primary/20 relative">
+<span class="material-symbols-outlined text-4xl" data-icon="confirmation_number">confirmation_number</span>
+<div class="absolute -top-2 -right-2 w-8 h-8 bg-white text-primary rounded-full flex items-center justify-center font-bold shadow-md">3</div>
+</div>
+<h3 class="text-xl font-bold mb-3">Recibe tu pasaje</h3>
+<p class="text-on-surface-variant">Paga de forma segura y recibe tu boleto electrónico directamente en tu correo.</p>
+</div>
+</div>
+</div>
+</section><section class="py-24 px-6">
+<div class="max-w-7xl mx-auto bg-surface-container-highest rounded-3xl p-12 flex flex-col md:flex-row items-center gap-12">
+<div class="md:w-1/2">
+<h2 class="text-4xl font-extrabold tracking-tight mb-6">Tu seguridad es nuestra prioridad</h2>
+<p class="text-lg text-on-surface-variant mb-8">Trabajamos con los más altos estándares para garantizar que cada etapa de tu viaje sea segura y confiable.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-3 rounded-2xl">
+<span class="material-symbols-outlined text-primary" data-icon="shield_check">verified_user</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Viajes Protegidos</h4>
+<p class="text-on-surface-variant">Solo trabajamos con operadores certificados que cumplen todas las normas de seguridad.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-3 rounded-2xl">
+<span class="material-symbols-outlined text-primary" data-icon="lock">lock</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Pagos Seguros</h4>
+<p class="text-on-surface-variant">Tus transacciones están protegidas con tecnología de cifrado de nivel bancario.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-3 rounded-2xl">
+<span class="material-symbols-outlined text-primary" data-icon="support_agent">support_agent</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Soporte 24/7</h4>
+<p class="text-on-surface-variant">Nuestro equipo está disponible en todo momento para ayudarte con cualquier inconveniente.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 relative">
+<div class="aspect-square bg-primary-gradient rounded-full opacity-10 absolute -inset-4 blur-3xl"></div>
+<img alt="Seguridad" class="rounded-3xl shadow-2xl relative z-10 w-full h-96 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx-APsFMJ0oL7GepY1KxM7xF93IyZLgubr6M2NEfZW3yfPIMOxcB3OQVnPd1Yv1E9gGDEToD_DEeKZVl6-yrf9CgbLuNB2__PJrdOGvJB13oAgmvA9geRnplIrnGyz-_Wdzbx_kC1Mq3lDbWYX5jjGLzTR7musfy7xYv9c5D3O6yf0gr9ZRrPKDrcIogoku2aOjQ9sXwOD6oGSMHOemGyjoJpTUX4ysY-W3b_vZDT6PFDcsYKM8TCY5jeLEx85vKjDojY3WLZUJaQ"/>
+</div>
+</div>
+</section><section class="py-24 bg-surface px-6">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-extrabold tracking-tight mb-4">Lo que dicen nuestros viajeros</h2>
+<p class="text-on-surface-variant font-medium">Miles de personas ya confían en Trayko para sus viajes por Chile.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<div class="flex gap-1 mb-4 text-primary">
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-on-surface-variant italic mb-6 leading-relaxed">"Increíble experiencia. Reservar de Santiago a Puerto Varas fue cuestión de segundos. La app es súper intuitiva."</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-gradient flex items-center justify-center text-white font-bold">VR</div>
+<div>
+<p class="font-bold">Valentina R.</p>
+<p class="text-xs text-outline">Viajera Frecuente</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<div class="flex gap-1 mb-4 text-primary">
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-on-surface-variant italic mb-6 leading-relaxed">"Me encanta la transparencia en los precios. Sin cargos ocultos y el bus era de primera categoría."</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-gradient flex items-center justify-center text-white font-bold">SM</div>
+<div>
+<p class="font-bold">Sebastián M.</p>
+<p class="text-xs text-outline">Usuario Verificado</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<div class="flex gap-1 mb-4 text-primary">
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-on-surface-variant italic mb-6 leading-relaxed">"El soporte 24/7 realmente funciona. Tuve una duda con mi pasaje a Atacama y me resolvieron de inmediato."</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-gradient flex items-center justify-center text-white font-bold">CL</div>
+<div>
+<p class="font-bold">Camila L.</p>
+<p class="text-xs text-outline">Viajera Aventura</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="py-24 px-6">
+<div class="max-w-7xl mx-auto bg-primary-gradient rounded-[3rem] overflow-hidden relative">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+</div>
+<div class="relative z-10 p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="text-white md:max-w-lg">
+<h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-tight">Lleva tus viajes en el bolsillo</h2>
+<p class="text-white/80 text-lg mb-10 font-medium">Descarga la app de Trayko y gestiona tus pasajes, recibe notificaciones en tiempo real y accede a ofertas exclusivas solo para usuarios móviles.</p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-black text-white px-8 py-3 rounded-xl flex items-center gap-3 hover:scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined text-3xl" data-icon="apple">laptop_mac</span>
+<div class="text-left">
+<p class="text-[10px] uppercase font-bold leading-none">Download on the</p>
+<p class="text-lg font-bold leading-none">App Store</p>
+</div>
+</a>
+<a class="bg-black text-white px-8 py-3 rounded-xl flex items-center gap-3 hover:scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined text-3xl" data-icon="play_store">smartphone</span>
+<div class="text-left">
+<p class="text-[10px] uppercase font-bold leading-none">Get it on</p>
+<p class="text-lg font-bold leading-none">Google Play</p>
+</div>
+</a>
+</div>
+</div>
+<div class="hidden md:block relative">
+<div class="w-72 h-[580px] bg-black rounded-[3rem] border-[8px] border-surface-container-highest shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 inset-x-0 h-6 bg-black flex items-center justify-center">
+<div class="w-16 h-4 bg-white/10 rounded-full"></div>
+</div>
+<div class="w-full h-full bg-surface pt-10 px-4">
+<div class="w-full h-full bg-surface-container-low rounded-t-2xl overflow-hidden flex flex-col items-center justify-center text-center p-4">
+<span class="text-2xl font-extrabold text-primary mb-2">Trayko</span>
+<div class="w-full h-32 bg-primary-gradient rounded-xl mb-4"></div>
+<div class="space-y-2 w-full">
+<div class="h-2 bg-outline-variant/30 rounded-full"></div>
+<div class="h-2 bg-outline-variant/30 rounded-full w-3/4"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="py-24 bg-surface px-6">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-extrabold tracking-tight mb-4">Preguntas Frecuentes</h2>
+<p class="text-on-surface-variant font-medium">Resolvemos tus dudas para que solo te preocupes de disfrutar</p>
+</div>
+<div class="space-y-4">
+<div class="glass-card p-6 rounded-2xl cursor-pointer group">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-lg">¿Cómo recibo mi pasaje?</h4>
+<span class="material-symbols-outlined text-primary group-hover:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</div>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed">
+Una vez completado el pago, recibirás un correo electrónico con tu boleto en formato PDF. También puedes acceder a él en cualquier momento desde la sección "Mis Viajes" en nuestra web o app.
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl cursor-pointer group">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-lg">¿Puedo cambiar mi fecha de viaje?</h4>
+<span class="material-symbols-outlined text-primary group-hover:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</div>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed hidden">
+Sí, los cambios están sujetos a las políticas de cada operador. Generalmente puedes solicitar cambios hasta 24 horas antes de la salida del bus.
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl cursor-pointer group">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-lg">¿Qué métodos de pago aceptan?</h4>
+<span class="material-symbols-outlined text-primary group-hover:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</div>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed hidden">
+Aceptamos tarjetas de crédito y débito de todos los bancos nacionales, además de sistemas de pago digital como Webpay para tu mayor comodidad.
+</div>
+</div>
+</div>
+</div>
+</section><footer class="bg-surface-container-low pt-20 pb-10 px-6 border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<span class="text-2xl font-extrabold text-primary block mb-6">Trayko</span>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-xs">
+                        Liderando la revolución del transporte interurbano en Chile con tecnología y pasión por viajar.
+                    </p>
+</div>
+<div>
+<h4 class="font-bold mb-6">Explorar</h4>
+<ul class="space-y-4 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Destinos</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Ofertas Especiales</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Rutas Populares</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">Compañía</h4>
+<ul class="space-y-4 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Sobre nosotros</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacidad</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Términos</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">Contacto</h4>
+<ul class="space-y-4 text-sm text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="mail">mail</span>
+                            contacto@trayko.cl
+                        </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="call">call</span>
+                            +56 9 1234 5678
+                        </li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between pt-10 border-t border-outline-variant/20 gap-4">
+<p class="text-xs text-outline font-medium">© 2024 Trayko. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="instagram">retweet</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="language">language</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

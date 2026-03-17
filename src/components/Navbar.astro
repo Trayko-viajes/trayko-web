@@ -1,0 +1,35 @@
+---
+---
+
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300">
+    <div class="nav-inner max-w-7xl mx-auto rounded-full px-8 py-3 flex items-center justify-between transition-all duration-300">
+        <div class="flex items-center gap-8">
+            <a href="/" class="flex items-center gap-2">
+                <img src="/logo_color.png" alt="Trayko" class="w-40 h-auto -my-4">
+            </a>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="/conductores" class="hidden md:inline text-on-surface hover:text-primary transition-colors text-sm font-medium">
+                Conductores
+            </a>
+            <button class="bg-primary-gradient text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg shadow-primary/20">
+                Obtener la app
+            </button>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const nav = document.getElementById('main-nav');
+    const navInner = nav?.querySelector('.nav-inner');
+
+    function updateNav() {
+        if (!nav || !navInner) return;
+        const scrolled = window.scrollY > 50;
+        navInner.classList.toggle('bg-white', scrolled);
+        navInner.classList.toggle('shadow-sm', scrolled);
+    }
+
+    updateNav();
+    window.addEventListener('scroll', updateNav, { passive: true });
+</script>
