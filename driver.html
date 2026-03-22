@@ -12,53 +12,53 @@
         theme: {
           extend: {
             colors: {
-              "secondary": "#006a63",
-              "primary-fixed-dim": "#9fcaff",
-              "on-primary-fixed-variant": "#00497e",
-              "surface-container-highest": "#e0e3e5",
-              "surface-bright": "#f7f9fb",
-              "on-error": "#ffffff",
-              "on-primary-fixed": "#001d37",
-              "error-container": "#ffdad6",
-              "on-tertiary-fixed-variant": "#693c00",
-              "secondary-fixed-dim": "#5adace",
-              "secondary-container": "#79f7ea",
-              "on-secondary-fixed": "#00201d",
-              "on-tertiary-fixed": "#2c1600",
-              "surface-variant": "#e0e3e5",
-              "on-surface-variant": "#414751",
-              "on-background": "#191c1e",
-              "surface-container": "#eceef0",
-              "on-secondary": "#ffffff",
-              "surface-dim": "#d8dadc",
-              "inverse-on-surface": "#eff1f3",
-              "primary-fixed": "#d2e4ff",
-              "outline-variant": "#c0c7d3",
-              "primary": "#005ea1",
-              "tertiary": "#864f00",
-              "surface": "#f7f9fb",
-              "on-surface": "#191c1e",
-              "on-tertiary-container": "#fffbff",
-              "tertiary-fixed-dim": "#ffb86e",
-              "surface-container-low": "#f2f4f6",
-              "background": "#f7f9fb",
-              "primary-container": "#2178c3",
+              "primary": "#022e1d",
+              "primary-container": "#1c4532",
               "on-primary": "#ffffff",
-              "on-secondary-container": "#007169",
+              "on-primary-container": "#87b29a",
+              "on-primary-fixed": "#002113",
+              "on-primary-fixed-variant": "#264e3b",
+              "primary-fixed": "#c0edd2",
+              "primary-fixed-dim": "#a4d0b7",
+              "inverse-primary": "#a4d0b7",
+              "secondary": "#3d6a00",
+              "secondary-container": "#b3f66b",
+              "secondary-fixed": "#b3f66b",
+              "secondary-fixed-dim": "#98d952",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#417000",
+              "on-secondary-fixed": "#0f2000",
+              "on-secondary-fixed-variant": "#2c5000",
+              "tertiary": "#471a00",
+              "tertiary-container": "#692b00",
+              "tertiary-fixed": "#ffdbca",
+              "tertiary-fixed-dim": "#ffb690",
               "on-tertiary": "#ffffff",
-              "on-secondary-fixed-variant": "#00504a",
-              "tertiary-container": "#a96400",
-              "secondary-fixed": "#79f7ea",
+              "on-tertiary-container": "#ff8842",
+              "on-tertiary-fixed": "#341100",
+              "on-tertiary-fixed-variant": "#783200",
               "error": "#ba1a1a",
-              "surface-container-lowest": "#ffffff",
-              "surface-container-high": "#e6e8ea",
-              "inverse-surface": "#2d3133",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
               "on-error-container": "#93000a",
-              "surface-tint": "#0061a5",
-              "on-primary-container": "#fdfcff",
-              "inverse-primary": "#9fcaff",
-              "tertiary-fixed": "#ffdcbd",
-              "outline": "#717782"
+              "surface": "#f6fbf3",
+              "surface-bright": "#f6fbf3",
+              "surface-dim": "#d6dbd4",
+              "surface-variant": "#dfe4dc",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f0f5ed",
+              "surface-container": "#eaefe7",
+              "surface-container-high": "#e5eae2",
+              "surface-container-highest": "#dfe4dc",
+              "surface-tint": "#3e6752",
+              "background": "#f6fbf3",
+              "on-background": "#181d18",
+              "on-surface": "#181d18",
+              "on-surface-variant": "#414943",
+              "inverse-surface": "#2c322d",
+              "inverse-on-surface": "#edf2ea",
+              "outline": "#717973",
+              "outline-variant": "#c1c8c1"
             },
             fontFamily: {
               "headline": ["Plus Jakarta Sans"],
@@ -80,12 +80,10 @@
         -webkit-backdrop-filter: blur(12px);
       }
       .primary-gradient {
-        background: linear-gradient(135deg, #2178c3 0%, #006a63 100%);
+        background-color: #1c4532;
       }
       .text-gradient {
-        background: linear-gradient(135deg, #2178c3 0%, #006a63 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #022e1d;
       }
     </style>
 </head>
@@ -93,12 +91,12 @@
 <!-- Top Navigation Bar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl shadow-[0_40px_60px_rgba(25,28,30,0.04)]">
 <div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
-<div class="text-2xl font-bold bg-gradient-to-r from-[#2178c3] to-[#006a63] bg-clip-text text-transparent font-headline tracking-tight">Trayko</div>
+<div class="text-2xl font-bold text-primary font-headline tracking-tight">Trayko</div>
 <div class="hidden md:flex gap-8 items-center">
 <a class="text-primary border-b-2 border-primary pb-1 font-bold" href="#">Conductores</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Rutas</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Ayuda</a>
-<button class="primary-gradient text-on-primary px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all scale-95 active:scale-90">Registrarse</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all scale-95 active:scale-90">Registrarse</button>
 </div>
 <div class="md:hidden">
 <span class="material-symbols-outlined text-on-surface" data-icon="menu">menu</span>
@@ -154,7 +152,7 @@
 </select>
 </div>
 </div>
-<button class="w-full primary-gradient text-on-primary py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all shadow-lg mt-4" type="submit">
+<button class="w-full bg-secondary-fixed text-on-secondary-container py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all shadow-lg mt-4" type="submit">
                             Empezar a compartir
                         </button>
 <p class="text-xs text-center text-on-surface-variant mt-4">Trayko es una plataforma de carpooling para compartir gastos de viaje entre particulares.</p>
@@ -168,7 +166,7 @@
 <div class="max-w-7xl mx-auto px-8">
 <div class="text-center mb-20">
 <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tight mb-4">¿Por qué compartir en Trayko?</h2>
-<div class="h-1.5 w-24 primary-gradient mx-auto rounded-full"></div>
+<div class="h-1.5 w-24 bg-secondary-container mx-auto rounded-full"></div>
 </div>
 <div class="grid md:grid-cols-3 gap-8">
 <!-- Card 1 -->
@@ -208,8 +206,8 @@
 </div>
 <div class="absolute -bottom-8 -right-8 glass-card p-6 rounded-lg shadow-xl hidden md:block">
 <div class="flex items-center gap-4">
-<div class="primary-gradient w-12 h-12 rounded-full flex items-center justify-center">
-<span class="material-symbols-outlined text-on-primary" data-icon="check_circle">check_circle</span>
+<div class="bg-primary-container w-12 h-12 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="check_circle">check_circle</span>
 </div>
 <div>
 <p class="text-sm font-bold">Viaje Colaborativo</p>
@@ -269,12 +267,12 @@
 <section class="py-24 text-center">
 <div class="max-w-7xl mx-auto px-8">
 <div class="bg-surface-container-high rounded-xl p-12 md:p-20 relative overflow-hidden group">
-<div class="absolute inset-0 primary-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
 <h2 class="text-4xl md:text-6xl font-bold font-headline tracking-tighter mb-8">¿Listo para compartir tu ruta?</h2>
 <p class="text-xl text-on-surface-variant max-w-2xl mx-auto mb-12">
                     Únete a miles de personas que ya están transformando la forma de viajar en Chile a través de la economía colaborativa.
                 </p>
-<button class="primary-gradient text-on-primary px-12 py-5 rounded-full font-bold text-xl shadow-xl hover:scale-105 active:scale-95 transition-all">
+<button class="bg-secondary-fixed text-on-secondary-container px-12 py-5 rounded-full font-bold text-xl shadow-xl hover:scale-105 active:scale-95 transition-all">
                     Publicar mi viaje
                 </button>
 </div>
