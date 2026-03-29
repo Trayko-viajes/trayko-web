@@ -1,0 +1,309 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .wrap { padding: 1rem 0; font-family: var(--font-sans); }
+  .section { margin-bottom: 2rem; }
+  .section-title { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .color-row { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .color-block { flex: 1; min-width: 120px; border-radius: 12px; overflow: hidden; border: 0.5px solid var(--color-border-tertiary); }
+  .color-swatch { height: 80px; display: flex; align-items: flex-start; padding: 10px; }
+  .color-swatch .tier { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 7px; border-radius: 4px; }
+  .color-info { padding: 10px 12px; background: var(--color-background-primary); }
+  .color-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
+  .color-hex { font-size: 11px; color: var(--color-text-secondary); font-family: var(--font-mono); margin-bottom: 6px; }
+  .color-uses span { display: inline-block; background: var(--color-background-secondary); border-radius: 4px; padding: 2px 6px; margin: 2px 2px 0 0; font-size: 10px; color: var(--color-text-secondary); }
+
+  .app-mock { border-radius: 16px; overflow: hidden; margin-bottom: 1.5rem; }
+  .mock-hero { padding: 1.5rem; }
+  .mock-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+  .mock-logo { font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+  .mock-greeting { font-size: 13px; margin-bottom: 2px; }
+  .mock-greeting strong { font-size: 18px; font-weight: 700; display: block; margin-bottom: 1rem; }
+  .mock-field { border-radius: 10px; padding: 11px 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; font-size: 13px; }
+  .mock-cta { border-radius: 100px; padding: 13px; text-align: center; font-size: 14px; font-weight: 700; margin-top: 12px; letter-spacing: 0.02em; }
+  .mock-bottom { padding: 1rem 1.5rem; display: flex; gap: 8px; flex-wrap: wrap; }
+  .mini-card { flex: 1; border-radius: 10px; padding: 10px 12px; }
+  .mini-card .label { font-size: 10px; font-weight: 500; margin-bottom: 3px; opacity: 0.7; }
+  .mini-card .val { font-size: 15px; font-weight: 700; }
+
+  .combo-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .combo { border-radius: 10px; overflow: hidden; flex: 1; min-width: 130px; border: 0.5px solid var(--color-border-tertiary); }
+  .combo-preview { height: 52px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; }
+  .combo-label { padding: 8px 10px; background: var(--color-background-primary); font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; }
+
+  .rule-list { display: flex; flex-direction: column; gap: 8px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 10px; }
+  .rule-num { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .rule-text { font-size: 13px; color: var(--color-text-primary); line-height: 1.5; }
+  .rule-text span { color: var(--color-text-secondary); font-size: 12px; display: block; margin-top: 2px; }
+
+  .vs-row { display: flex; gap: 10px; margin-bottom: 1.5rem; }
+  .vs-col { flex: 1; border-radius: 10px; overflow: hidden; border: 0.5px solid var(--color-border-tertiary); }
+  .vs-header { padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .vs-body { padding: 10px 12px; background: var(--color-background-primary); font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+</style>
+
+<div class="wrap">
+
+  <!-- VS LEMON -->
+  <div class="section">
+    <div class="section-title">Diferenciación vs Lemon</div>
+    <div class="vs-row">
+      <div class="vs-col">
+        <div class="vs-header" style="background:#5C3A00; color:#E8A020;">LEMON</div>
+        <div class="vs-body">Verde primario · Ámbar quemado oscuro · Sensación crypto, fintech, fría</div>
+      </div>
+      <div class="vs-col">
+        <div class="vs-header" style="background:#E8530A; color:#fff;">TRAYKO</div>
+        <div class="vs-body">Naranja vivo primario · Grafito oscuro · Sensación movimiento, calidez, personas reales</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NIVEL 1 -->
+  <div class="section">
+    <div class="section-title">Nivel 1 — Primario (protagonista)</div>
+    <div class="color-row">
+      <div class="color-block">
+        <div class="color-swatch" style="background:#E8530A;">
+          <span class="tier" style="background:#ffffff22; color:#fff;">Principal</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Naranja Trayko</div>
+          <div class="color-hex">#E8530A</div>
+          <div class="color-uses">
+            <span>Botón primario</span><span>Logo</span><span>CTA principal</span><span>Íconos de acción</span>
+          </div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#C4420A;">
+          <span class="tier" style="background:#ffffff18; color:#fff;">Oscuro</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Naranja Dark</div>
+          <div class="color-hex">#C4420A</div>
+          <div class="color-uses">
+            <span>Hover</span><span>Pressed state</span>
+          </div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#E8530A15; border:0.5px solid #E8530A25;">
+          <span class="tier" style="background:#E8530A20; color:#C4420A;">Tint</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Naranja Tint</div>
+          <div class="color-hex">#E8530A · 10%</div>
+          <div class="color-uses">
+            <span>Fondos de tarjeta</span><span>Tags</span><span>Selected row</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NIVEL 2 -->
+  <div class="section">
+    <div class="section-title">Nivel 2 — Secundario (ancla y confianza)</div>
+    <div class="color-row">
+      <div class="color-block">
+        <div class="color-swatch" style="background:#1C2320;">
+          <span class="tier" style="background:#ffffff15; color:#fff;">Principal</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Grafito Profundo</div>
+          <div class="color-hex">#1C2320</div>
+          <div class="color-uses">
+            <span>Header / Navbar</span><span>Fondo hero</span><span>Texto títulos</span><span>Íconos</span>
+          </div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#2E3C38;">
+          <span class="tier" style="background:#ffffff15; color:#aaa;">Claro</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Grafito Medio</div>
+          <div class="color-hex">#2E3C38</div>
+          <div class="color-uses">
+            <span>Cards oscuras</span><span>Surfaces en dark</span>
+          </div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#1C232015; border:0.5px solid #1C232030;">
+          <span class="tier" style="background:#1C232018; color:#2E3C38;">Tint</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Grafito Tint</div>
+          <div class="color-hex">#1C2320 · 10%</div>
+          <div class="color-uses">
+            <span>Bordes</span><span>Divisores</span><span>Fondos neutros</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NIVEL 3 -->
+  <div class="section">
+    <div class="section-title">Nivel 3 — Éxito / Confirmación</div>
+    <div class="color-row">
+      <div class="color-block">
+        <div class="color-swatch" style="background:#2D6A4F;">
+          <span class="tier" style="background:#ffffff18; color:#fff;">Éxito</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Verde Confirmación</div>
+          <div class="color-hex">#2D6A4F</div>
+          <div class="color-uses">
+            <span>Viaje confirmado</span><span>Pago exitoso</span><span>Conductor verificado</span>
+          </div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#2D6A4F18; border:0.5px solid #2D6A4F35;">
+          <span class="tier" style="background:#2D6A4F20; color:#1a5038;">Tint</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Verde Tint</div>
+          <div class="color-hex">#2D6A4F · 10%</div>
+          <div class="color-uses">
+            <span>Badge confirmado</span><span>Fondo de éxito</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NIVEL 4 NEUTROS -->
+  <div class="section">
+    <div class="section-title">Nivel 4 — Neutros</div>
+    <div class="color-row">
+      <div class="color-block">
+        <div class="color-swatch" style="background:#5A6360;">
+          <span class="tier" style="background:#ffffff18; color:#fff;">Texto 2</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Gris Grafito</div>
+          <div class="color-hex">#5A6360</div>
+          <div class="color-uses"><span>Subtítulos</span><span>Placeholders</span></div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#F6F4F2; border:0.5px solid rgba(0,0,0,0.07);">
+          <span class="tier" style="background:#1C232012; color:#1C2320;">Fondo</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Crema Neutro</div>
+          <div class="color-hex">#F6F4F2</div>
+          <div class="color-uses"><span>Background app</span><span>Pantalla base</span></div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#FFFFFF; border:0.5px solid rgba(0,0,0,0.07);">
+          <span class="tier" style="background:#00000010; color:#444;">Surface</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Blanco</div>
+          <div class="color-hex">#FFFFFF</div>
+          <div class="color-uses"><span>Tarjetas</span><span>Inputs</span><span>Modales</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW APP -->
+  <div class="section">
+    <div class="section-title">Vista previa — pantalla principal</div>
+    <div class="app-mock">
+      <div class="mock-hero" style="background:#1C2320;">
+        <div class="mock-nav">
+          <span class="mock-logo" style="color:#fff;">🧭 <span style="color:#E8530A;">Trayko</span></span>
+          <span style="font-size:11px; background:#E8530A; color:#fff; padding:4px 10px; border-radius:100px; font-weight:600;">Conductores</span>
+        </div>
+        <div class="mock-greeting" style="color:#5A6360;">Hola Luis,</div>
+        <div class="mock-greeting"><strong style="color:#fff; font-size:19px;">¿a dónde vamos hoy?</strong></div>
+        <div class="mock-field" style="background:#2E3C38;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#E8530A;display:inline-block;"></span>
+          <span style="color:#fff;">Barranquilla</span>
+        </div>
+        <div class="mock-field" style="background:#2E3C38;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#5A6360;display:inline-block;"></span>
+          <span style="color:#5A6360;">¿Destino?</span>
+        </div>
+        <div class="mock-cta" style="background:#E8530A; color:#fff;">Buscar viaje</div>
+      </div>
+      <div class="mock-bottom" style="background:#F6F4F2;">
+        <div class="mini-card" style="background:#fff; border:0.5px solid rgba(0,0,0,0.07);">
+          <div class="label" style="color:#5A6360;">Viaje confirmado</div>
+          <div class="val" style="color:#2D6A4F;">✓ Activo</div>
+        </div>
+        <div class="mini-card" style="background:#E8530A15; border:0.5px solid #E8530A30;">
+          <div class="label" style="color:#C4420A;">Últimos asientos</div>
+          <div class="val" style="color:#1C2320;">2 lugares</div>
+        </div>
+        <div class="mini-card" style="background:#fff; border:0.5px solid rgba(0,0,0,0.07);">
+          <div class="label" style="color:#5A6360;">Precio</div>
+          <div class="val" style="color:#1C2320;">$25.000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMBINACIONES -->
+  <div class="section">
+    <div class="section-title">Combinaciones aprobadas</div>
+    <div class="combo-row">
+      <div class="combo">
+        <div class="combo-preview" style="background:#E8530A; color:#fff;">Buscar viaje</div>
+        <div class="combo-label">Blanco sobre Naranja — CTA principal</div>
+      </div>
+      <div class="combo">
+        <div class="combo-preview" style="background:#1C2320; color:#E8530A;">Trayko</div>
+        <div class="combo-label">Naranja sobre Grafito — logo y nav</div>
+      </div>
+      <div class="combo">
+        <div class="combo-preview" style="background:#2D6A4F; color:#fff;">✓ Confirmado</div>
+        <div class="combo-label">Blanco sobre Verde — estados de éxito</div>
+      </div>
+      <div class="combo">
+        <div class="combo-preview" style="background:#F6F4F2; color:#1C2320; font-size:12px;">B/quilla → Ctagena</div>
+        <div class="combo-label">Grafito sobre Crema — contenido general</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGLAS -->
+  <div class="section">
+    <div class="section-title">Reglas de uso</div>
+    <div class="rule-list">
+      <div class="rule-item">
+        <div class="rule-num" style="background:#E8530A18; color:#E8530A;">1</div>
+        <div class="rule-text">Naranja solo sobre grafito oscuro o blanco
+          <span>Nunca sobre crema ni sobre verde — el contraste se rompe y se pierde legibilidad.</span>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num" style="background:#1C232015; color:#1C2320;">2</div>
+        <div class="rule-text">El grafito ancla, el naranja activa
+          <span>Fondos y estructura siempre en grafito o crema. El naranja aparece solo en elementos interactivos.</span>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num" style="background:#2D6A4F18; color:#2D6A4F;">3</div>
+        <div class="rule-text">El verde es exclusivo para estados de éxito
+          <span>No usarlo como color decorativo. Solo cuando algo se confirmó, se pagó o está activo.</span>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num" style="background:#E8530A18; color:#E8530A;">4</div>
+        <div class="rule-text">Un solo botón naranja por pantalla
+          <span>Si hay dos acciones, la secundaria va en outline grafito. El naranja no puede competir consigo mismo.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

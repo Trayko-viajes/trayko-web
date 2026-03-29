@@ -3,18 +3,18 @@ import macOsIconUrl from "../assets/icons8-mac-os.svg?url";
 import googlePlayIconUrl from "../assets/icons8-google-play.svg?url";
 ---
 
-<section class="py-24 px-6">
-    <div class="max-w-7xl mx-auto bg-primary rounded-[3rem] overflow-hidden relative">
+<section class="py-14 sm:py-20 md:py-24 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto bg-secondary rounded-2xl sm:rounded-[2.5rem] md:rounded-[3rem] overflow-hidden relative">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
         </div>
-        <div class="relative z-10 p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12">
-            <div class="text-white md:max-w-lg">
-                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-tight">Tu próximo viaje compartido está en tu bolsillo</h2>
-                <p class="text-inverse-primary text-lg mb-10 font-medium">Descarga Trayko y encuentra compañeros de viaje en segundos. Publica tu ruta, coordina con pasajeros y ahorra en cada trayecto.</p>
-                <div class="flex flex-wrap gap-4">
-                    <a class="bg-black text-white px-6 py-3 rounded-xl flex items-center gap-3 hover:scale-105 transition-transform" href="#">
+        <div class="relative z-10 p-6 sm:p-10 md:p-20 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+            <div class="text-white md:max-w-lg w-full text-center md:text-left">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 sm:mb-6 leading-tight">Tu próximo viaje compartido está en tu bolsillo</h2>
+                <p class="text-inverse-primary text-base sm:text-lg mb-8 sm:mb-10 font-medium">Descarga Trayko y encuentra compañeros de viaje en segundos. Publica tu ruta, coordina con pasajeros y ahorra en cada trayecto.</p>
+                <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center md:justify-start">
+                    <a class="bg-white text-secondary px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-3 hover:scale-105 transition-transform w-full sm:w-auto" href="#">
                         <img
                             src={macOsIconUrl}
                             alt=""
@@ -27,7 +27,7 @@ import googlePlayIconUrl from "../assets/icons8-google-play.svg?url";
                             <p class="text-lg font-bold leading-none">App Store</p>
                         </div>
                     </a>
-                    <a class="bg-black text-white px-6 py-3 rounded-xl flex items-center gap-3 hover:scale-105 transition-transform" href="#">
+                    <a class="bg-white text-secondary px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-3 hover:scale-105 transition-transform w-full sm:w-auto" href="#">
                         <img
                             src={googlePlayIconUrl}
                             alt=""

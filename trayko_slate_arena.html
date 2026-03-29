@@ -1,0 +1,317 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .wrap { padding: 1rem 0; font-family: var(--font-sans); }
+  .section { margin-bottom: 2rem; }
+  .section-title { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+
+  .concept-box { border-radius: 12px; padding: 14px 16px; margin-bottom: 1.5rem; border-left: 3px solid #3D5A80; background: var(--color-background-primary); border-top: 0.5px solid var(--color-border-tertiary); border-right: 0.5px solid var(--color-border-tertiary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .concept-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 5px; }
+  .concept-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+
+  .scale-row { display: flex; gap: 4px; margin-bottom: 8px; }
+  .scale-swatch { flex: 1; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 6px 3px; }
+  .s-hex { font-size: 8px; font-weight: 600; }
+  .s-label { font-size: 8px; opacity: 0.55; }
+
+  .color-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .color-block { flex: 1; min-width: 110px; border-radius: 12px; overflow: hidden; border: 0.5px solid var(--color-border-tertiary); }
+  .color-swatch { height: 76px; display: flex; align-items: flex-start; padding: 10px; }
+  .tier { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 7px; border-radius: 4px; }
+  .color-info { padding: 10px 12px; background: var(--color-background-primary); }
+  .color-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
+  .color-hex { font-size: 11px; color: var(--color-text-secondary); font-family: var(--font-mono); margin-bottom: 6px; }
+  .color-uses span { display: inline-block; background: var(--color-background-secondary); border-radius: 4px; padding: 2px 6px; margin: 2px 2px 0 0; font-size: 10px; color: var(--color-text-secondary); }
+
+  .phone { border-radius: 24px; overflow: hidden; border: 0.5px solid rgba(0,0,0,0.1); max-width: 260px; margin: 0 auto; box-shadow: 0 0 0 1px rgba(0,0,0,0.04); }
+  .ph-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 10px; background: #fff; }
+  .ph-icon-btn { width: 34px; height: 34px; border-radius: 50%; background: #F5F6F8; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 0.5px solid #EAECF0; }
+  .ph-logo { font-size: 15px; font-weight: 700; color: #1E2D40; display: flex; align-items: center; gap: 5px; }
+  .ph-body { padding: 16px; background: #fff; }
+  .ph-greeting { font-size: 22px; font-weight: 700; color: #1E2D40; line-height: 1.2; margin-bottom: 18px; }
+  .ph-card { border-radius: 14px; padding: 14px; margin-bottom: 12px; background: #F5F6F8; border: 0.5px solid #EAECF0; }
+  .ph-field { border-radius: 9px; padding: 10px 12px; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; font-size: 13px; background: #fff; border: 0.5px solid #EAECF0; }
+  .ph-label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 6px; color: #8A95A3; }
+  .ph-dates { display: flex; gap: 6px; margin-top: 10px; }
+  .ph-date { flex: 1; border-radius: 9px; padding: 8px 6px; text-align: center; font-size: 11px; background: #fff; border: 0.5px solid #EAECF0; color: #1E2D40; }
+  .ph-cta { border-radius: 100px; padding: 14px; text-align: center; font-size: 14px; font-weight: 600; margin-top: 12px; background: #3D5A80; color: #fff; letter-spacing: 0.01em; }
+  .ph-tabs { display: flex; border-top: 0.5px solid #EAECF0; background: #fff; }
+  .ph-tab { flex: 1; padding: 11px 4px; text-align: center; font-size: 10px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+
+  .combo-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .combo { border-radius: 10px; overflow: hidden; flex: 1; min-width: 120px; border: 0.5px solid var(--color-border-tertiary); }
+  .combo-preview { height: 52px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; }
+  .combo-label { padding: 8px 10px; background: var(--color-background-primary); font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; }
+
+  .rule-list { display: flex; flex-direction: column; gap: 8px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 10px; }
+  .rule-num { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .rule-text { font-size: 13px; color: var(--color-text-primary); line-height: 1.5; }
+  .rule-text span { color: var(--color-text-secondary); font-size: 12px; display: block; margin-top: 2px; }
+</style>
+
+<div class="wrap">
+
+  <div class="section">
+    <div class="concept-box">
+      <div class="concept-title">Slate Azul + Arena — moderno sin alardear</div>
+      <div class="concept-desc">Un azul desaturado, casi gris — ni eléctrico ni navy. El azul de las nubes a las 6am, no el de una aerolínea. La arena lo calienta justo lo necesario. El resultado: limpio, fresco, con personalidad silenciosa.</div>
+    </div>
+  </div>
+
+  <!-- ESCALA -->
+  <div class="section">
+    <div class="section-title">Escala Slate Azul</div>
+    <div class="scale-row">
+      <div class="scale-swatch" style="background:#EEF1F6; height:48px; border:0.5px solid rgba(0,0,0,0.06);">
+        <span class="s-hex" style="color:#3D5A80">#EEF1F6</span>
+        <span class="s-label" style="color:#3D5A80">50</span>
+      </div>
+      <div class="scale-swatch" style="background:#C8D4E5; height:48px;">
+        <span class="s-hex" style="color:#3D5A80">#C8D4E5</span>
+        <span class="s-label" style="color:#3D5A80">100</span>
+      </div>
+      <div class="scale-swatch" style="background:#8FAAC8; height:48px;">
+        <span class="s-hex" style="color:#fff">#8FAAC8</span>
+        <span class="s-label" style="color:#fff">200</span>
+      </div>
+      <div class="scale-swatch" style="background:#3D5A80; height:48px;">
+        <span class="s-hex" style="color:#fff">#3D5A80</span>
+        <span class="s-label" style="color:#fff">500 ★</span>
+      </div>
+      <div class="scale-swatch" style="background:#2C4260; height:48px;">
+        <span class="s-hex" style="color:#fff">#2C4260</span>
+        <span class="s-label" style="color:#fff">700</span>
+      </div>
+      <div class="scale-swatch" style="background:#1E2D40; height:48px;">
+        <span class="s-hex" style="color:#8FAAC8">#1E2D40</span>
+        <span class="s-label" style="color:#8FAAC8">900</span>
+      </div>
+    </div>
+    <div style="font-size:11px; color:var(--color-text-secondary); margin-top:4px;">★ Primario — <span style="font-family:var(--font-mono);">#3D5A80</span> · No es navy, no es eléctrico. Está en el medio exacto.</div>
+  </div>
+
+  <!-- NIVEL 1 -->
+  <div class="section">
+    <div class="section-title">Nivel 1 — Primario</div>
+    <div class="color-row">
+      <div class="color-block">
+        <div class="color-swatch" style="background:#3D5A80;">
+          <span class="tier" style="background:#ffffff20; color:#fff;">Principal</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Slate Trayko</div>
+          <div class="color-hex">#3D5A80</div>
+          <div class="color-uses">
+            <span>Botón primario</span><span>Logo</span><span>Links</span><span>Íconos activos</span>
+          </div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#2C4260;">
+          <span class="tier" style="background:#ffffff18; color:#C8D4E5;">Oscuro</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Slate Dark</div>
+          <div class="color-hex">#2C4260</div>
+          <div class="color-uses">
+            <span>Hover</span><span>Pressed</span><span>Navbar activo</span>
+          </div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#EEF1F6; border:0.5px solid #C8D4E5;">
+          <span class="tier" style="background:#3D5A8015; color:#2C4260;">Tint</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Slate Tint</div>
+          <div class="color-hex">#EEF1F6</div>
+          <div class="color-uses">
+            <span>Fondos de card</span><span>Tags</span><span>Selected</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NIVEL 2 ARENA -->
+  <div class="section">
+    <div class="section-title">Nivel 2 — Arena (el calor que equilibra)</div>
+    <div class="color-row">
+      <div class="color-block">
+        <div class="color-swatch" style="background:#C4956A;">
+          <span class="tier" style="background:#ffffff22; color:#fff;">Acento</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Arena Cálida</div>
+          <div class="color-hex">#C4956A</div>
+          <div class="color-uses">
+            <span>Precio</span><span>Rating ★</span><span>Fecha activa</span><span>Énfasis suave</span>
+          </div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#F8F2EA; border:0.5px solid #EDE3D5;">
+          <span class="tier" style="background:#C4956A18; color:#8A6A45;">Tint</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Arena Tint</div>
+          <div class="color-hex">#F8F2EA</div>
+          <div class="color-uses">
+            <span>Fondos cálidos</span><span>Tags de precio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NIVEL 3 -->
+  <div class="section">
+    <div class="section-title">Nivel 3 — Superficies y estados</div>
+    <div class="color-row">
+      <div class="color-block">
+        <div class="color-swatch" style="background:#1E2D40;">
+          <span class="tier" style="background:#ffffff15; color:#8FAAC8;">Texto</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Slate Oscuro</div>
+          <div class="color-hex">#1E2D40</div>
+          <div class="color-uses"><span>Títulos</span><span>Texto principal</span></div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#8A95A3;">
+          <span class="tier" style="background:#ffffff18; color:#fff;">Muted</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Gris Slate</div>
+          <div class="color-hex">#8A95A3</div>
+          <div class="color-uses"><span>Subtítulos</span><span>Labels</span><span>Placeholders</span></div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#F5F6F8; border:0.5px solid #EAECF0;">
+          <span class="tier" style="background:#3D5A8012; color:#3D5A80;">Surface</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Gris Frío</div>
+          <div class="color-hex">#F5F6F8</div>
+          <div class="color-uses"><span>Fondos de input</span><span>Cards secundarias</span></div>
+        </div>
+      </div>
+      <div class="color-block">
+        <div class="color-swatch" style="background:#2D8653;">
+          <span class="tier" style="background:#ffffff20; color:#fff;">Éxito</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Verde Confirmación</div>
+          <div class="color-hex">#2D8653</div>
+          <div class="color-uses"><span>Confirmado</span><span>Online</span><span>Pago OK</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW APP -->
+  <div class="section">
+    <div class="section-title">Tu pantalla con esta paleta</div>
+    <div class="phone">
+      <div class="ph-nav">
+        <div class="ph-icon-btn">👤</div>
+        <div class="ph-logo">🧭 <span style="color:#3D5A80;">Trayko</span></div>
+        <div class="ph-icon-btn">🔔</div>
+      </div>
+      <div class="ph-body">
+        <div class="ph-greeting">
+          Hola <span style="color:#3D5A80;">Luis,</span><br>
+          <span style="font-weight:400; font-size:18px; color:#1E2D40;">¿a dónde vamos hoy?</span>
+        </div>
+        <div class="ph-card">
+          <div class="ph-label">ORIGEN</div>
+          <div class="ph-field">
+            <span class="dot" style="background:#3D5A80;"></span>
+            <span style="color:#1E2D40;">Barranquilla</span>
+          </div>
+          <div class="ph-label" style="margin-top:8px;">DESTINO</div>
+          <div class="ph-field">
+            <span class="dot" style="background:#8A95A3;"></span>
+            <span style="color:#8A95A3;">Candelaria</span>
+          </div>
+          <div class="ph-label" style="margin-top:8px;">FECHA DE VIAJE</div>
+          <div class="ph-dates">
+            <div class="ph-date" style="background:#3D5A80; color:#fff; border-color:#3D5A80;">
+              <div style="font-size:9px; font-weight:400; opacity:0.8;">Hoy</div>
+              <div style="font-weight:600;">22 de mar</div>
+            </div>
+            <div class="ph-date">
+              <div style="font-size:9px; color:#8A95A3;">Mañana</div>
+              <div>23 de mar</div>
+            </div>
+            <div class="ph-date" style="font-size:15px; color:#8A95A3;">📅</div>
+          </div>
+        </div>
+        <div class="ph-cta">Buscar Viaje</div>
+      </div>
+      <div class="ph-tabs">
+        <div class="ph-tab" style="color:#3D5A80; font-weight:600; border-top:2px solid #3D5A80;">🚗 Viajes</div>
+        <div class="ph-tab" style="color:#8A95A3;">📦 Envíos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMBOS -->
+  <div class="section">
+    <div class="section-title">Combinaciones aprobadas</div>
+    <div class="combo-row">
+      <div class="combo">
+        <div class="combo-preview" style="background:#3D5A80; color:#fff;">Buscar viaje</div>
+        <div class="combo-label">Blanco sobre Slate — CTA principal</div>
+      </div>
+      <div class="combo">
+        <div class="combo-preview" style="background:#F5F6F8; color:#3D5A80;">Conductores</div>
+        <div class="combo-label">Slate sobre gris — secundario</div>
+      </div>
+      <div class="combo">
+        <div class="combo-preview" style="background:#F8F2EA; color:#8A6A45; font-size:12px;">$25.000 ★ 4.9</div>
+        <div class="combo-label">Arena sobre tint — precio y rating</div>
+      </div>
+      <div class="combo">
+        <div class="combo-preview" style="background:#2D8653; color:#fff;">✓ Listo</div>
+        <div class="combo-label">Verde sobre blanco — confirmación</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGLAS -->
+  <div class="section">
+    <div class="section-title">Reglas de uso</div>
+    <div class="rule-list">
+      <div class="rule-item">
+        <div class="rule-num" style="background:#EEF1F6; color:#3D5A80;">1</div>
+        <div class="rule-text">El slate nunca compite con el contenido
+          <span>Su trabajo es guiar, no llamar atención. Botón, logo, tab activo — nada más.</span>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num" style="background:#F8F2EA; color:#8A6A45;">2</div>
+        <div class="rule-text">La arena aparece solo en números y valoraciones
+          <span>Precio, rating, fecha especial. Es el toque cálido que humaniza — úsalo con precisión.</span>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num" style="background:#EEF1F6; color:#3D5A80;">3</div>
+        <div class="rule-text">Fondo siempre blanco puro — las cards en #F5F6F8
+          <span>Un nivel de profundidad es suficiente. Más capas rompen la limpieza.</span>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num" style="background:#EEF1F6; color:#2D8653;">4</div>
+        <div class="rule-text">El verde solo para estados de éxito
+          <span>Confirmación de viaje, pago procesado, conductor en línea. Nunca decorativo.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

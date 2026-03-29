@@ -8,7 +8,7 @@ import Footer from '../components/Footer.astro';
   <Navbar />
 
   <!-- Hero Conductores -->
-  <section id="hero-conductores" class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+  <section id="hero-conductores" class="relative pt-[calc(7.5rem+env(safe-area-inset-top,0px))] pb-14 sm:pb-20 md:pt-40 md:pb-32 overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img
         alt="Trayko Background"
@@ -18,16 +18,16 @@ import Footer from '../components/Footer.astro';
       />
       <div class="absolute inset-0 bg-gradient-to-b from-surface/50 via-surface to-surface"></div>
     </div>
-    <div class="max-w-7xl mx-auto px-8 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="space-y-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div class="space-y-6 sm:space-y-8">
           <h1
-            class="text-5xl md:text-7xl font-bold font-headline tracking-tighter text-on-surface leading-[1.1]"
+            class="text-4xl sm:text-5xl md:text-7xl font-bold font-headline tracking-tighter text-on-surface leading-[1.1]"
           >
             Comparte tu viaje con
             <span class="text-gradient">Trayko</span>.
           </h1>
-          <p class="text-xl md:text-2xl text-on-surface-variant max-w-xl leading-relaxed">
+          <p class="text-lg sm:text-xl md:text-2xl text-on-surface-variant max-w-xl leading-relaxed">
             Conectamos a conductores particulares con personas que van a tu mismo destino. Recupera tus
             costos de combustible de forma colaborativa.
           </p>
@@ -38,7 +38,7 @@ import Footer from '../components/Footer.astro';
         </div>
 
         <!-- Registration Form Card -->
-        <div class="glass-card p-8 md:p-10 rounded-xl shadow-2xl border border-white/20">
+        <div class="glass-card p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl border border-white/20">
           <h3 class="text-2xl font-bold mb-6 font-headline">Publica tu próximo viaje</h3>
           <form class="space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -81,7 +81,8 @@ import Footer from '../components/Footer.astro';
               </div>
             </div>
             <button
-              class="w-full bg-secondary-fixed text-on-secondary-container py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all shadow-lg mt-4"
+              class="w-full text-on-secondary-container py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all shadow-lg mt-4"
+              style="background: linear-gradient(180deg, #2e2e2e 0%, #222222 60%, #2a2a2a 100%);"
               type="submit"
             >
               Empezar a compartir
@@ -96,18 +97,18 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- Beneficios para conductores -->
-  <section id="beneficios" class="py-24 bg-surface-container-low">
-    <div class="max-w-7xl mx-auto px-8">
-      <div class="text-center mb-20">
-        <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tight mb-4">
+  <section id="beneficios" class="py-14 sm:py-20 md:py-24 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-20">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline tracking-tight mb-4">
           ¿Por qué compartir en Trayko?
         </h2>
         <div class="h-1.5 w-24 bg-secondary-container mx-auto rounded-full"></div>
       </div>
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
         <!-- Card 1 -->
         <div
-          class="bg-surface-container-lowest p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group"
+          class="bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group"
         >
           <div
             class="w-16 h-16 rounded-2xl secondary-container flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"
@@ -127,7 +128,7 @@ import Footer from '../components/Footer.astro';
         </div>
         <!-- Card 2 -->
         <div
-          class="bg-surface-container-lowest p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group translate-y-4"
+          class="bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group translate-y-4"
         >
           <div
             class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"
@@ -142,7 +143,7 @@ import Footer from '../components/Footer.astro';
         </div>
         <!-- Card 3 -->
         <div
-          class="bg-surface-container-lowest p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group"
+          class="bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group"
         >
           <div
             class="w-16 h-16 rounded-2xl bg-tertiary-fixed flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"
@@ -159,9 +160,9 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- Cómo funciona -->
-  <section id="como-funciona" class="py-24">
-    <div class="max-w-7xl mx-auto px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
+  <section id="como-funciona" class="py-14 sm:py-20 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div class="order-2 lg:order-1 relative">
           <div class="rounded-xl overflow-hidden aspect-video shadow-2xl">
             <img
@@ -186,7 +187,7 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
         <div class="order-1 lg:order-2 space-y-8">
-          <h2 class="text-4xl font-bold font-headline tracking-tight">¿Cómo funciona?</h2>
+          <h2 class="text-3xl sm:text-4xl font-bold font-headline tracking-tight">¿Cómo funciona?</h2>
           <p class="text-lg text-on-surface-variant">
             Trayko no es un servicio de transporte profesional. Somos una comunidad que conecta a particulares
             para optimizar sus traslados.
@@ -233,49 +234,50 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- Testimonios -->
-  <section id="testimonios" class="py-24 bg-primary-container text-on-primary-container overflow-hidden relative">
-    <div class="absolute top-0 right-0 w-96 h-96 bg-secondary opacity-20 blur-[100px] -mr-48 -mt-48"></div>
-    <div class="max-w-4xl mx-auto px-8 text-center relative z-10">
-      <span class="material-symbols-outlined text-6xl mb-8 opacity-50" data-icon="format_quote">
+  <section id="testimonios" class="py-14 sm:py-20 md:py-24 bg-secondary text-white overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary-container opacity-10 blur-[100px] -mr-48 -mt-48"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-8 text-center relative z-10">
+      <span class="material-symbols-outlined text-6xl mb-8 text-primary-container opacity-50" data-icon="format_quote">
         format_quote
       </span>
-      <p class="text-3xl md:text-4xl font-bold font-headline italic leading-snug mb-10">
+      <p class="text-2xl sm:text-3xl md:text-4xl font-bold font-headline italic leading-snug mb-10">
         "Ahora viajar entre ciudades es mucho más económico. Compartiendo mi viaje, recupero mis costos de
         bencina fácilmente."
       </p>
       <div class="flex flex-col items-center gap-4">
         <img
           alt="Carlos R."
-          class="w-20 h-20 rounded-full border-4 border-on-primary-container/20 object-cover"
+          class="w-20 h-20 rounded-full border-4 border-white/20 object-cover"
           data-alt="Portrait of a smiling man in casual clothes"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRRGibA3fJj1lUcfOWSlO0gHpk5xnTkrmrAQNIEcAS4or0b1khAZCnoX7d-6eRR4K8xO9jAOiKsL2mu2RdLua17nMAYgF-mRo_A0sX-G2M3kJDcuUCpO78_gJFsldInOBTAwgZgT4-f012MmjTZAifPDbwjRm8tg6uRADnvk5d9Fl2bb3_KnLuP6Zoq051IkWTjzaNpMKPBvyJSC-9Qetjg3Iwl-Ox_qzvudVrdozeru8rs6zt6wqoW_PbuhyzKhlH_IJ_71rynjw"
         />
         <div>
           <h4 class="font-bold text-xl">Carlos Rodriguez</h4>
-          <p class="text-on-primary-container/70">Usuario de Trayko desde 2022</p>
+          <p class="text-white/60">Usuario de Trayko desde 2022</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Llamado a la acción -->
-  <section id="cta" class="py-24 text-center">
-    <div class="max-w-7xl mx-auto px-8">
+  <section id="cta" class="py-14 sm:py-20 md:py-24 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div
-        class="bg-surface-container-high rounded-xl p-12 md:p-20 relative overflow-hidden group"
+        class="bg-surface-container-high rounded-xl p-8 sm:p-12 md:p-20 relative overflow-hidden group"
       >
         <div
           class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 transition-opacity duration-700"
         ></div>
-        <h2 class="text-4xl md:text-6xl font-bold font-headline tracking-tighter mb-8">
+        <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold font-headline tracking-tighter mb-6 sm:mb-8">
           ¿Listo para compartir tu ruta?
         </h2>
-        <p class="text-xl text-on-surface-variant max-w-2xl mx-auto mb-12">
+        <p class="text-lg sm:text-xl text-on-surface-variant max-w-2xl mx-auto mb-8 sm:mb-12">
           Únete a miles de personas que ya están transformando la forma de viajar en Chile a través de la
           economía colaborativa.
         </p>
         <button
-          class="bg-secondary-fixed text-on-secondary-container px-12 py-5 rounded-full font-bold text-xl shadow-xl hover:scale-105 active:scale-95 transition-all"
+          type="button"
+          class="bg-primary-container text-on-primary px-8 sm:px-12 py-4 sm:py-5 min-h-[48px] rounded-full font-bold text-lg sm:text-xl shadow-xl hover:scale-105 active:scale-95 transition-all w-full max-w-sm sm:w-auto sm:max-w-none mx-auto inline-flex items-center justify-center"
         >
           Publicar mi viaje
         </button>
