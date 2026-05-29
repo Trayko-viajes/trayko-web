@@ -3,54 +3,56 @@ import macOsIconUrl from "../assets/icons8-mac-os.svg?url";
 import googlePlayIconUrl from "../assets/icons8-google-play.svg?url";
 ---
 
-<section class="py-14 sm:py-20 md:py-24 px-4 sm:px-6">
-    <div class="max-w-7xl mx-auto bg-secondary rounded-2xl sm:rounded-[2.5rem] md:rounded-[3rem] overflow-hidden relative">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
-        </div>
-        <div class="relative z-10 p-6 sm:p-10 md:p-20 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-            <div class="text-white md:max-w-lg w-full text-center md:text-left">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 sm:mb-6 leading-tight">Tu próximo viaje compartido está en tu bolsillo</h2>
-                <p class="text-inverse-primary text-base sm:text-lg mb-8 sm:mb-10 font-medium">Descarga Trayko y encuentra compañeros de viaje en segundos. Publica tu ruta, coordina con pasajeros y ahorra en cada trayecto.</p>
-                <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center md:justify-start">
-                    <a class="bg-white text-secondary px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-3 hover:scale-105 transition-transform w-full sm:w-auto" href="#">
-                        <img
-                            src={macOsIconUrl}
-                            alt=""
-                            class="w-8 h-8"
-                            loading="lazy"
-                            decoding="async"
-                        />
-                        <div class="text-left">
-                            <p class="text-[10px] uppercase font-bold leading-none">Descargar en</p>
-                            <p class="text-lg font-bold leading-none">App Store</p>
-                        </div>
-                    </a>
-                    <a class="bg-white text-secondary px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-3 hover:scale-105 transition-transform w-full sm:w-auto" href="#">
-                        <img
-                            src={googlePlayIconUrl}
-                            alt=""
-                            class="w-8 h-8"
-                            loading="lazy"
-                            decoding="async"
-                        />
-                        <div class="text-left">
-                            <p class="text-[10px] uppercase font-bold leading-none">Disponible en</p>
-                            <p class="text-lg font-bold leading-none">Google Play</p>
-                        </div>
-                    </a>
-                </div>
+<section id="descargar-app" class="py-14 sm:py-20 md:py-24 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="bg-primary-container rounded-2xl sm:rounded-[2.5rem] md:rounded-[3rem] overflow-hidden relative">
+            <div class="absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true">
+                <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-fixed rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
             </div>
-            <div class="hidden md:block relative">
-                <div class="relative w-[320px] lg:w-[360px] xl:w-[360px] shrink-0 overflow-visible">
-                    <img
-                        src="/phone.png"
-                        alt="Pantalla de la app Trayko"
-                        class="w-full h-auto drop-shadow-2xl select-none will-change-transform scale-[1.75] lg:scale-[1.95] xl:scale-[2.1] origin-center"
-                        loading="lazy"
-                        decoding="async"
-                    />
+            <div class="relative z-10 p-8 sm:p-12 md:p-16 lg:p-20 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+                <div class="text-on-primary md:max-w-lg w-full text-center md:text-left">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 sm:mb-6 leading-tight">Trayko te acompaña en cada ruta por Colombia</h2>
+                    <p class="text-primary-fixed text-base sm:text-lg mb-8 sm:mb-10 font-medium">Descarga la app para reservar viajes, publicar cupos como conductor y compartir gastos de forma simple y segura.</p>
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center md:justify-start">
+                        <a class="bg-secondary text-on-secondary px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-3 hover:opacity-90 transition-opacity w-full sm:w-auto" href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src={macOsIconUrl}
+                                alt=""
+                                class="w-8 h-8"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                            <div class="text-left">
+                                <p class="text-[10px] uppercase font-bold leading-none">Descargar en</p>
+                                <p class="text-lg font-bold leading-none">App Store</p>
+                            </div>
+                        </a>
+                        <a class="bg-secondary text-on-secondary px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-3 hover:opacity-90 transition-opacity w-full sm:w-auto" href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src={googlePlayIconUrl}
+                                alt=""
+                                class="w-8 h-8"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                            <div class="text-left">
+                                <p class="text-[10px] uppercase font-bold leading-none">Disponible en</p>
+                                <p class="text-lg font-bold leading-none">Google Play</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block relative">
+                    <div class="relative w-[320px] lg:w-[360px] xl:w-[360px] shrink-0 overflow-visible">
+                        <img
+                            src="/phone.png"
+                            alt="Pantalla de la app Trayko"
+                            class="w-full h-auto drop-shadow-2xl select-none will-change-transform scale-[1.75] lg:scale-[1.95] xl:scale-[2.1] origin-center"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
