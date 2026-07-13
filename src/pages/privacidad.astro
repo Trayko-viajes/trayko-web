@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { WhatsappLogo, Envelope } from '@phosphor-icons/react/dist/ssr';
+
+const SECTIONS = [
+    {
+        title: '1. Responsable del tratamiento',
+        body: 'Texto de prueba. Trayko, en calidad de responsable del tratamiento de datos personales, recolecta y trata la información de sus usuarios conforme a la Ley 1581 de 2012 y demás normas colombianas aplicables.',
+    },
+    {
+        title: '2. Datos que recopilamos',
+        body: 'Texto de prueba. Aquí se detallará qué información se recopila: datos de identificación, contacto, ubicación, documentos de verificación, información de pago y datos de uso de la aplicación.',
+    },
+    {
+        title: '3. Finalidad del tratamiento',
+        body: 'Texto de prueba. Los datos se utilizan para prestar el servicio de conexión entre conductores y pasajeros, verificar identidad, procesar pagos, brindar soporte y mejorar la plataforma.',
+    },
+    {
+        title: '4. Con quién compartimos tu información',
+        body: 'Texto de prueba. En esta sección se listarán los terceros con quienes se comparte información (pasarelas de pago, proveedores de verificación de identidad, autoridades cuando la ley lo exija).',
+    },
+    {
+        title: '5. Almacenamiento y seguridad',
+        body: 'Texto de prueba. Trayko implementa medidas técnicas y administrativas razonables para proteger los datos personales frente a accesos no autorizados, pérdida o alteración.',
+    },
+    {
+        title: '6. Derechos del titular',
+        body: 'Texto de prueba. El usuario puede conocer, actualizar, rectificar y solicitar la supresión de sus datos personales, así como revocar la autorización otorgada, conforme a la ley colombiana.',
+    },
+    {
+        title: '7. Cómo ejercer tus derechos',
+        body: 'Texto de prueba. Aquí se describirá el canal y procedimiento para que el usuario presente solicitudes relacionadas con sus datos personales (correo, formulario o línea de contacto).',
+    },
+    {
+        title: '8. Uso de cookies y tecnologías similares',
+        body: 'Texto de prueba. Esta sección explicará el uso de cookies u otras tecnologías de rastreo en el sitio web y la aplicación móvil de Trayko.',
+    },
+    {
+        title: '9. Transferencia internacional de datos',
+        body: 'Texto de prueba. Si aplica, aquí se detallará si los datos se almacenan o procesan fuera de Colombia y bajo qué garantías.',
+    },
+    {
+        title: '10. Cambios a esta política',
+        body: 'Texto de prueba. Trayko podrá actualizar esta política de tratamiento de datos periódicamente. Los cambios relevantes se comunicarán a los usuarios registrados.',
+    },
+];
+---
+
+<Layout>
+    <Navbar />
+
+    <section class="pt-[calc(7.5rem+env(safe-area-inset-top,0px))] pb-14 sm:pb-20 md:pt-40 md:pb-24 px-4 sm:px-6 bg-background">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10 sm:mb-16">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Política de privacidad</h1>
+                <p class="text-on-surface-variant text-base sm:text-lg font-medium">
+                    Texto de prueba — este contenido es provisional y será reemplazado próximamente.
+                </p>
+                <p class="text-outline text-xs font-semibold uppercase tracking-wide mt-4">Última actualización: texto de prueba</p>
+            </div>
+
+            <div class="space-y-8 sm:space-y-10">
+                {SECTIONS.map((section) => (
+                    <div class="bg-surface-container-lowest rounded-2xl border border-surface-container-low p-6 sm:p-8">
+                        <h2 class="text-lg sm:text-xl font-bold mb-3">{section.title}</h2>
+                        <p class="text-on-surface-variant leading-relaxed">{section.body}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 sm:p-8 mt-10 sm:mt-14 text-center">
+                <h3 class="font-bold text-lg mb-1.5">¿Tienes preguntas sobre tus datos?</h3>
+                <p class="text-on-surface-variant text-sm mb-5">Escríbenos y te ayudamos directamente.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                        href="https://wa.me/573017727930"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-container text-on-primary font-bold text-sm px-6 min-h-[44px] hover:bg-primary transition-all w-full sm:w-auto"
+                    >
+                        <WhatsappLogo size={18} weight="fill" />
+                        Escribir por WhatsApp
+                    </a>
+                    <a
+                        href="mailto:soporte@trayko.co"
+                        class="inline-flex items-center justify-center gap-2 rounded-full border px-6 min-h-[44px] font-bold text-sm hover:bg-surface-container-low transition-all w-full sm:w-auto"
+                    >
+                        <Envelope size={18} />
+                        Enviar correo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

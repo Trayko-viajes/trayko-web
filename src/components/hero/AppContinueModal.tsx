@@ -40,7 +40,7 @@ export function AppContinueModal({ trip, onClose }: Props) {
             role="dialog"
             aria-modal="true"
             aria-labelledby="app-modal-title"
-            className="fixed z-[101] left-1/2 top-1/2 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 bg-white rounded-3xl shadow-2xl border border-outline-variant/20 overflow-hidden"
+            className="fixed z-[101] left-1/2 top-1/2 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 bg-white rounded-3xl shadow-trayko-xl border border-outline-variant/20 overflow-hidden"
             initial={{ opacity: 0, scale: 0.94, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 8 }}

@@ -4,7 +4,7 @@ Guía de referencia para aplicar la identidad visual de Trayko de forma consiste
 
 Basado en la arquitectura de tokens **Material Design 3**.
 
-> **Versión 5.1** — Paleta actualizada a Naranja Trayko + Grafito Neutro (#222222). Identidad cálida, humana y dinámica. Transmite movimiento, cercanía y personas reales.
+> **Versión 5.2** — Superficies migradas de crema (#F6F4F2) a gris neutro (#FAFAFA) + blanco puro en tarjetas, alineado con `Trayko/lib/colors.ts` (fuente única de verdad). Paleta base: Naranja Trayko + Grafito Neutro (#222222). Identidad cálida, humana y dinámica. Transmite movimiento, cercanía y personas reales.
 
 ---
 
@@ -56,16 +56,17 @@ El verde se reserva exclusivamente para estados exitosos: confirmación, pago, c
 
 | Nombre | Hex | Uso |
 |--------|-----|-----|
-| **Surface** | `#F6F4F2` | Fondo de pantalla base (crema neutro) |
+| **Surface** | `#ffffff` | Blanco puro — tarjetas, modales, inputs (igual a surface-container-lowest) |
 | **Surface Container Lowest** | `#ffffff` | Tarjetas, modales, inputs, bottom sheets |
 | **Surface Container Low** | `#F0EEEC` | Secciones alternadas, footer |
-| **Surface Container** | `#EAE8E5` | Inputs con fondo, divisores suaves |
+| **Surface Container** | `#F2F3F5` | Inputs con fondo, divisores suaves |
 | **Surface Container High** | `#E3E1DE` | Cards de testimonios, secciones destacadas |
 | **Surface Container Highest** | `#DCD9D6` | Placeholders de avatar, separadores fuertes |
 | **Surface Dim** | `#D5D2CF` | Bordes sutiles, estados disabled |
 | **Surface Variant** | `#EDE9E5` | Variante de superficie con subtono cálido |
 | **Surface Tint** | `#E8530A` | Tint overlay de marca sobre superficies |
-| **Background** | `#F6F4F2` | Equivalente a surface (fondo general de la app) |
+| **Background** | `#FAFAFA` | Fondo de pantalla base (gris neutro, no crema) |
+| **Surface Canvas** | `#FAFAFA` | Alias de `background` — fondo real de pantallas de la app |
 
 ### Texto y Bordes
 
@@ -108,13 +109,13 @@ El verde se reserva exclusivamente para estados exitosos: confirmación, pago, c
 |-------|-----------------|----------|
 | `primary-fixed` (#FEF0EB) | `primary-container` (#E8530A) | Features, pasos, verificaciones |
 | `secondary` (#222222) | `primary-container` (#E8530A) | Avatares sobre fondo oscuro |
-| `surface-container` (#EAE8E5) | `on-surface` (#222222) | Avatares placeholder neutros |
+| `surface-container` (#F2F3F5) | `on-surface` (#222222) | Avatares placeholder neutros |
 
 ### Texto sobre fondos
 
 | Fondo | Texto principal | Texto secundario |
 |-------|----------------|-----------------|
-| `surface` (#F6F4F2) | `on-surface` (#222222) | `on-surface-variant` (#5A5A5A) |
+| `background` / `surface-canvas` (#FAFAFA) | `on-surface` (#222222) | `on-surface-variant` (#5A5A5A) |
 | `surface-container-lowest` (#fff) | `on-surface` (#222222) | `on-surface-variant` (#5A5A5A) |
 | `secondary` (#222222) | `#ffffff` | `on-secondary-fixed` (#F5F5F5) |
 | `primary-container` (#E8530A) | `#ffffff` | `on-primary-container` (#FEF0EB) |
@@ -125,10 +126,10 @@ El verde se reserva exclusivamente para estados exitosos: confirmación, pago, c
 ## 3. Reglas de uso
 
 ### R1 — El naranja solo sobre grafito oscuro o blanco
-Nunca sobre crema ni sobre verde — el contraste se rompe y se pierde legibilidad.
+Nunca sobre superficies claras neutras (background/surface) ni sobre verde — el contraste se rompe y se pierde legibilidad.
 
 ### R2 — El grafito ancla, el naranja activa
-Fondos y estructura siempre en grafito (#222222) o crema (#F6F4F2). El naranja aparece solo en elementos interactivos y de énfasis.
+Fondos y estructura siempre en grafito (#222222) o gris neutro (#FAFAFA). El naranja aparece solo en elementos interactivos y de énfasis.
 
 ### R3 — El verde es exclusivo para estados de éxito
 `tertiary-container` (#2D6A4F) solo para: viaje confirmado, pago procesado, conductor verificado, usuario online. Nunca decorativo.
@@ -136,8 +137,8 @@ Fondos y estructura siempre en grafito (#222222) o crema (#F6F4F2). El naranja a
 ### R4 — Un solo botón naranja por pantalla
 Si hay dos acciones, la secundaria va en outline grafito. El naranja no puede competir consigo mismo.
 
-### R5 — Fondo en crema #F6F4F2, tarjetas en blanco
-`surface` (#F6F4F2) para el fondo general. `surface-container-lowest` (#ffffff) para tarjetas, modales e inputs. Esta separación crea profundidad sin sombras.
+### R5 — Fondo en gris neutro #FAFAFA, tarjetas en blanco
+`background` / `surface-canvas` (#FAFAFA) para el fondo general de pantallas. `surface` y `surface-container-lowest` (#ffffff) para tarjetas, modales e inputs. Esta separación crea profundidad con sombras sutiles (`shadow-trayko-sm/md/xl`).
 
 ### R6 — Respetar la familia de grises neutros
 Usar exclusivamente los neutros del sistema (`on-surface-variant` #5A5A5A, `outline` #777777). Grises genéricos (#888, #999) rompen la cohesión.
@@ -220,16 +221,17 @@ Esta paleta fue elegida por diferenciación máxima frente a:
   --tray-on-tertiary-container: #0D3020;
 
   /* Superficies */
-  --tray-surface: #F6F4F2;
+  --tray-surface: #ffffff;
   --tray-surface-lowest: #ffffff;
   --tray-surface-low: #F0EEEC;
-  --tray-surface-mid: #EAE8E5;
+  --tray-surface-mid: #F2F3F5;
   --tray-surface-high: #E3E1DE;
   --tray-surface-highest: #DCD9D6;
   --tray-surface-dim: #D5D2CF;
   --tray-surface-variant: #EDE9E5;
   --tray-surface-tint: #E8530A;
-  --tray-background: #F6F4F2;
+  --tray-background: #FAFAFA;
+  --tray-surface-canvas: #FAFAFA;
 
   /* Texto y bordes */
   --tray-on-surface: #222222;
@@ -279,13 +281,14 @@ extension Color {
   static let trayOnTertiaryContainer = Color(hex: "#0D3020")
 
   // Superficies
-  static let traySurface = Color(hex: "#F6F4F2")
+  static let traySurface = Color.white
   static let traySurfaceLowest = Color.white
   static let traySurfaceLow = Color(hex: "#F0EEEC")
-  static let traySurfaceMid = Color(hex: "#EAE8E5")
+  static let traySurfaceMid = Color(hex: "#F2F3F5")
   static let traySurfaceHigh = Color(hex: "#E3E1DE")
   static let traySurfaceHighest = Color(hex: "#DCD9D6")
   static let traySurfaceVariant = Color(hex: "#EDE9E5")
+  static let traySurfaceCanvas = Color(hex: "#FAFAFA")
 
   // Texto
   static let trayOnSurface = Color(hex: "#222222")
@@ -332,13 +335,14 @@ object TraykoColors {
   val OnTertiaryContainer = Color(0xFF0D3020)
 
   // Superficies
-  val Surface = Color(0xFFF6F4F2)
+  val Surface = Color.White
   val SurfaceLowest = Color.White
   val SurfaceLow = Color(0xFFF0EEEC)
-  val SurfaceMid = Color(0xFFEAE8E5)
+  val SurfaceMid = Color(0xFFF2F3F5)
   val SurfaceHigh = Color(0xFFE3E1DE)
   val SurfaceHighest = Color(0xFFDCD9D6)
   val SurfaceVariant = Color(0xFFEDE9E5)
+  val SurfaceCanvas = Color(0xFFFAFAFA)
 
   // Texto
   val OnSurface = Color(0xFF222222)
@@ -385,13 +389,14 @@ class TraykoColors {
   static const onTertiaryContainer = Color(0xFF0D3020);
 
   // Superficies
-  static const surface = Color(0xFFF6F4F2);
+  static const surface = Colors.white;
   static const surfaceLowest = Colors.white;
   static const surfaceLow = Color(0xFFF0EEEC);
-  static const surfaceMid = Color(0xFFEAE8E5);
+  static const surfaceMid = Color(0xFFF2F3F5);
   static const surfaceHigh = Color(0xFFE3E1DE);
   static const surfaceHighest = Color(0xFFDCD9D6);
   static const surfaceVariant = Color(0xFFEDE9E5);
+  static const surfaceCanvas = Color(0xFFFAFAFA);
 
   // Texto
   static const onSurface = Color(0xFF222222);
@@ -411,7 +416,7 @@ class TraykoColors {
 
 ## 7. Checklist para nuevas pantallas
 
-- [ ] Fondo de pantalla usa `surface` (#F6F4F2) — crema neutro
+- [ ] Fondo de pantalla usa `background` / `surface-canvas` (#FAFAFA) — gris neutro
 - [ ] Tarjetas/cards usan `surface-container-lowest` (#ffffff)
 - [ ] Solo 1 botón CTA naranja (`primary-container` #E8530A) por pantalla
 - [ ] Verde aparece solo en estados de éxito — nunca decorativo

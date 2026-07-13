@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { WhatsappLogo, Envelope } from '@phosphor-icons/react/dist/ssr';
+
+const SECTIONS = [
+    {
+        title: '1. Aceptación de los términos',
+        body: 'Texto de prueba. Al crear una cuenta o utilizar la plataforma Trayko, el usuario acepta los presentes términos y condiciones en su totalidad. Este contenido es provisional y será reemplazado por el texto legal definitivo.',
+    },
+    {
+        title: '2. Descripción del servicio',
+        body: 'Texto de prueba. Trayko es una plataforma que conecta a conductores y pasajeros para compartir gastos de viajes intermunicipales. Trayko no presta servicios de transporte público ni actúa como transportador.',
+    },
+    {
+        title: '3. Registro y cuenta de usuario',
+        body: 'Texto de prueba. El usuario es responsable de la veracidad de la información suministrada durante el registro, así como de la custodia de sus credenciales de acceso.',
+    },
+    {
+        title: '4. Uso de la plataforma',
+        body: 'Texto de prueba. El usuario se compromete a utilizar la plataforma de forma lícita, respetuosa y conforme a la normativa colombiana vigente, absteniéndose de realizar conductas fraudulentas o abusivas.',
+    },
+    {
+        title: '5. Pagos y comisiones',
+        body: 'Texto de prueba. Los montos, comisiones de plataforma y métodos de pago aplicables se describirán aquí con el detalle definitivo una vez sea suministrado por el equipo legal.',
+    },
+    {
+        title: '6. Cancelaciones y reembolsos',
+        body: 'Texto de prueba. Las condiciones para cancelar un viaje, los plazos aplicables y la política de reembolsos se documentarán en esta sección.',
+    },
+    {
+        title: '7. Responsabilidad',
+        body: 'Texto de prueba. Trayko actúa como intermediario tecnológico y no se hace responsable por hechos ocurridos durante la ejecución del viaje entre conductor y pasajero, salvo lo que la ley disponga.',
+    },
+    {
+        title: '8. Propiedad intelectual',
+        body: 'Texto de prueba. Todos los derechos sobre la marca, el software y los contenidos de Trayko pertenecen a sus titulares y están protegidos por la legislación colombiana.',
+    },
+    {
+        title: '9. Modificaciones',
+        body: 'Texto de prueba. Trayko podrá actualizar estos términos en cualquier momento. Se notificará a los usuarios sobre cambios sustanciales a través de la aplicación o el correo registrado.',
+    },
+    {
+        title: '10. Ley aplicable y jurisdicción',
+        body: 'Texto de prueba. Estos términos se rigen por las leyes de la República de Colombia. Cualquier controversia se someterá a los jueces competentes de Colombia.',
+    },
+];
+---
+
+<Layout>
+    <Navbar />
+
+    <section class="pt-[calc(7.5rem+env(safe-area-inset-top,0px))] pb-14 sm:pb-20 md:pt-40 md:pb-24 px-4 sm:px-6 bg-background">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10 sm:mb-16">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Términos y condiciones</h1>
+                <p class="text-on-surface-variant text-base sm:text-lg font-medium">
+                    Texto de prueba — este contenido es provisional y será reemplazado próximamente.
+                </p>
+                <p class="text-outline text-xs font-semibold uppercase tracking-wide mt-4">Última actualización: texto de prueba</p>
+            </div>
+
+            <div class="space-y-8 sm:space-y-10">
+                {SECTIONS.map((section) => (
+                    <div class="bg-surface-container-lowest rounded-2xl border border-surface-container-low p-6 sm:p-8">
+                        <h2 class="text-lg sm:text-xl font-bold mb-3">{section.title}</h2>
+                        <p class="text-on-surface-variant leading-relaxed">{section.body}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 sm:p-8 mt-10 sm:mt-14 text-center">
+                <h3 class="font-bold text-lg mb-1.5">¿Tienes preguntas sobre estos términos?</h3>
+                <p class="text-on-surface-variant text-sm mb-5">Escríbenos y te ayudamos directamente.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                        href="https://wa.me/573017727930"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-container text-on-primary font-bold text-sm px-6 min-h-[44px] hover:bg-primary transition-all w-full sm:w-auto"
+                    >
+                        <WhatsappLogo size={18} weight="fill" />
+                        Escribir por WhatsApp
+                    </a>
+                    <a
+                        href="mailto:soporte@trayko.co"
+                        class="inline-flex items-center justify-center gap-2 rounded-full border px-6 min-h-[44px] font-bold text-sm hover:bg-surface-container-low transition-all w-full sm:w-auto"
+                    >
+                        <Envelope size={18} />
+                        Enviar correo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

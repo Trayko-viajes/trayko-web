@@ -1,0 +1,39 @@
+---
+import type { FaqEntry } from '../data/faq';
+import { CaretDown } from '@phosphor-icons/react/dist/ssr';
+
+interface Props {
+    faqs: FaqEntry[];
+}
+
+const { faqs } = Astro.props;
+---
+
+<div class="space-y-3 sm:space-y-4">
+    {faqs.map((faq) => (
+        <div class="faq-item glass-card p-4 sm:p-6 rounded-2xl cursor-pointer">
+            <button type="button" class="faq-trigger w-full flex items-start sm:items-center justify-between gap-3 text-left" aria-expanded="false">
+                <h4 class="font-bold text-base sm:text-lg pr-2">{faq.question}</h4>
+                <CaretDown size={20} className="faq-icon text-primary shrink-0 transition-transform" />
+            </button>
+            <div class="faq-answer mt-4 text-on-surface-variant text-sm leading-relaxed hidden">
+                {faq.answer}
+            </div>
+        </div>
+    ))}
+</div>
+
+<script>
+    document.querySelectorAll<HTMLElement>('.faq-item').forEach((item) => {
+        const trigger = item.querySelector<HTMLButtonElement>('.faq-trigger');
+        const answer = item.querySelector<HTMLElement>('.faq-answer');
+        const icon = item.querySelector<HTMLElement>('.faq-icon');
+
+        trigger?.addEventListener('click', () => {
+            const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+            trigger.setAttribute('aria-expanded', String(!isOpen));
+            answer?.classList.toggle('hidden', isOpen);
+            icon?.classList.toggle('rotate-180', !isOpen);
+        });
+    });
+</script>

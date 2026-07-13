@@ -1,4 +1,5 @@
 ---
+import { CaretLeft, CaretRight } from '@phosphor-icons/react/dist/ssr';
 ---
 
 <!-- Popular Routes Section -->
@@ -10,10 +11,10 @@
         </div>
         <div class="flex gap-3 shrink-0">
             <button type="button" class="min-w-[44px] min-h-[44px] rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all" aria-label="Anterior">
-                <span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+                <CaretLeft size={20} />
             </button>
             <button type="button" class="min-w-[44px] min-h-[44px] rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all" aria-label="Siguiente">
-                <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+                <CaretRight size={20} />
             </button>
         </div>
     </div>

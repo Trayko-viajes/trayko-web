@@ -36,17 +36,18 @@
   --color-on-error-container: #7F0000;
 
   /* Superficies */
-  --color-surface: #F6F4F2;
+  --color-surface: #ffffff;
   --color-surface-bright: #ffffff;
   --color-surface-dim: #D5D2CF;
   --color-surface-variant: #EDE9E5;
   --color-surface-container-lowest: #ffffff;
   --color-surface-container-low: #F0EEEC;
-  --color-surface-container: #EAE8E5;
+  --color-surface-container: #F2F3F5;
   --color-surface-container-high: #E3E1DE;
   --color-surface-container-highest: #DCD9D6;
   --color-surface-tint: #E8530A;
-  --color-background: #F6F4F2;
+  --color-background: #FAFAFA;
+  --color-surface-canvas: #FAFAFA;
 
   /* Texto / On-colors */
   --color-on-background: #222222;
@@ -67,6 +68,11 @@
   --radius-lg: 2rem;
   --radius-xl: 3rem;
   --radius-full: 9999px;
+
+  /* Sombras brand — iguales a las de la app móvil (Trayko/tailwind.config.js) */
+  --shadow-trayko-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+  --shadow-trayko-md: 0 2px 4px 0 rgba(0, 0, 0, 0.024);
+  --shadow-trayko-xl: 0 6px 12px 0 rgba(0, 0, 0, 0.05);
 }
 
 @layer base {
@@ -94,9 +100,6 @@
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-  }
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   }
   .hide-scrollbar::-webkit-scrollbar {
     display: none;

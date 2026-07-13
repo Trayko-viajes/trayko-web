@@ -1,10 +1,11 @@
 ---
+import { ShieldCheck } from '@phosphor-icons/react/dist/ssr';
 ---
 
-<section class="py-14 sm:py-20 md:py-24 bg-surface px-4 sm:px-6">
+<section class="py-14 sm:py-20 md:py-24 bg-background px-4 sm:px-6">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center px-4 sm:px-8 md:px-10 lg:px-12">
         <div class="relative pb-8">
-            <div class="overflow-hidden rounded-2xl shadow-xl">
+            <div class="overflow-hidden rounded-2xl shadow-trayko-xl">
                 <img
                     src="https://images.unsplash.com/photo-1493160503554-640891d88a0c?auto=format&fit=crop&w=1200&q=80"
                     alt="Conductor sonriendo al volante durante un viaje por carretera"
@@ -13,10 +14,10 @@
                     decoding="async"
                 />
             </div>
-            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:right-6 lg:translate-x-0 glass-card px-4 py-3 min-w-[220px] shadow-lg">
+            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:right-6 lg:translate-x-0 glass-card px-4 py-3 min-w-[220px] shadow-trayko-md">
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-full bg-green-100 text-green-700 inline-flex items-center justify-center">
-                        <span class="material-symbols-outlined text-base" data-icon="verified_user">verified_user</span>
+                        <ShieldCheck size={16} weight="fill" />
                     </div>
                     <div>
                         <p class="text-sm font-bold text-on-surface leading-tight">Conductor verificado</p>

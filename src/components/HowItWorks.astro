@@ -1,4 +1,5 @@
 ---
+import { MagnifyingGlass, Handshake, Car, CheckCircle, ShieldCheck } from '@phosphor-icons/react/dist/ssr';
 ---
 
 <section id="como-funciona" class="py-14 sm:py-20 md:py-24 bg-surface-container-low px-4 sm:px-6">
@@ -10,24 +11,24 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             <div class="flex flex-col items-center text-center">
                 <div class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center mb-6 text-primary-container relative">
-                    <span class="material-symbols-outlined text-4xl" data-icon="search">search</span>
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-surface-container-lowest text-primary rounded-full flex items-center justify-center font-bold shadow-md">1</div>
+                    <MagnifyingGlass size={36} />
+                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-surface-container-lowest text-primary rounded-full flex items-center justify-center font-bold shadow-trayko-sm">1</div>
                 </div>
                 <h3 class="text-xl font-bold mb-3">Publica o encuentra tu trayecto</h3>
                 <p class="text-on-surface-variant">Si conduces, publica tu ruta y cupos disponibles. Si viajas como pasajero, elige la opcion que mejor se ajuste a tu horario.</p>
             </div>
             <div class="flex flex-col items-center text-center">
                 <div class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center mb-6 text-primary-container relative">
-                    <span class="material-symbols-outlined text-4xl" data-icon="handshake">handshake</span>
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-surface-container-lowest text-primary rounded-full flex items-center justify-center font-bold shadow-md">2</div>
+                    <Handshake size={36} />
+                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-surface-container-lowest text-primary rounded-full flex items-center justify-center font-bold shadow-trayko-sm">2</div>
                 </div>
                 <h3 class="text-xl font-bold mb-3">Revisa perfiles y confirma</h3>
                 <p class="text-on-surface-variant">Consulta verificaciones, reseñas y condiciones del viaje antes de aceptar para viajar con mas confianza.</p>
             </div>
             <div class="flex flex-col items-center text-center">
                 <div class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center mb-6 text-primary-container relative">
-                    <span class="material-symbols-outlined text-4xl" data-icon="directions_car">directions_car</span>
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-surface-container-lowest text-primary rounded-full flex items-center justify-center font-bold shadow-md">3</div>
+                    <Car size={36} />
+                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-surface-container-lowest text-primary rounded-full flex items-center justify-center font-bold shadow-trayko-sm">3</div>
                 </div>
                 <h3 class="text-xl font-bold mb-3">Comparte la ruta y ahorra</h3>
                 <p class="text-on-surface-variant">Encuentrense en el punto acordado, viajen juntos y distribuyan gastos sin complicaciones.</p>
@@ -36,7 +37,7 @@
     </div>
 </section>
 
-<section id="seguridad" class="py-14 sm:py-20 md:py-24 bg-surface px-4 sm:px-6">
+<section id="seguridad" class="py-14 sm:py-20 md:py-24 bg-background px-4 sm:px-6">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center px-4 sm:px-8 md:px-10 lg:px-12">
         <div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.05] mb-5">
@@ -47,26 +48,26 @@
             </p>
             <ul class="space-y-3.5 max-w-xl">
                 <li class="flex items-start gap-3 text-on-surface-variant leading-relaxed">
-                    <span class="material-symbols-outlined text-primary-container text-xl shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+                    <CheckCircle size={20} weight="fill" className="text-primary-container shrink-0 mt-0.5" />
                     <span><strong class="text-on-surface font-bold">Identidad verificada</strong> con biometría y documento oficial.</span>
                 </li>
                 <li class="flex items-start gap-3 text-on-surface-variant leading-relaxed">
-                    <span class="material-symbols-outlined text-primary-container text-xl shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+                    <CheckCircle size={20} weight="fill" className="text-primary-container shrink-0 mt-0.5" />
                     <span><strong class="text-on-surface font-bold">Documentos al día</strong>: licencia, SOAT y papeles del vehículo.</span>
                 </li>
                 <li class="flex items-start gap-3 text-on-surface-variant leading-relaxed">
-                    <span class="material-symbols-outlined text-primary-container text-xl shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+                    <CheckCircle size={20} weight="fill" className="text-primary-container shrink-0 mt-0.5" />
                     <span><strong class="text-on-surface font-bold">Reseñas reales</strong> después de cada trayecto.</span>
                 </li>
                 <li class="flex items-start gap-3 text-on-surface-variant leading-relaxed">
-                    <span class="material-symbols-outlined text-primary-container text-xl shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+                    <CheckCircle size={20} weight="fill" className="text-primary-container shrink-0 mt-0.5" />
                     <span><strong class="text-on-surface font-bold">Soporte humano</strong> por WhatsApp y correo.</span>
                 </li>
             </ul>
         </div>
 
         <div class="relative pt-8 lg:pt-0 pb-8">
-            <div class="overflow-hidden rounded-2xl shadow-xl">
+            <div class="overflow-hidden rounded-2xl shadow-trayko-xl">
                 <img
                     src="https://images.unsplash.com/photo-1690533683283-76cd18853006?auto=format&fit=crop&w=1200&q=80"
                     alt="Pasajeros compartiendo viaje en automóvil"
@@ -75,10 +76,10 @@
                     decoding="async"
                 />
             </div>
-            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-6 lg:translate-x-0 glass-card px-4 py-3 min-w-[220px] shadow-lg">
+            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-6 lg:translate-x-0 glass-card px-4 py-3 min-w-[220px] shadow-trayko-md">
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-full bg-primary-fixed text-primary-container inline-flex items-center justify-center">
-                        <span class="material-symbols-outlined text-base" data-icon="verified_user">verified_user</span>
+                        <ShieldCheck size={16} weight="fill" />
                     </div>
                     <div>
                         <p class="text-sm font-bold text-on-surface leading-tight">Perfil verificado</p>

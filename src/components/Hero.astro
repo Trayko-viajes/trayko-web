@@ -1,9 +1,10 @@
 ---
 import macOsIconUrl from '../assets/icons8-mac-os.svg?url';
 import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
+import { Check, Star, Clock, Car, Crosshair, MapPin, Calendar, MagnifyingGlass, X } from '@phosphor-icons/react/dist/ssr';
 ---
 
-<section class="hero-section relative overflow-hidden bg-surface min-h-[72vh] lg:min-h-[76vh] flex flex-col justify-center">
+<section class="hero-section relative overflow-hidden bg-background min-h-[72vh] lg:min-h-[76vh] flex flex-col justify-center">
     <div
         class="pointer-events-none absolute inset-0 opacity-45"
         aria-hidden="true"
@@ -25,7 +26,7 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
                     </p>
                 </div>
 
-                <div class="hero-card-float relative mt-10 lg:mt-0 w-full max-w-md mx-auto lg:mx-0 lg:max-w-none lg:w-full shrink-0 hero-fade-right">
+                <div class="hidden lg:block relative mt-10 lg:mt-0 w-full max-w-md mx-auto lg:mx-0 lg:max-w-none lg:w-full shrink-0">
                     <div class="hero-card-glow pointer-events-none absolute -inset-6 sm:-inset-8 rounded-[2.5rem] blur-2xl" aria-hidden="true"></div>
                     <div class="hero-trip-card relative bg-white rounded-[1.75rem] border border-outline-variant/10 p-6 sm:p-7">
                     <!-- Conductor + precio -->
@@ -36,13 +37,13 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
                                     CM
                                 </div>
                                 <span class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#3b82f6] border-2 border-white flex items-center justify-center" title="Conductor verificado">
-                                    <svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                                    <Check size={10} weight="bold" className="text-white" />
                                 </span>
                             </div>
                             <div class="min-w-0">
                                 <p class="text-base font-bold text-on-surface leading-tight">Carlos M.</p>
                                 <p class="flex items-center gap-1 text-sm text-on-surface-variant mt-0.5">
-                                    <svg class="w-3.5 h-3.5 text-amber-400 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <Star size={14} weight="fill" className="text-amber-400 shrink-0" />
                                     4.9
                                 </p>
                             </div>
@@ -66,7 +67,7 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
                         </div>
 
                         <div class="relative flex items-center gap-1.5 py-1 pl-5 text-xs text-on-surface-variant">
-                            <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 6v6l4 2"/></svg>
+                            <Clock size={14} weight="fill" className="shrink-0" />
                             2h 30m
                         </div>
 
@@ -85,11 +86,11 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
                     <!-- Footer -->
                     <div class="flex items-center justify-between gap-3 pt-4 border-t border-outline-variant/20">
                         <span class="inline-flex items-center gap-1.5 text-xs font-medium text-on-surface-variant bg-surface-container-low rounded-full px-3 py-1.5">
-                            <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 17h8M8 11h8M6 7h12l-1-4H7L6 7zm-1 10a2 2 0 002 2h10a2 2 0 002-2V9H5v8z"/></svg>
+                            <Car size={14} className="shrink-0" />
                             Sedán compacto
                         </span>
                         <span class="inline-flex items-center gap-1.5 text-xs font-bold text-tertiary bg-tertiary-fixed rounded-full px-3 py-1.5">
-                            <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            <Check size={14} weight="bold" className="shrink-0" />
                             3 lugares
                         </span>
                     </div>
@@ -99,24 +100,35 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
 
             <div class="hero-search-row w-full min-w-0 hero-fade-up-delay">
                 <form id="hero-search-form" class="w-full">
-                    <div class="hero-search-module bg-surface-container-lowest rounded-2xl border border-surface-container-low/80 px-4 py-3.5 sm:px-5 sm:py-4 w-full">
-                        <div class="hero-search-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.15fr)_minmax(8.5rem,0.85fr)_auto] gap-3 lg:gap-4 items-stretch lg:items-center w-full">
-                            <label class="hero-search-field hero-search-field--route flex items-center gap-2.5 min-w-0">
-                                <svg class="w-4 h-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
-                                <input type="text" name="origin" placeholder="¿De dónde sales?" class="hero-search-input w-full min-w-0 bg-transparent text-sm font-semibold text-on-surface placeholder:font-medium placeholder:text-outline" autocomplete="off" />
-                            </label>
-                            <label class="hero-search-field hero-search-field--route flex items-center gap-2.5 min-w-0">
-                                <svg class="w-4 h-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.66 0 3-1.34 3-3S13.66 5 12 5 9 6.34 9 8s1.34 3 3 3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/></svg>
-                                <input type="text" name="destination" placeholder="¿A dónde vas?" class="hero-search-input w-full min-w-0 bg-transparent text-sm font-semibold text-on-surface placeholder:font-medium placeholder:text-outline" autocomplete="off" />
-                            </label>
-                            <label class="hero-search-field hero-search-field--date flex items-center gap-2.5 min-w-0 sm:col-span-2 lg:col-span-1">
-                                <svg class="w-4 h-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M4 11h16M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                                <input type="text" name="date" id="hero-date" placeholder="¿Cuándo viajas?" class="hero-search-input hero-date-input w-full min-w-0 bg-transparent text-sm font-semibold text-on-surface placeholder:font-medium placeholder:text-outline" />
-                            </label>
+                    <div class="hero-search-module bg-surface-container-lowest rounded-[2.25rem] border border-surface-container-low px-4 py-4 sm:px-5 sm:py-5 w-full">
+                        <div class="hero-search-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.15fr)_minmax(8.5rem,0.85fr)_auto] gap-3 lg:gap-4 items-stretch lg:items-end w-full">
+                            <div class="flex flex-col gap-1.5 min-w-0 relative">
+                                <span class="hero-search-label">Origen</span>
+                                <label class="hero-search-field hero-search-field--route flex items-center gap-3 min-w-0">
+                                    <Crosshair size={20} weight="bold" className="shrink-0 text-primary" />
+                                    <input type="text" name="origin" id="hero-origin" placeholder="¿De dónde sales?" class="hero-search-input w-full min-w-0 bg-transparent text-sm font-semibold text-on-surface placeholder:font-medium placeholder:text-outline" autocomplete="off" />
+                                </label>
+                                <ul id="hero-origin-suggestions" class="hero-suggestions hidden absolute left-0 right-0 top-full mt-1.5 z-30 max-h-60 overflow-y-auto rounded-2xl border border-surface-container-low bg-white shadow-trayko-md p-1.5" role="listbox"></ul>
+                            </div>
+                            <div class="flex flex-col gap-1.5 min-w-0 relative">
+                                <span class="hero-search-label">Destino</span>
+                                <label class="hero-search-field hero-search-field--route flex items-center gap-3 min-w-0">
+                                    <MapPin size={20} weight="fill" className="shrink-0 text-primary" />
+                                    <input type="text" name="destination" id="hero-destination" placeholder="¿A dónde vas?" class="hero-search-input w-full min-w-0 bg-transparent text-sm font-semibold text-on-surface placeholder:font-medium placeholder:text-outline" autocomplete="off" />
+                                </label>
+                                <ul id="hero-destination-suggestions" class="hero-suggestions hidden absolute left-0 right-0 top-full mt-1.5 z-30 max-h-60 overflow-y-auto rounded-2xl border border-surface-container-low bg-white shadow-trayko-md p-1.5" role="listbox"></ul>
+                            </div>
+                            <div class="flex flex-col gap-1.5 min-w-0 sm:col-span-2 lg:col-span-1">
+                                <span class="hero-search-label">Fecha de viaje</span>
+                                <label class="hero-search-field hero-search-field--date flex items-center gap-3 min-w-0">
+                                    <Calendar size={18} className="shrink-0 text-primary" />
+                                    <input type="text" name="date" id="hero-date" placeholder="¿Cuándo viajas?" class="hero-search-input hero-date-input w-full min-w-0 bg-transparent text-sm font-semibold text-on-surface placeholder:font-medium placeholder:text-outline" />
+                                </label>
+                            </div>
                             <div class="flex items-center sm:col-span-2 lg:col-span-1 shrink-0">
-                                <button type="submit" id="hero-search-btn" class="w-full lg:w-auto inline-flex items-center justify-center gap-1.5 bg-primary-container text-on-primary font-bold text-sm px-6 min-h-[40px] rounded-full hover:bg-primary transition-all duration-300 disabled:opacity-70 whitespace-nowrap shadow-[0_4px_14px_-4px_rgba(232,83,10,0.45)] hover:shadow-[0_6px_20px_-4px_rgba(232,83,10,0.5)]">
+                                <button type="submit" id="hero-search-btn" class="w-full lg:w-auto inline-flex items-center justify-center gap-1.5 bg-primary-container text-on-primary font-bold text-sm px-6 min-h-[44px] rounded-full hover:bg-primary transition-all duration-300 disabled:opacity-70 whitespace-nowrap shadow-[0_4px_14px_-4px_rgba(232,83,10,0.35)] hover:shadow-[0_6px_20px_-4px_rgba(232,83,10,0.4)]">
                                     <span id="hero-search-label">Buscar</span>
-                                    <svg id="hero-search-icon" class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"/></svg>
+                                    <MagnifyingGlass id="hero-search-icon" size={18} weight="bold" className="shrink-0" />
                                 </button>
                             </div>
                         </div>
@@ -125,7 +137,7 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
             </div>
         </div>
 
-        <div id="hero-results" class="hidden mt-14 sm:mt-16 max-w-3xl">
+        <div id="hero-results" class="hidden mt-14 sm:mt-16 w-full">
             <div class="flex items-end justify-between gap-4 mb-5">
                 <div>
                     <h2 id="hero-results-title" class="text-lg font-extrabold text-on-surface">Viajes disponibles</h2>
@@ -133,44 +145,42 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
                 </div>
                 <span id="hero-results-count" class="hidden text-xs font-bold text-primary bg-primary-fixed px-3 py-1 rounded-full"></span>
             </div>
-            <div id="hero-results-list" class="flex flex-col gap-3"></div>
+            <div id="hero-results-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"></div>
         </div>
     </div>
 </section>
 
 <div id="hero-modal" class="hidden fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-labelledby="hero-modal-title">
     <div id="hero-modal-backdrop" class="absolute inset-0 bg-secondary/40 backdrop-blur-sm"></div>
-    <div class="absolute left-1/2 top-1/2 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 bg-white rounded-3xl shadow-2xl border border-outline-variant/20 overflow-hidden">
-        <div class="p-6 sm:p-8 relative">
-            <button type="button" id="hero-modal-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-surface-container-low text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors" aria-label="Cerrar">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    <div class="absolute left-1/2 top-1/2 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 bg-primary-container rounded-3xl shadow-trayko-xl overflow-hidden">
+        <div class="absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true">
+            <div class="absolute top-0 left-0 w-72 h-72 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-72 h-72 bg-primary-fixed rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+        </div>
+        <div class="p-6 sm:p-8 relative z-10">
+            <button type="button" id="hero-modal-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 text-on-primary flex items-center justify-center hover:bg-white/25 transition-colors" aria-label="Cerrar">
+                <X size={20} />
             </button>
-            <p class="text-[10px] font-bold tracking-widest text-primary uppercase mb-2">Reserva en la app</p>
-            <h2 id="hero-modal-title" class="text-xl font-extrabold text-on-surface pr-8 leading-snug">Continúa la reserva en la app de Trayko</h2>
-            <p id="hero-modal-route" class="text-sm text-on-surface-variant mt-2"></p>
-            <p class="text-xs text-on-surface-variant mt-3">Pagos protegidos, conductores verificados y seguimiento en vivo.</p>
+            <p class="text-[10px] font-bold tracking-widest text-on-primary/80 uppercase mb-2">Reserva en la app</p>
+            <h2 id="hero-modal-title" class="text-xl font-extrabold text-on-primary pr-8 leading-snug">Continúa la reserva en la app de Trayko</h2>
+            <p id="hero-modal-route" class="text-sm text-primary-fixed mt-2"></p>
+            <p class="text-xs text-primary-fixed mt-3">Pagos protegidos, conductores verificados y seguimiento en vivo.</p>
             <div class="flex flex-col sm:flex-row gap-3 mt-6">
                 <a href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-secondary text-white font-bold text-sm px-4 py-3.5 min-h-[48px] rounded-xl hover:opacity-90 transition-opacity">
                     <img src={macOsIconUrl} alt="" class="w-6 h-6" width="24" height="24" />
                     App Store
                 </a>
-                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary font-bold text-sm px-4 py-3.5 min-h-[48px] rounded-xl hover:bg-primary transition-colors">
+                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-secondary text-white font-bold text-sm px-4 py-3.5 min-h-[48px] rounded-xl hover:opacity-90 transition-opacity">
                     <img src={googlePlayIconUrl} alt="" class="w-6 h-6" width="24" height="24" />
                     Google Play
                 </a>
-            </div>
-            <div class="mt-6 flex items-center gap-4 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/15">
-                <div class="w-20 h-20 shrink-0 rounded-xl bg-white border border-outline-variant/20 flex items-center justify-center p-2" aria-hidden="true">
-                    <svg viewBox="0 0 80 80" class="w-full h-full text-on-surface"><rect x="8" y="8" width="18" height="18" fill="currentColor"/><rect x="32" y="8" width="6" height="6" fill="currentColor"/><rect x="44" y="8" width="6" height="6" fill="currentColor"/><rect x="56" y="8" width="6" height="6" fill="currentColor"/><rect x="8" y="32" width="6" height="6" fill="currentColor"/><rect x="32" y="32" width="18" height="6" fill="currentColor"/><rect x="56" y="32" width="6" height="6" fill="currentColor"/><rect x="8" y="44" width="6" height="6" fill="currentColor"/><rect x="32" y="44" width="6" height="6" fill="currentColor"/><rect x="44" y="44" width="6" height="18" fill="currentColor"/><rect x="8" y="56" width="18" height="6" fill="currentColor"/></svg>
-                </div>
-                <p class="text-xs text-on-surface-variant leading-relaxed">Escanea el código QR con tu celular para abrir Trayko y completar tu reserva en segundos.</p>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    import { filterTrips, formatPrice, formatTripDate } from '../scripts/hero-search';
+    import { searchTrips, matchCities, formatPrice, formatTripDate, formatTripTime, type CityOption } from '../scripts/hero-search';
 
     const form = document.getElementById('hero-search-form') as HTMLFormElement;
     const resultsEl = document.getElementById('hero-results');
@@ -201,6 +211,55 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
     dateField?.addEventListener('focus', activateDateField);
     dateField?.addEventListener('blur', deactivateDateFieldIfEmpty);
 
+    const originInput = document.getElementById('hero-origin') as HTMLInputElement | null;
+    const destinationInput = document.getElementById('hero-destination') as HTMLInputElement | null;
+    const originSuggestions = document.getElementById('hero-origin-suggestions');
+    const destinationSuggestions = document.getElementById('hero-destination-suggestions');
+
+    function renderCitySuggestions(container: HTMLElement, input: HTMLInputElement, cities: CityOption[]) {
+        container.innerHTML = '';
+        if (cities.length === 0) {
+            container.classList.add('hidden');
+            return;
+        }
+        cities.forEach((city) => {
+            const item = document.createElement('button');
+            item.type = 'button';
+            item.className = 'w-full text-left px-3 py-2 rounded-xl hover:bg-background transition-colors flex flex-col';
+            item.innerHTML = `<span class="text-sm font-semibold text-on-surface">${city.cityName}</span><span class="text-xs text-outline">${city.departmentName}</span>`;
+            // mousedown (no click) para que la selección registre antes del blur del input.
+            item.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                input.value = city.cityName;
+                container.classList.add('hidden');
+            });
+            container.appendChild(item);
+        });
+        container.classList.remove('hidden');
+    }
+
+    function setupCityAutocomplete(input: HTMLInputElement | null, container: HTMLElement | null) {
+        if (!input || !container) return;
+
+        async function updateSuggestions() {
+            if (!input || !container) return;
+            const matches = await matchCities(input.value);
+            renderCitySuggestions(container, input, matches);
+        }
+
+        input.addEventListener('focus', updateSuggestions);
+        input.addEventListener('input', updateSuggestions);
+        input.addEventListener('blur', () => {
+            window.setTimeout(() => container.classList.add('hidden'), 100);
+        });
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') container.classList.add('hidden');
+        });
+    }
+
+    setupCityAutocomplete(originInput, originSuggestions);
+    setupCityAutocomplete(destinationInput, destinationSuggestions);
+
     function openModal(origin: string, destination: string, time: string) {
         if (!modal || !modalRoute) return;
         modalRoute.textContent = `${origin} → ${destination} · Salida ${time}`;
@@ -219,12 +278,14 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
         if (e.key === 'Escape') closeModal();
     });
 
-    form?.addEventListener('submit', (e) => {
+    form?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const data = new FormData(form);
-        const origin = String(data.get('origin') ?? '');
-        const destination = String(data.get('destination') ?? '');
+        const origin = String(data.get('origin') ?? '').trim();
+        const destination = String(data.get('destination') ?? '').trim();
         const date = String(data.get('date') ?? '');
+
+        if (!origin || !destination) return;
 
         searchBtn?.setAttribute('disabled', 'true');
         if (searchLabel) searchLabel.textContent = '';
@@ -233,8 +294,8 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
         spinner.className = 'w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin';
         searchBtn?.prepend(spinner);
 
-        window.setTimeout(() => {
-            const trips = filterTrips(origin, destination, date);
+        try {
+            const trips = await searchTrips(origin, destination, date);
             if (!resultsEl || !resultsList || !resultsTitle || !resultsSub || !resultsCount) return;
 
             resultsEl.classList.remove('hidden');
@@ -244,7 +305,7 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
                 resultsTitle.textContent = 'Sin resultados';
                 resultsSub.textContent = 'Prueba otras ciudades o fechas';
                 resultsCount.classList.add('hidden');
-                resultsList.innerHTML = '<div class="rounded-2xl border border-dashed border-outline-variant/40 bg-white/80 px-6 py-10 text-center text-sm text-on-surface-variant">No encontramos viajes con esos criterios. Ejemplo: Barranquilla → Cartagena.</div>';
+                resultsList.innerHTML = '<div class="sm:col-span-2 rounded-2xl border border-dashed border-outline-variant/40 bg-white/80 px-6 py-10 text-center text-sm text-on-surface-variant">No encontramos viajes con esos criterios. Ejemplo: Barranquilla → Cartagena.</div>';
             } else {
                 resultsTitle.textContent = 'Viajes disponibles';
                 resultsSub.textContent = 'Selecciona un viaje para continuar en la app';
@@ -255,37 +316,48 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
                     const btn = document.createElement('button');
                     btn.type = 'button';
                     btn.className = 'w-full text-left bg-white rounded-2xl border border-outline-variant/25 p-5 sm:p-6 hover:border-primary/30 hover:shadow-[0_12px_40px_-16px_rgba(232,83,10,0.25)] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40';
+                    const tripTime = formatTripTime(trip.departureTime);
+                    const ratingLabel = trip.rating != null ? trip.rating.toFixed(1) : '—';
                     btn.innerHTML = `
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">
                             <div class="flex-1 min-w-0">
                                 <p class="text-lg font-extrabold text-on-surface">${trip.origin} → ${trip.destination}</p>
-                                <p class="text-sm text-on-surface-variant mt-1">${formatTripDate(trip.date)} · Salida ${trip.departureTime}</p>
+                                <p class="text-sm text-on-surface-variant mt-1">${formatTripDate(trip.departureTime)} · Salida ${tripTime}</p>
                             </div>
-                            <div class="flex items-center gap-4 sm:gap-6">
+                            <div class="flex items-center gap-4 lg:gap-6">
                                 <div class="flex items-center gap-3">
                                     <div class="w-10 h-10 rounded-full bg-primary-fixed text-primary font-bold text-xs flex items-center justify-center">${trip.driverInitials}</div>
                                     <div>
                                         <p class="text-sm font-semibold text-on-surface">${trip.driverName}</p>
-                                        <p class="text-xs text-on-surface-variant">★ ${trip.rating.toFixed(1)}</p>
+                                        <p class="text-xs text-on-surface-variant">★ ${ratingLabel}</p>
                                     </div>
                                 </div>
-                                <div class="text-right sm:pl-6 sm:border-l border-outline-variant/25">
+                                <div class="text-right lg:pl-6 lg:border-l border-outline-variant/25">
                                     <p class="text-xl font-extrabold text-on-surface">${formatPrice(trip.price)}</p>
                                     <p class="text-xs font-semibold text-tertiary mt-0.5">${trip.seats} ${trip.seats === 1 ? 'cupo' : 'cupos'}</p>
                                 </div>
                             </div>
                         </div>`;
-                    btn.addEventListener('click', () => openModal(trip.origin, trip.destination, trip.departureTime));
+                    btn.addEventListener('click', () => openModal(trip.origin, trip.destination, tripTime));
                     resultsList.appendChild(btn);
                 });
             }
 
             resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } catch (error) {
+            if (!resultsEl || !resultsList || !resultsTitle || !resultsSub || !resultsCount) return;
+            resultsEl.classList.remove('hidden');
+            resultsTitle.textContent = 'No pudimos cargar los viajes';
+            resultsSub.textContent = 'Intenta de nuevo en un momento.';
+            resultsCount.classList.add('hidden');
+            resultsList.innerHTML = '<div class="sm:col-span-2 rounded-2xl border border-dashed border-outline-variant/40 bg-white/80 px-6 py-10 text-center text-sm text-on-surface-variant">Ocurrió un problema al buscar viajes. Intenta de nuevo.</div>';
+            resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } finally {
             searchBtn?.removeAttribute('disabled');
             spinner.remove();
             searchIcon?.classList.remove('hidden');
             if (searchLabel) searchLabel.textContent = 'Buscar';
-        }, 450);
+        }
     });
 </script>
 
@@ -303,11 +375,20 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
             0 12px 36px -10px rgba(232, 83, 10, 0.1);
     }
 
+    .hero-search-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: #777777;
+        letter-spacing: 0.075em;
+        text-transform: uppercase;
+        margin-left: 0.875rem;
+    }
+
     .hero-search-field {
-        background: #f0eeec;
+        background: #fafafa;
         border-radius: 9999px;
-        padding: 0.5rem 0.875rem;
-        min-height: 40px;
+        padding: 0.75rem 1.125rem;
+        min-height: 48px;
         width: 100%;
         transition: background-color 0.2s ease, width 0.2s ease;
     }
@@ -328,7 +409,7 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
     }
 
     .hero-search-field:focus-within {
-        background: #ebe8e5;
+        background: #f0eeec;
     }
 
     .hero-card-glow {
@@ -344,16 +425,6 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
         box-shadow:
             0 2px 8px rgba(34, 34, 34, 0.04),
             0 24px 56px -16px rgba(34, 34, 34, 0.14);
-        transition:
-            transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-            box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .hero-card-float:hover .hero-trip-card {
-        transform: translateY(-6px);
-        box-shadow:
-            0 4px 12px rgba(34, 34, 34, 0.05),
-            0 32px 64px -14px rgba(34, 34, 34, 0.16);
     }
 
     .hero-search-input,
@@ -388,29 +459,14 @@ import googlePlayIconUrl from '../assets/icons8-google-play.svg?url';
         from { opacity: 0; transform: translateY(16px); }
         to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes heroFadeRight {
-        from { opacity: 0; transform: translateX(16px); }
-        to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes heroFloat {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-5px); }
-    }
-
     .hero-fade-up { animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
     .hero-fade-up-delay { animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.14s both; }
-    .hero-fade-right { animation: heroFadeRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both; }
-    .hero-card-float { animation: heroFloat 6s ease-in-out infinite; }
-    .hero-card-float:hover { animation-play-state: paused; }
 
     @media (prefers-reduced-motion: reduce) {
         .hero-fade-up,
-        .hero-fade-up-delay,
-        .hero-fade-right,
-        .hero-card-float {
+        .hero-fade-up-delay {
             animation: none;
         }
-        .hero-trip-card,
         .hero-search-module,
         #hero-search-btn {
             transition: none;

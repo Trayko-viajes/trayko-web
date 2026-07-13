@@ -35,7 +35,7 @@ export function HeroSection() {
 
   return (
     <>
-      <section className="hero-section relative overflow-hidden bg-surface">
+      <section className="hero-section relative overflow-hidden bg-background">
         <div
           className="pointer-events-none absolute inset-0 opacity-60"
           aria-hidden

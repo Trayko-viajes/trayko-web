@@ -1,9 +1,9 @@
 ---
-
+import { Envelope, Phone } from '@phosphor-icons/react/dist/ssr';
 ---
 
 <footer
-    class="bg-surface-container-low pt-12 sm:pt-16 md:pt-20 px-4 sm:px-6 border-t border-outline-variant/10 pb-[calc(2rem+env(safe-area-inset-bottom,0px))] sm:pb-[calc(2.5rem+env(safe-area-inset-bottom,0px))]"
+    class="bg-secondary text-white pt-12 sm:pt-16 md:pt-20 px-4 sm:px-6 pb-[calc(2rem+env(safe-area-inset-bottom,0px))] sm:pb-[calc(2.5rem+env(safe-area-inset-bottom,0px))]"
 >
     <div class="max-w-7xl mx-auto">
         <div
@@ -11,7 +11,7 @@
         >
             <div class="col-span-1 md:col-span-1">
                 <img
-                    src="/logo.png"
+                    src="/logo-blanco.webp"
                     alt="Trayko"
                     class="w-28 sm:w-32 md:w-40 lg:w-48 h-auto mb-6 transition-transform hover:scale-105"
                     width="240"
@@ -19,7 +19,7 @@
                     loading="lazy"
                 />
                 <p
-                    class="text-on-surface-variant text-sm leading-relaxed max-w-xs"
+                    class="text-white/60 text-sm leading-relaxed max-w-xs"
                 >
                     La comunidad de viajes compartidos más grande de Colombia.
                     Conecta, comparte y viaja mejor.
@@ -27,62 +27,60 @@
             </div>
             <div>
                 <h4 class="font-bold mb-6">Explorar</h4>
-                <ul class="space-y-4 text-sm text-on-surface-variant">
+                <ul class="space-y-4 text-sm text-white/60">
                     <li>
-                        <a class="hover:text-primary transition-colors" href="/conductores"
+                        <a class="hover:text-primary-container transition-colors" href="/conductores"
                             >Publicar un Viaje</a>
                     </li>
                     <li>
-                        <a class="hover:text-primary transition-colors" href="#rutas-colombia"
+                        <a class="hover:text-primary-container transition-colors" href="#rutas-colombia"
                             >Rutas en Colombia</a>
                     </li>
                     <li>
-                        <a class="hover:text-primary transition-colors" href="#descargar-app"
+                        <a class="hover:text-primary-container transition-colors" href="#descargar-app"
                             >Descargar app</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-primary-container transition-colors" href="/preguntas-frecuentes"
+                            >Preguntas frecuentes</a>
                     </li>
                 </ul>
             </div>
             <div>
                 <h4 class="font-bold mb-6">Compañía</h4>
-                <ul class="space-y-4 text-sm text-on-surface-variant">
+                <ul class="space-y-4 text-sm text-white/60">
                     <li>
-                        <a class="hover:text-primary transition-colors" href="/#como-funciona"
+                        <a class="hover:text-primary-container transition-colors" href="/#como-funciona"
                             >Sobre nosotros</a>
                     </li>
                     <li>
-                        <a class="hover:text-primary transition-colors" href="/#preguntas-frecuentes"
+                        <a class="hover:text-primary-container transition-colors" href="/privacidad"
                             >Privacidad</a>
                     </li>
                     <li>
-                        <a class="hover:text-primary transition-colors" href="/#preguntas-frecuentes"
+                        <a class="hover:text-primary-container transition-colors" href="/terminos"
                             >Términos</a>
                     </li>
                 </ul>
             </div>
             <div>
                 <h4 class="font-bold mb-6">Contacto</h4>
-                <ul class="space-y-4 text-sm text-on-surface-variant">
+                <ul class="space-y-4 text-sm text-white/60">
                     <li class="flex items-center gap-2">
-                        <span
-                            class="material-symbols-outlined text-primary text-lg"
-                            data-icon="mail">mail</span
-                        >
+                        <Envelope size={18} className="text-primary-container shrink-0" />
                         contacto@trayko.co
                     </li>
                     <li class="flex items-center gap-2">
-                        <span
-                            class="material-symbols-outlined text-primary text-lg"
-                            data-icon="call">call</span
-                        >
+                        <Phone size={18} weight="fill" className="text-primary-container shrink-0" />
                         +57 317 823 4567
                     </li>
                 </ul>
             </div>
         </div>
         <div
-            class="flex flex-col md:flex-row items-center justify-between pt-10 border-t border-outline-variant/20 gap-4"
+            class="flex flex-col md:flex-row items-center justify-between pt-10 border-t border-white/10 gap-4"
         >
-            <p class="text-xs text-outline font-medium">
+            <p class="text-xs text-white/40 font-medium">
                 © 2024 Trayko. Todos los derechos reservados.
             </p>
         </div>

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes } from '@phosphor-icons/react/dist/ssr';
 ---
 
 <Layout>
@@ -16,7 +17,7 @@ import Footer from '../components/Footer.astro';
         data-alt="Modern car traveling on highway at sunset"
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuANLm7IQZmqMejOeSPGWyyAM9HUF0oF2d3bnYkG4jjxF8laEua86LYk57cBc1KjRKJe-V-mlRljOl7gkibBmv9iZ3eCosLI09IM7Yc4yLl3JmDyaQ6TeyyNyrbE9R_Xn9ETd0S139r2TU0AXcsiK_gNti0QFkFkffZCfgNNkyfHDlp_B45naRmNs65X3Qlzu4SwjJfbDbY5SlRvkaeZSSlFFkMCXwo7v9Tq7APYI01tny6UBfl9qmeyyOM24WSod06sM4EPJwBUCqY"
       />
-      <div class="absolute inset-0 bg-gradient-to-b from-surface/50 via-surface to-surface"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background"></div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -32,13 +33,13 @@ import Footer from '../components/Footer.astro';
             gasolina y peajes de manera colaborativa.
           </p>
           <div class="flex items-center gap-4 text-secondary font-bold">
-            <span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+            <ShieldCheck size={24} weight="fill" />
             <span>Comunidad de Viajes Compartidos Seguros</span>
           </div>
         </div>
 
         <!-- Registration Form Card -->
-        <div class="glass-card p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl border border-white/20">
+        <div class="glass-card p-6 sm:p-8 md:p-10 rounded-xl shadow-trayko-xl border border-white/20">
           <h3 class="text-2xl font-bold mb-6 font-headline">Publica tu próximo viaje</h3>
           <form class="space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -81,7 +82,7 @@ import Footer from '../components/Footer.astro';
               </div>
             </div>
             <button
-              class="w-full text-on-secondary-container py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all shadow-lg mt-4"
+              class="w-full text-on-secondary-container py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all shadow-trayko-md mt-4"
               style="background: linear-gradient(180deg, #2e2e2e 0%, #222222 60%, #2a2a2a 100%);"
               type="submit"
             >
@@ -108,17 +109,12 @@ import Footer from '../components/Footer.astro';
       <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
         <!-- Card 1 -->
         <div
-          class="bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group"
+          class="bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-trayko-sm hover:shadow-trayko-xl transition-all duration-500 group"
         >
           <div
             class="w-16 h-16 rounded-2xl secondary-container flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"
           >
-            <span
-              class="material-symbols-outlined text-on-secondary-container text-4xl"
-              data-icon="savings"
-            >
-              savings
-            </span>
+            <PiggyBank size={36} className="text-on-secondary-container" />
           </div>
           <h3 class="text-2xl font-bold mb-4 font-headline">Ahorro inteligente</h3>
           <p class="text-on-surface-variant leading-relaxed">
@@ -127,12 +123,12 @@ import Footer from '../components/Footer.astro';
         </div>
         <!-- Card 2 -->
         <div
-          class="bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group translate-y-4"
+          class="bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-trayko-sm hover:shadow-trayko-xl transition-all duration-500 group translate-y-4"
         >
           <div
             class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"
           >
-            <span class="material-symbols-outlined text-primary text-4xl" data-icon="eco">eco</span>
+            <Leaf size={36} className="text-primary" />
           </div>
           <h3 class="text-2xl font-bold mb-4 font-headline">Sostenibilidad</h3>
           <p class="text-on-surface-variant leading-relaxed">
@@ -142,12 +138,12 @@ import Footer from '../components/Footer.astro';
         </div>
         <!-- Card 3 -->
         <div
-          class="bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group"
+          class="bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-trayko-sm hover:shadow-trayko-xl transition-all duration-500 group"
         >
           <div
             class="w-16 h-16 rounded-2xl bg-tertiary-fixed flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"
           >
-            <span class="material-symbols-outlined text-tertiary text-4xl" data-icon="groups">groups</span>
+            <Users size={36} weight="fill" className="text-tertiary" />
           </div>
           <h3 class="text-2xl font-bold mb-4 font-headline">Compañía en la ruta</h3>
           <p class="text-on-surface-variant leading-relaxed">
@@ -163,7 +159,7 @@ import Footer from '../components/Footer.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div class="order-2 lg:order-1 relative">
-          <div class="rounded-xl overflow-hidden aspect-video shadow-2xl">
+          <div class="rounded-xl overflow-hidden aspect-video shadow-trayko-xl">
             <img
               alt="Shared Trip"
               class="w-full h-full object-cover"
@@ -171,12 +167,10 @@ import Footer from '../components/Footer.astro';
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1UOZthd1YOjYAiDTx05lRi33PtcRnq5gNBXnu_JwcREy3pjNEgv9DRZ93kMbQ4dxELsZiZDjRcf33spuGVwSUK0I6jq8fdQ0lZSyybdbu2ErERNcPO-6m_NOev6v1CbM3aujJozOXO6MuDPYOerHH4VdCEsJ_gZEehvW3UsO9pY173kVdlOG57OMuF5NfRgVF2ZQ5QvyqJbbqm4u_HTawDKhRbCtExHY9QFQbvD17aFHgNf7Mx3ZW01Qe6U3KIm3hds0ihktsZUc"
             />
           </div>
-          <div class="absolute -bottom-8 -right-8 glass-card p-6 rounded-lg shadow-xl hidden md:block">
+          <div class="absolute -bottom-8 -right-8 glass-card p-6 rounded-lg shadow-trayko-md hidden md:block">
             <div class="flex items-center gap-4">
               <div class="bg-primary-container w-12 h-12 rounded-full flex items-center justify-center">
-                <span class="material-symbols-outlined text-secondary-fixed" data-icon="check_circle">
-                  check_circle
-                </span>
+                <CheckCircle size={24} weight="fill" className="text-secondary-fixed" />
               </div>
               <div>
                 <p class="text-sm font-bold">Viaje Colaborativo</p>
@@ -193,9 +187,7 @@ import Footer from '../components/Footer.astro';
           </p>
           <ul class="space-y-6">
             <li class="flex items-start gap-4">
-              <span class="material-symbols-outlined text-secondary mt-1" data-icon="directions_car">
-                directions_car
-              </span>
+              <Car size={24} className="text-secondary mt-1" />
               <div>
                 <h4 class="font-bold text-lg">Vehículo Particular</h4>
                 <p class="text-on-surface-variant">
@@ -204,9 +196,7 @@ import Footer from '../components/Footer.astro';
               </div>
             </li>
             <li class="flex items-start gap-4">
-              <span class="material-symbols-outlined text-secondary mt-1" data-icon="receipt_long">
-                receipt_long
-              </span>
+              <Receipt size={24} className="text-secondary mt-1" />
               <div>
                 <h4 class="font-bold text-lg">Costo Compartido</h4>
                 <p class="text-on-surface-variant">
@@ -216,9 +206,7 @@ import Footer from '../components/Footer.astro';
               </div>
             </li>
             <li class="flex items-start gap-4">
-              <span class="material-symbols-outlined text-secondary mt-1" data-icon="verified">
-                verified
-              </span>
+              <ShieldCheck size={24} weight="fill" className="text-secondary mt-1" />
               <div>
                 <h4 class="font-bold text-lg">Seguridad Comunitaria</h4>
                 <p class="text-on-surface-variant">
@@ -236,9 +224,7 @@ import Footer from '../components/Footer.astro';
   <section id="testimonios" class="py-14 sm:py-20 md:py-24 bg-secondary text-white overflow-hidden relative">
     <div class="absolute top-0 right-0 w-96 h-96 bg-primary-container opacity-10 blur-[100px] -mr-48 -mt-48"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-8 text-center relative z-10">
-      <span class="material-symbols-outlined text-6xl mb-8 text-primary-container opacity-50" data-icon="format_quote">
-        format_quote
-      </span>
+      <Quotes size={60} weight="fill" className="mb-8 text-primary-container opacity-50" />
       <p class="text-2xl sm:text-3xl md:text-4xl font-bold font-headline italic leading-snug mb-10">
         "Ahora viajar entre ciudades es mucho mas economico. Compartiendo mi viaje, recupero mis costos de
         gasolina facilmente."
@@ -276,7 +262,7 @@ import Footer from '../components/Footer.astro';
         </p>
         <a
           href="/#descargar-app"
-          class="bg-primary-container text-on-primary px-8 sm:px-12 py-4 sm:py-5 min-h-[48px] rounded-full font-bold text-lg sm:text-xl shadow-xl hover:scale-105 active:scale-95 transition-all w-full max-w-sm sm:w-auto sm:max-w-none mx-auto inline-flex items-center justify-center"
+          class="bg-primary-container text-on-primary px-8 sm:px-12 py-4 sm:py-5 min-h-[48px] rounded-full font-bold text-lg sm:text-xl shadow-trayko-md hover:scale-105 active:scale-95 transition-all w-full max-w-sm sm:w-auto sm:max-w-none mx-auto inline-flex items-center justify-center"
         >
           Descargar y publicar mi viaje
         </a>
