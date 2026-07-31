@@ -364,6 +364,7 @@ import {
 
 <script>
   import { submitDriverLead } from "../scripts/driver-lead";
+  import { fetchCities } from "../scripts/hero-search";
 
   const form = document.getElementById(
     "driver-lead-form",
@@ -372,6 +373,33 @@ import {
     "driver-lead-submit",
   ) as HTMLButtonElement | null;
   const statusEl = document.getElementById("driver-lead-status");
+  const citySelect = document.getElementById(
+    "driver-lead-city",
+  ) as HTMLSelectElement | null;
+
+  fetchCities().then((cities) => {
+    if (!citySelect || cities.length === 0) return;
+
+    const byDepartment = new Map<string, typeof cities>();
+    for (const city of cities) {
+      const group = byDepartment.get(city.departmentName) ?? [];
+      group.push(city);
+      byDepartment.set(city.departmentName, group);
+    }
+
+    citySelect.innerHTML = "";
+    for (const [departmentName, departmentCities] of byDepartment) {
+      const optgroup = document.createElement("optgroup");
+      optgroup.label = departmentName;
+      for (const city of departmentCities) {
+        const option = document.createElement("option");
+        option.value = city.cityName;
+        option.textContent = city.cityName;
+        optgroup.appendChild(option);
+      }
+      citySelect.appendChild(optgroup);
+    }
+  });
 
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
