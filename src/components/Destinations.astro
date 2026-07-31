@@ -10,15 +10,15 @@ import { CaretLeft, CaretRight } from '@phosphor-icons/react/dist/ssr';
             <p class="text-on-surface-variant font-medium text-sm sm:text-base">Trayectos donde la comunidad Trayko comparte mas viajes cada semana</p>
         </div>
         <div class="flex gap-3 shrink-0">
-            <button type="button" class="min-w-[44px] min-h-[44px] rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all" aria-label="Anterior">
+            <button type="button" id="rutas-prev" class="min-w-[44px] min-h-[44px] rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all" aria-label="Anterior">
                 <CaretLeft size={20} />
             </button>
-            <button type="button" class="min-w-[44px] min-h-[44px] rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all" aria-label="Siguiente">
+            <button type="button" id="rutas-next" class="min-w-[44px] min-h-[44px] rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all" aria-label="Siguiente">
                 <CaretRight size={20} />
             </button>
         </div>
     </div>
-    <div class="flex gap-4 sm:gap-8 overflow-x-auto hide-scrollbar pb-8 sm:pb-12 snap-x snap-mandatory px-1 sm:px-4 justify-start sm:justify-center -mx-1 sm:mx-0">
+    <div id="rutas-track" class="flex gap-4 sm:gap-8 overflow-x-auto hide-scrollbar pb-8 sm:pb-12 snap-x snap-mandatory px-1 sm:px-4 justify-start sm:justify-center -mx-1 sm:mx-0">
         <!-- Route Card 1 -->
         <div class="w-[85vw] max-w-[340px] shrink-0 md:w-[450px] md:max-w-none aspect-[4/5] relative rounded-xl overflow-hidden snap-center snap-always group">
             <img alt="Eje Cafetero paisaje" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Hermoso paisaje del Eje Cafetero con montañas verdes y plantaciones de café" src="https://images.unsplash.com/photo-1737914692082-a421d0a39b81?auto=format&fit=crop&w=1200&q=80" loading="lazy" decoding="async"/>
@@ -36,7 +36,7 @@ import { CaretLeft, CaretRight } from '@phosphor-icons/react/dist/ssr';
         </div>
         <!-- Route Card 2 -->
         <div class="w-[85vw] max-w-[340px] shrink-0 md:w-[450px] md:max-w-none aspect-[4/5] relative rounded-xl overflow-hidden snap-center snap-always group">
-            <img alt="Cartagena vista costera" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Vista panorámica de Cartagena con su centro histórico y el mar Caribe" src="https://images.unsplash.com/photo-1715503486591-39e62f58a7b3?auto=format&fit=crop&w=1200&q=80" loading="lazy" decoding="async"/>
+            <img alt="Centro histórico de Cartagena" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Calle del centro histórico de Cartagena con la cúpula de la catedral al fondo" src="https://images.unsplash.com/photo-1780403271384-e2695e549220?auto=format&fit=crop&w=1200&q=80" loading="lazy" decoding="async"/>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div class="min-w-0">
@@ -66,3 +66,20 @@ import { CaretLeft, CaretRight } from '@phosphor-icons/react/dist/ssr';
         </div>
     </div>
 </section>
+
+<script>
+    const track = document.getElementById('rutas-track');
+    const prevBtn = document.getElementById('rutas-prev');
+    const nextBtn = document.getElementById('rutas-next');
+
+    function scrollByCard(direction: number) {
+        if (!track) return;
+        const card = track.querySelector<HTMLElement>(':scope > div');
+        const gap = parseFloat(getComputedStyle(track).columnGap || '0');
+        const amount = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.85;
+        track.scrollBy({ left: direction * amount, behavior: 'smooth' });
+    }
+
+    prevBtn?.addEventListener('click', () => scrollByCard(-1));
+    nextBtn?.addEventListener('click', () => scrollByCard(1));
+</script>

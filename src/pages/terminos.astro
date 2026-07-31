@@ -4,46 +4,279 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import { WhatsappLogo, Envelope } from '@phosphor-icons/react/dist/ssr';
 
+const LINK = 'underline decoration-primary-container/50 hover:decoration-primary-container text-inherit';
+
 const SECTIONS = [
     {
-        title: '1. Aceptación de los términos',
-        body: 'Texto de prueba. Al crear una cuenta o utilizar la plataforma Trayko, el usuario acepta los presentes términos y condiciones en su totalidad. Este contenido es provisional y será reemplazado por el texto legal definitivo.',
+        title: '0. Identificación del prestador del servicio',
+        body: `
+            <p class="mb-3">Trayko es operada por <strong>Luis Enrique Soraca Benthan</strong>, persona natural identificada con cédula de ciudadanía No. 1.007.819.421, con domicilio en Barranquilla, Atlántico, Colombia, quien actúa bajo el nombre comercial <strong>"Trayko"</strong> (en adelante, "Trayko", "la Plataforma" o "nosotros").</p>
+            <p class="mb-3">Si Trayko se constituye posteriormente como sociedad, la información de identificación del prestador del servicio será actualizada con la razón social, el NIT y el domicilio correspondientes, sin afectar la validez ni la continuidad de las relaciones contractuales existentes.</p>
+            <p><strong>Canales de contacto oficiales:</strong> <a class="${LINK}" href="mailto:privacidad@trayko.co">privacidad@trayko.co</a> · <a class="${LINK}" href="mailto:soporte@trayko.co">soporte@trayko.co</a> · WhatsApp: <a class="${LINK}" href="https://wa.me/573017727930" target="_blank" rel="noopener noreferrer">+57 301 772 7930</a></p>
+        `,
     },
     {
-        title: '2. Descripción del servicio',
-        body: 'Texto de prueba. Trayko es una plataforma que conecta a conductores y pasajeros para compartir gastos de viajes intermunicipales. Trayko no presta servicios de transporte público ni actúa como transportador.',
+        title: '1. Objeto y aceptación',
+        body: `
+            <p class="mb-3"><strong>1.1.</strong> Estos Términos y Condiciones (los "Términos") regulan el acceso y uso de la aplicación móvil y demás plataformas digitales de <strong>Trayko</strong> (la "Plataforma"), mediante las cuales se facilita el contacto entre personas que ofrecen cupos disponibles en un vehículo particular para realizar un viaje ("Conductores") y personas interesadas en reservar esos cupos ("Pasajeros"), bajo un modelo de viajes compartidos (carpooling).</p>
+            <p class="mb-3"><strong>1.2.</strong> Al acceder a la Plataforma, crear una cuenta o utilizar cualquiera de sus funcionalidades, usted acepta estos Términos. Si no está de acuerdo con ellos, deberá abstenerse de acceder o utilizar la Plataforma.</p>
+            <p><strong>1.3.</strong> Para utilizar la Plataforma también deberá aceptar la <a class="${LINK}" href="/privacidad">Política de Privacidad</a>, la <a class="${LINK}" href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a> y la Autorización para el Tratamiento de Datos Personales, las cuales hacen parte integral de estos Términos.</p>
+        `,
     },
     {
-        title: '3. Registro y cuenta de usuario',
-        body: 'Texto de prueba. El usuario es responsable de la veracidad de la información suministrada durante el registro, así como de la custodia de sus credenciales de acceso.',
+        title: '2. Definiciones',
+        body: `
+            <ul class="list-disc pl-5 space-y-1.5">
+                <li><strong>Usuario:</strong> persona natural registrada en la Plataforma, ya sea como Conductor o Pasajero.</li>
+                <li><strong>Conductor:</strong> Usuario verificado que publica Viajes y ofrece cupos disponibles en su vehículo particular.</li>
+                <li><strong>Pasajero:</strong> Usuario que solicita o reserva uno o más cupos en un Viaje publicado por un Conductor.</li>
+                <li><strong>Viaje:</strong> recorrido publicado por un Conductor que incluye, como mínimo, origen, destino, fecha, hora y cupos disponibles.</li>
+                <li><strong>Reserva:</strong> solicitud realizada por un Pasajero para ocupar uno o más cupos en un Viaje, sujeta a la aceptación del Conductor.</li>
+                <li><strong>Billetera:</strong> saldo disponible asociado a la cuenta de un Usuario para recibir reembolsos y otros créditos conforme a estos Términos.</li>
+                <li><strong>Comisión de plataforma:</strong> porcentaje que Trayko retiene del valor de cada Reserva pagada como contraprestación por el servicio de intermediación tecnológica.</li>
+            </ul>
+        `,
     },
     {
-        title: '4. Uso de la plataforma',
-        body: 'Texto de prueba. El usuario se compromete a utilizar la plataforma de forma lícita, respetuosa y conforme a la normativa colombiana vigente, absteniéndose de realizar conductas fraudulentas o abusivas.',
+        title: '3. Naturaleza del servicio',
+        body: `
+            <p class="mb-3"><strong>3.1.</strong> Trayko es una plataforma tecnológica de intermediación que facilita el contacto entre Conductores y Pasajeros para organizar viajes compartidos entre particulares (carpooling). Trayko no presta servicios de transporte, no actúa como empresa transportadora y no mantiene una relación laboral, comercial o de representación con los Conductores respecto de la ejecución de los Viajes.</p>
+            <p class="mb-3"><strong>3.2.</strong> Cada Conductor es responsable de contar con la licencia de conducción, el SOAT, los demás documentos y seguros exigidos por la ley, así como de cumplir la normativa aplicable para conducir su vehículo y realizar el Viaje. Asimismo, es el único responsable de la forma en que conduce y ejecuta cada Viaje.</p>
+            <p class="mb-3"><em>(Trayko actúa exclusivamente como una plataforma tecnológica de intermediación y no mantiene con los Conductores una relación laboral, de subordinación, agencia, mandato, representación o cualquier otra que implique que estos actúen en nombre o por cuenta de Trayko para la prestación del servicio de transporte. La relación entre Trayko y los Conductores se limita al uso de la Plataforma y a la prestación de los servicios de intermediación tecnológica regulados en estos Términos y Condiciones.)</em></p>
+            <p><strong>3.3.</strong> Al momento de la publicación de estos Términos, la legislación colombiana no contempla una habilitación específica para plataformas tecnológicas de intermediación de viajes compartidos entre particulares como Trayko. Si en el futuro la normativa exige algún registro, autorización o habilitación para este modelo de negocio, Trayko adoptará las medidas razonables para cumplir con dichas obligaciones. Los Conductores deberán utilizar vehículos particulares, respetar su capacidad autorizada y cumplir la normativa de tránsito y transporte que les resulte aplicable.</p>
+        `,
     },
     {
-        title: '5. Pagos y comisiones',
-        body: 'Texto de prueba. Los montos, comisiones de plataforma y métodos de pago aplicables se describirán aquí con el detalle definitivo una vez sea suministrado por el equipo legal.',
+        title: '4. Capacidad y elegibilidad',
+        body: `
+            <p class="mb-3"><strong>4.1.</strong> El uso de la Plataforma, tanto como Pasajero como Conductor, está limitado a personas mayores de 18 años. Al crear una cuenta, el Usuario declara ser mayor de edad. Si Trayko tiene indicios razonables de que una cuenta pertenece a un menor de edad, podrá suspenderla o eliminarla.</p>
+            <p><strong>4.2.</strong> Para publicar Viajes como Conductor se requiere contar con una licencia de conducción vigente, disponer de un vehículo tipo automóvil, camioneta o similar, modelo 2006 o posterior, y superar el proceso de verificación previsto en la cláusula 8. Trayko podrá modificar estos requisitos cuando resulte necesario, siempre que ello sea compatible con la legislación aplicable y se comunique a los Usuarios conforme a la cláusula 25. Estos requisitos corresponden a políticas internas de la Plataforma y no constituyen requisitos legales para la prestación del servicio de transporte.</p>
+        `,
     },
     {
-        title: '6. Cancelaciones y reembolsos',
-        body: 'Texto de prueba. Las condiciones para cancelar un viaje, los plazos aplicables y la política de reembolsos se documentarán en esta sección.',
+        title: '5. Registro y cuenta de usuario',
+        body: `
+            <p class="mb-3"><strong>5.1.</strong> Para utilizar la Plataforma deberá crear una cuenta y proporcionar información veraz, completa y actualizada, incluyendo su nombre y número de teléfono. De forma opcional, podrá registrar una dirección de correo electrónico y una foto de perfil. El número de teléfono deberá verificarse mediante un código de un solo uso (OTP) o a través de la autenticación con Google o Apple.</p>
+            <p class="mb-3"><strong>5.2.</strong> El Usuario es responsable de mantener la confidencialidad de sus credenciales de acceso y de toda la actividad realizada desde su cuenta.</p>
+            <p><strong>5.3.</strong> Una misma cuenta puede utilizarse tanto como Pasajero como Conductor, siempre que el Usuario cumpla los requisitos aplicables para cada rol.</p>
+        `,
     },
     {
-        title: '7. Responsabilidad',
-        body: 'Texto de prueba. Trayko actúa como intermediario tecnológico y no se hace responsable por hechos ocurridos durante la ejecución del viaje entre conductor y pasajero, salvo lo que la ley disponga.',
+        title: '6. Comunicaciones electrónicas',
+        body: `
+            <p class="mb-3"><strong>6.1.</strong> El Usuario acepta que Trayko pueda enviar comunicaciones relacionadas con el funcionamiento de la Plataforma, su cuenta, Reservas, Viajes, pagos, seguridad, verificación de identidad, recuperación de acceso, modificaciones de estos Términos y demás avisos necesarios para la prestación del servicio. Estas comunicaciones podrán enviarse mediante notificaciones dentro de la Plataforma, correo electrónico, SMS, WhatsApp u otros medios de contacto registrados por el Usuario.</p>
+            <p><strong>6.2.</strong> Cuando el Usuario haya otorgado la autorización correspondiente, Trayko también podrá enviar comunicaciones de carácter informativo, promocional o de mercadeo relacionadas con la Plataforma, sus funcionalidades, beneficios, programas de referidos, alianzas comerciales y otras novedades. El Usuario podrá retirar esta autorización o darse de baja de estas comunicaciones en cualquier momento, sin que ello afecte las comunicaciones necesarias para la prestación del servicio o el cumplimiento de obligaciones legales.</p>
+        `,
     },
     {
-        title: '8. Propiedad intelectual',
-        body: 'Texto de prueba. Todos los derechos sobre la marca, el software y los contenidos de Trayko pertenecen a sus titulares y están protegidos por la legislación colombiana.',
+        title: '7. Prohibiciones de uso',
+        body: `
+            <p class="mb-3"><strong>7.1.</strong> El Usuario se compromete a no:</p>
+            <ul class="list-disc pl-5 space-y-1.5 mb-3">
+                <li>proporcionar información falsa, inexacta o engañosa al registrarse o al usar la Plataforma;</li>
+                <li>crear o utilizar múltiples cuentas para eludir restricciones, sanciones o limitaciones impuestas por Trayko;</li>
+                <li>utilizar la Plataforma para actividades ilícitas o contrarias a la ley;</li>
+                <li>publicar Viajes inexistentes o información falsa sobre un Viaje;</li>
+                <li>utilizar medios automatizados, bots, scripts u otras herramientas para acceder a la Plataforma o extraer información de ella sin autorización de Trayko;</li>
+                <li>interferir con el funcionamiento normal de la Plataforma o intentar vulnerar sus medidas de seguridad;</li>
+                <li>suplantar la identidad de otra persona o entidad, o falsear su afiliación con alguna de ellas;</li>
+                <li>utilizar la Plataforma para acosar, amenazar o discriminar a otros Usuarios.</li>
+            </ul>
+            <p><strong>7.2.</strong> El incumplimiento de esta cláusula podrá dar lugar a las medidas previstas en la cláusula 15, sin perjuicio de las demás acciones legales que correspondan.</p>
+        `,
     },
     {
-        title: '9. Modificaciones',
-        body: 'Texto de prueba. Trayko podrá actualizar estos términos en cualquier momento. Se notificará a los usuarios sobre cambios sustanciales a través de la aplicación o el correo registrado.',
+        title: '8. Verificación de Conductores',
+        body: `
+            <p class="mb-3"><strong>8.1.</strong> Para publicar Viajes, el Conductor deberá completar un proceso de verificación de identidad y documentación que podrá incluir, entre otros, el documento de identidad, la fecha de nacimiento, la licencia de conducción, el certificado de antecedentes penales y los documentos del vehículo, como el SOAT y la tarjeta de propiedad.</p>
+            <p class="mb-3"><strong>8.2.</strong> La verificación de identidad se realiza con el apoyo de un proveedor externo especializado y la documentación es revisada por el equipo de Trayko. Aunque este proceso contribuye a reducir el riesgo de fraude, <strong>Trayko no garantiza la identidad, la conducta, la idoneidad ni la autenticidad de la información o los documentos aportados por los Conductores</strong>, ni elimina todos los riesgos asociados al uso de la Plataforma.</p>
+            <p class="mb-3"><strong>8.3.</strong> Un Conductor podrá asociar uno o más vehículos a su cuenta. Cada vehículo deberá superar un proceso de verificación independiente antes de poder utilizarse para publicar Viajes.</p>
+            <p><strong>8.4.</strong> Podremos modificar los requisitos o el proceso de verificación cuando resulte necesario. Siempre que sea razonable, informaremos los cambios con antelación y otorgaremos un plazo para que los Conductores ya verificados puedan adaptarse. No obstante, cuando los cambios respondan a razones de seguridad, cumplimiento legal o prevención del fraude, podrán aplicarse de forma inmediata.</p>
+        `,
     },
     {
-        title: '10. Ley aplicable y jurisdicción',
-        body: 'Texto de prueba. Estos términos se rigen por las leyes de la República de Colombia. Cualquier controversia se someterá a los jueces competentes de Colombia.',
+        title: '9. Publicación, búsqueda y reserva de Viajes',
+        body: `
+            <p class="mb-3"><strong>9.1.</strong> El Conductor es el único responsable de la información publicada sobre cada Viaje, incluyendo el origen, destino, fecha, hora, precio y número de cupos disponibles.</p>
+            <p class="mb-3"><strong>9.2.</strong> El Pasajero podrá buscar Viajes disponibles y solicitar una Reserva. Cuando el Conductor haya habilitado la confirmación automática para un Viaje, la Reserva quedará confirmada tan pronto el Pasajero complete el pago. En los demás casos, la Reserva solo quedará confirmada cuando sea aceptada expresamente por el Conductor y el Pasajero complete el pago.</p>
+            <p><strong>9.3.</strong> Para facilitar la coordinación e identificación entre los participantes de un mismo Viaje, la Plataforma podrá compartir entre el Conductor y los Pasajeros información como el nombre, la foto de perfil, el número de teléfono, la placa y los datos del vehículo. Parte de esta información también podrá mostrarse en los resultados de búsqueda, conforme a la <a class="${LINK}" href="/privacidad">Política de Privacidad</a>.</p>
+        `,
+    },
+    {
+        title: '10. Pagos y comisión de plataforma',
+        body: `
+            <p class="mb-3"><strong>10.1.</strong> Cuando una Reserva requiera aceptación del Conductor, la solicitud de pago se generará una vez esta sea aceptada. Si el Viaje tiene habilitada la confirmación automática, la solicitud de pago se generará inmediatamente después de que el Pasajero solicite la Reserva. El Pasajero podrá pagar con el saldo disponible en la Billetera o mediante tarjeta a través de la pasarela de pagos <strong>Wompi</strong>. Dispondrá de un plazo de tres (3) horas para completar el pago. Si no lo hace dentro de ese plazo, la Reserva se cancelará automáticamente y el cupo volverá a estar disponible.</p>
+            <p class="mb-3"><strong>10.2.</strong> Por cada Reserva pagada, Trayko retendrá una comisión de plataforma equivalente al quince por ciento (15%) del valor total, la cual se descontará del monto que corresponda al Conductor. Nos reservamos el derecho de modificar este porcentaje en el futuro. Cualquier cambio será comunicado con antelación razonable conforme a la cláusula 25 y solo se aplicará a las Reservas realizadas después de su entrada en vigor.</p>
+            <p class="mb-3"><strong>10.3.</strong> Salvo que se indique expresamente, la comisión de plataforma será la misma para todos los Usuarios y no variará según la ciudad, el volumen de Viajes u otros criterios.</p>
+            <p class="mb-3"><strong>10.4.</strong> Los costos o comisiones cobrados por Wompi por el procesamiento de los pagos serán asumidos por Trayko, salvo que se informe expresamente lo contrario antes de realizar la transacción.</p>
+            <p class="mb-3"><strong>10.5.</strong> El pago realizado a través de la Plataforma corresponde exclusivamente al valor de la Reserva. Cualquier acuerdo económico adicional celebrado directamente entre el Conductor y el Pasajero será de su exclusiva responsabilidad y no será gestionado, verificado ni respaldado por Trayko.</p>
+            <p class="mb-3"><strong>10.6.</strong> Si la normativa tributaria aplicable exige la emisión de facturas, comprobantes u otros documentos adicionales relacionados con los pagos gestionados a través de la Plataforma, Trayko los emitirá o pondrá a disposición de los Usuarios en los casos en que resulte legalmente obligatorio.</p>
+            <p>Los comprobantes o recibos de pago emitidos por el proveedor de servicios de pago (Wompi) constituyen únicamente un soporte de la transacción realizada y no sustituyen la factura electrónica de venta o el documento equivalente cuando estos sean exigidos por la legislación tributaria colombiana. Cada parte obligada a facturar será responsable de expedir la correspondiente factura electrónica o documento equivalente, de conformidad con el Estatuto Tributario, el Decreto 1625 de 2016, las resoluciones de la DIAN y las demás normas que las modifiquen o sustituyan.</p>
+        `,
+    },
+    {
+        title: '11. Billetera',
+        body: `
+            <p class="mb-3"><strong>11.1.</strong> Salvo que estos Términos o la ley dispongan lo contrario, los reembolsos se abonarán como saldo en la Billetera del Usuario.</p>
+            <p><strong>11.2.</strong> La Billetera permite almacenar el saldo disponible del Usuario para utilizarlo en futuras Reservas. Este saldo podrá provenir de reembolsos, créditos promocionales o beneficios otorgados por Trayko, como los programas de referidos. Actualmente, la Billetera no admite recargas mediante tarjeta ni otros medios de pago.</p>
+        `,
+    },
+    {
+        title: '12. Desarrollo del Viaje',
+        body: `
+            <p class="mb-3"><strong>12.1.</strong> Al abordar el vehículo, el Pasajero deberá presentar el código de abordaje generado para su Reserva, y el Conductor deberá verificarlo antes de iniciar el Viaje. Este código constituye un mecanismo de validación de la Reserva y de prevención del fraude.</p>
+            <p><strong>12.2.</strong> Durante el Viaje, la coordinación entre el Conductor y el Pasajero se realizará a través de las funcionalidades disponibles en la Plataforma. Trayko podrá incorporar nuevas herramientas para mejorar la experiencia y la seguridad de los Usuarios, las cuales se regirán por estos Términos y por la Política de Privacidad cuando impliquen el tratamiento de datos personales.</p>
+        `,
+    },
+    {
+        title: '13. Cancelaciones',
+        body: `
+            <p class="mb-2"><strong>13.1. Cancelación por el Pasajero.</strong> Una Reserva ya aceptada por el Conductor solo puede cancelarse mientras el Viaje se encuentre programado (esto es, antes de su inicio), con las siguientes consecuencias según la anticipación respecto de la hora de salida:</p>
+            <div class="overflow-x-auto mb-3 rounded-xl border border-surface-container-low">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-surface-container-low">
+                            <th class="text-left font-bold p-3">Anticipación de la cancelación</th>
+                            <th class="text-left font-bold p-3">Reembolso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-surface-container-low">
+                            <td class="p-3">24 horas o más antes de la salida</td>
+                            <td class="p-3">100% a Billetera</td>
+                        </tr>
+                        <tr class="border-t border-surface-container-low">
+                            <td class="p-3">Entre 2 y 24 horas antes de la salida</td>
+                            <td class="p-3">50% a Billetera</td>
+                        </tr>
+                        <tr class="border-t border-surface-container-low">
+                            <td class="p-3">Menos de 2 horas antes de la salida</td>
+                            <td class="p-3">Sin reembolso</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-2"><strong>13.2. Cancelación por el Conductor.</strong></p>
+            <ul class="list-disc pl-5 space-y-1.5 mb-3">
+                <li>Si el Conductor cancela el Viaje sin tener Pasajeros con Reserva confirmada, no recibe ninguna sanción.</li>
+                <li>Si el Conductor cancela con Pasajeros confirmados y con 24 horas o más de anticipación a la salida, la cancelación afecta su reputación en la Plataforma conforme a la cláusula 15.</li>
+                <li>Si el Conductor cancela con Pasajeros confirmados y con menos de 24 horas de anticipación, solo puede hacerlo a través del mecanismo de cancelación de emergencia (cláusula 13.3), y en todo caso queda sujeto a penalización conforme a la cláusula 15.</li>
+            </ul>
+            <p class="mb-3"><strong>13.3. Reporte de incidencias durante el Viaje.</strong> Si durante un Viaje ocurre una situación que impida continuar con normalidad (por ejemplo, una avería del vehículo, una emergencia o un incidente de seguridad), el Conductor podrá reportarla a través del mecanismo de reporte de incidencias disponible en la Plataforma. Una vez recibido el reporte, el equipo de Trayko evaluará la información y las evidencias disponibles para determinar las medidas que correspondan, incluyendo, cuando proceda, el reembolso total o parcial de la Reserva a los Pasajeros afectados y la aplicación de las medidas previstas en la cláusula 15.</p>
+            <p><strong>13.4.</strong> Trayko no aplica un número fijo de cancelaciones como umbral automático de sanción. En su lugar, evalúa la frecuencia, el motivo y el impacto de las cancelaciones en otros Usuarios. Cancelaciones reiteradas, en particular las realizadas con menos de 24 horas de anticipación habiendo Pasajeros confirmados, pueden derivar en advertencia, restricción temporal para publicar o reservar Viajes, o suspensión de la cuenta, conforme al esquema de moderación de la cláusula 15.</p>
+        `,
+    },
+    {
+        title: '14. Reembolsos',
+        body: `
+            <p class="mb-3"><strong>14.1. Inasistencia (no-show).</strong> Si el Pasajero no se presenta a abordar el Viaje ("no-show"), no tiene derecho a reembolso, salvo que presente una justificación válida (por ejemplo, una emergencia debidamente soportada), que Trayko evaluará caso por caso.</p>
+            <p class="mb-3"><strong>14.2.</strong> Si Wompi rechaza, revierte o procesa un contracargo sobre un pago después de que el Viaje haya iniciado, Trayko revisará el caso de forma individual y adoptará las medidas que correspondan conforme a estos Términos, sin perjuicio de las acciones que pueda ejercer frente al Conductor o al Pasajero involucrado de acuerdo con la cláusula 19.</p>
+            <p><strong>14.3.</strong> Los reembolsos derivados de reportes de incidencias u otras situaciones que requieran una evaluación del caso no se procesan de forma automática. Cada solicitud será revisada por el equipo de Trayko antes de decidir si corresponde un reembolso total, parcial o ningún reembolso.</p>
+        `,
+    },
+    {
+        title: '15. Reportes, moderación y sanciones',
+        body: `
+            <p class="mb-3"><strong>15.1.</strong> Cualquier Usuario podrá reportar un incidente relacionado con un Viaje, como comportamientos inadecuados, problemas de seguridad o incumplimientos de estos Términos. Los reportes serán revisados por el equipo de Trayko y se atenderán según su naturaleza, gravedad y el riesgo que representen para los Usuarios. No garantizamos un plazo específico de respuesta.</p>
+            <p class="mb-3"><strong>15.2.</strong> Cuando se reporte una presunta agresión o un incidente grave de seguridad, podremos suspender preventivamente la cuenta del Usuario involucrado mientras realizamos la evaluación correspondiente. Cuando resulte necesario o exista una obligación legal, también podremos colaborar con las autoridades competentes y suministrar la información que la ley permita.</p>
+            <p class="mb-3"><strong>15.3.</strong> Podremos suspender o cancelar la cuenta de un Usuario cuando detectemos incumplimientos de estos Términos, conductas que pongan en riesgo a otros Usuarios o, tras evaluar los reportes y demás información disponible, consideremos que la medida es necesaria para proteger la seguridad o el correcto funcionamiento de la Plataforma. No existen umbrales automáticos de calificaciones o reportes que den lugar a una sanción; cada caso se evalúa de manera individual.</p>
+            <p class="mb-3"><strong>15.4.</strong> Según las circunstancias de cada caso, podremos aplicar una o varias de las siguientes medidas: advertencias, restricciones temporales de determinadas funcionalidades, suspensión temporal o cancelación definitiva de la cuenta.</p>
+            <p><strong>15.5.</strong> Si el Usuario considera que una medida fue aplicada por error, podrá solicitar su revisión a través de los canales de soporte. Revisaremos la información y las evidencias disponibles antes de adoptar una decisión definitiva.</p>
+        `,
+    },
+    {
+        title: '16. Calificaciones y reseñas',
+        body: `
+            <p class="mb-3"><strong>16.1.</strong> Al finalizar un Viaje, el Conductor y el Pasajero podrán calificarse mutuamente y dejar un comentario. Las calificaciones y reseñas se publican automáticamente, sin revisión previa, y podrán ser visibles para los demás Usuarios de la Plataforma.</p>
+            <p><strong>16.2.</strong> Podremos revisar, ocultar o eliminar una calificación o reseña cuando, a partir de un reporte o de nuestros propios procesos de revisión, determinemos que infringe estos Términos o la legislación aplicable.</p>
+        `,
+    },
+    {
+        title: '17. Seguridad',
+        body: `
+            <p class="mb-3"><strong>17.1.</strong> El Usuario podrá registrar uno o más contactos de emergencia de forma opcional. En caso de un incidente o una situación de emergencia, podremos intentar comunicarnos con ellos cuando lo consideremos razonablemente necesario. El registro de estos contactos no garantiza que podamos establecer comunicación con ellos ni constituye un servicio de respuesta o asistencia en emergencias.</p>
+            <p class="mb-3"><strong>17.2.</strong> La Plataforma cuenta con un botón de emergencia (SOS) que permite al Usuario llamar, previa confirmación, a la línea oficial de emergencias correspondiente (123 en Colombia). Esta funcionalidad únicamente facilita el acceso a dicho servicio y no implica que Trayko preste servicios de emergencia, seguridad o monitoreo, ni que reciba notificación de la llamada o del incidente.</p>
+            <p><strong>17.3.</strong> Como parte de nuestras medidas de seguridad, verificamos la identidad y la documentación de los Conductores conforme al proceso descrito en la cláusula 8. Estas verificaciones buscan reducir el riesgo de fraude, pero no garantizan la identidad, conducta o idoneidad de los Conductores, ni eliminan todos los riesgos asociados al uso de la Plataforma.</p>
+        `,
+    },
+    {
+        title: '18. Responsabilidad de Trayko',
+        body: `
+            <p class="mb-3"><strong>18.1.</strong> Trayko actúa exclusivamente como plataforma tecnológica de intermediación entre Conductores y Pasajeros. En consecuencia, no presta servicios de transporte ni forma parte de la relación que se establece entre ellos para la realización del Viaje. Salvo en los casos previstos por la ley o por estos Términos, Trayko no es responsable de la conducción del vehículo, del cumplimiento del Viaje ni de los hechos ocurridos durante su ejecución, incluidos accidentes de tránsito, retrasos o el incumplimiento de las obligaciones del Conductor. En caso de un siniestro de tránsito, la atención y cobertura corresponderán a los seguros legalmente aplicables, como el SOAT y los demás seguros contratados por el Conductor. Actualmente, Trayko no ofrece un seguro adicional para estos eventos.</p>
+            <p class="mb-3"><strong>18.2.</strong> En la medida permitida por la legislación aplicable, la responsabilidad de Trayko se limita a los daños directos que sean consecuencia de un incumplimiento atribuible a la Plataforma. En ningún caso seremos responsables por daños indirectos, incidentales, consecuenciales, especiales o por lucro cesante, salvo cuando la ley disponga lo contrario.</p>
+            <p><strong>18.3.</strong> La Plataforma depende de servicios prestados por terceros para su funcionamiento, como el procesamiento de pagos, la verificación de identidad o los servicios de infraestructura tecnológica. Trayko no será responsable por interrupciones, fallas o decisiones atribuibles a dichos proveedores. No obstante, adoptaremos medidas razonables para reducir su impacto y, cuando sea posible, restablecer el funcionamiento normal de la Plataforma.</p>
+        `,
+    },
+    {
+        title: '19. Fraude, contracargos y uso indebido de medios de pago',
+        body: `
+            <p><strong>19.1.</strong> Si, como consecuencia de una conducta fraudulenta o de un incumplimiento atribuible a un Conductor, Trayko debe asumir un contracargo, una reversión de pago o cualquier otra pérdida frente a un proveedor de pagos, podremos compensar dichos valores con saldos o pagos pendientes a favor del Conductor, o exigir su reembolso, sin perjuicio de las demás acciones legales que correspondan.</p>
+        `,
+    },
+    {
+        title: '20. Disponibilidad de la Plataforma',
+        body: `
+            <p><strong>20.1.</strong> La Plataforma podrá estar temporalmente fuera de servicio por mantenimiento, actualizaciones, fallas técnicas o causas ajenas a Trayko. No garantizamos disponibilidad continua ni ininterrumpida del servicio.</p>
+        `,
+    },
+    {
+        title: '21. Fuerza mayor',
+        body: `
+            <p><strong>21.1.</strong> Trayko no será responsable por el incumplimiento o retraso en sus obligaciones cuando ello sea consecuencia de hechos fuera de su control razonable, como desastres naturales, fallas generalizadas de internet, interrupciones del servicio eléctrico, actos de autoridad, conflictos armados o eventos similares.</p>
+        `,
+    },
+    {
+        title: '22. Servicios y proveedores de terceros',
+        body: `
+            <p><strong>22.1.</strong> Para operar la Plataforma utilizamos servicios prestados por terceros, entre ellos proveedores de procesamiento de pagos, verificación de identidad, autenticación, infraestructura tecnológica, mapas y rutas, mensajería y correo electrónico. Estos servicios son prestados por terceros independientes y su disponibilidad no depende de Trayko. Si alguno de ellos suspende, modifica o deja de prestar sus servicios, podremos reemplazarlo, adaptar la Plataforma o modificar las funcionalidades afectadas, procurando minimizar el impacto para los Usuarios cuando sea razonablemente posible.</p>
+        `,
+    },
+    {
+        title: '23. Propiedad intelectual',
+        body: `
+            <p><strong>23.1.</strong> La Plataforma, incluyendo su software, diseño, marcas, logotipos, contenido y demás elementos protegidos por derechos de propiedad intelectual, son de titularidad de Trayko o de sus respectivos licenciantes. El uso de la Plataforma no transfiere al Usuario ningún derecho sobre dichos elementos, salvo una licencia limitada, personal, no exclusiva, revocable e intransferible para acceder y utilizar la Plataforma de conformidad con estos Términos.</p>
+        `,
+    },
+    {
+        title: '24. Terminación, suspensión y eliminación de cuenta',
+        body: `
+            <p class="mb-3"><strong>24.1.</strong> El Usuario podrá solicitar la eliminación de su cuenta a través de los canales de soporte indicados en estos Términos. Mientras la Plataforma no disponga de un mecanismo automatizado para ello, la solicitud será atendida manualmente dentro de los plazos previstos en la <a class="${LINK}" href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a>.</p>
+            <p><strong>24.2.</strong> Trayko podrá suspender o cancelar el acceso de un Usuario en los casos previstos en la cláusula 15 o cuando resulte necesario para cumplir una obligación legal o proteger la seguridad e integridad de la Plataforma o de sus Usuarios.</p>
+        `,
+    },
+    {
+        title: '25. Modificaciones a los Términos',
+        body: `
+            <p><strong>25.1.</strong> Podremos modificar estos Términos en cualquier momento. Los cambios sustanciales serán notificados a los Usuarios a través de la Plataforma o de los canales de contacto registrados, con antelación razonable a su entrada en vigencia. Cuando la modificación sea necesaria por razones de seguridad, cumplimiento legal o prevención de fraude, podrá aplicarse de forma inmediata. El uso continuado de la Plataforma tras la entrada en vigencia de los cambios implica su aceptación.</p>
+        `,
+    },
+    {
+        title: '26. Cesión',
+        body: `
+            <p><strong>26.1.</strong> Trayko podrá ceder estos Términos o los derechos y obligaciones derivados de ellos en caso de reorganización empresarial, fusión, adquisición o venta de activos, siempre respetando los derechos de los Usuarios.</p>
+        `,
+    },
+    {
+        title: '27. Ley aplicable y resolución de controversias',
+        body: `
+            <p class="mb-3"><strong>27.1.</strong> Estos Términos se rigen por las leyes de la República de Colombia.</p>
+            <p><strong>27.2.</strong> Cualquier controversia derivada de estos Términos o del uso de la Plataforma será resuelta ante los jueces competentes de la jurisdicción ordinaria colombiana.</p>
+        `,
+    },
+    {
+        title: '28. Disposiciones generales',
+        body: `
+            <p class="mb-3"><strong>28.1.</strong> Si alguna disposición de estos Términos es declarada inválida o inexequible, las demás continuarán vigentes.</p>
+            <p class="mb-3"><strong>28.2.</strong> La falta de ejercicio por parte de Trayko de algún derecho previsto en estos Términos no implica renuncia al mismo.</p>
+            <p><strong>28.3.</strong> Estos Términos, junto con la <a class="${LINK}" href="/privacidad">Política de Privacidad</a>, la <a class="${LINK}" href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a> y la Autorización de Tratamiento de Datos, constituyen el acuerdo íntegro entre el Usuario y Trayko respecto de su objeto.</p>
+        `,
+    },
+    {
+        title: '29. Contacto y soporte',
+        body: `
+            <p class="mb-3"><strong>29.1.</strong> Para preguntas sobre estos Términos, o para soporte relacionado con su cuenta, un Viaje, una Reserva o un pago: <a class="${LINK}" href="mailto:privacidad@trayko.co">privacidad@trayko.co</a> · <a class="${LINK}" href="mailto:soporte@trayko.co">soporte@trayko.co</a> · WhatsApp <a class="${LINK}" href="https://wa.me/573017727930" target="_blank" rel="noopener noreferrer">+57 301 772 7930</a>. Se atiende un único canal para todos los Usuarios, sin diferenciar entre Pasajeros y Conductores.</p>
+            <p><strong>29.2.</strong> Trayko no publica un plazo de respuesta garantizado para solicitudes de soporte; se atienden con prioridad según su naturaleza y gravedad (los temas de seguridad tienen prioridad sobre consultas generales), salvo las solicitudes relacionadas con datos personales, que se rigen por los plazos de la <a class="${LINK}" href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a>.</p>
+        `,
     },
 ];
 ---
@@ -56,16 +289,16 @@ const SECTIONS = [
             <div class="text-center mb-10 sm:mb-16">
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Términos y condiciones</h1>
                 <p class="text-on-surface-variant text-base sm:text-lg font-medium">
-                    Texto de prueba — este contenido es provisional y será reemplazado próximamente.
+                    Estos Términos y Condiciones regulan el uso de la Plataforma Trayko por Conductores y Pasajeros.
                 </p>
-                <p class="text-outline text-xs font-semibold uppercase tracking-wide mt-4">Última actualización: texto de prueba</p>
+                <p class="text-outline text-xs font-semibold uppercase tracking-wide mt-4">Última actualización: 27 de julio de 2026</p>
             </div>
 
             <div class="space-y-8 sm:space-y-10">
                 {SECTIONS.map((section) => (
                     <div class="bg-surface-container-lowest rounded-2xl border border-surface-container-low p-6 sm:p-8">
                         <h2 class="text-lg sm:text-xl font-bold mb-3">{section.title}</h2>
-                        <p class="text-on-surface-variant leading-relaxed">{section.body}</p>
+                        <div class="text-on-surface-variant leading-relaxed" set:html={section.body} />
                     </div>
                 ))}
             </div>

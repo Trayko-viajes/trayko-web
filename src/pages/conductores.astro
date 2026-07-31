@@ -1,15 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes } from '@phosphor-icons/react/dist/ssr';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import {
+  ShieldCheck,
+  PiggyBank,
+  Leaf,
+  Users,
+  CheckCircle,
+  Car,
+  Receipt,
+  Quotes,
+} from "@phosphor-icons/react/dist/ssr";
 ---
 
 <Layout>
   <Navbar />
 
   <!-- Hero Conductores -->
-  <section id="hero-conductores" class="relative pt-[calc(7.5rem+env(safe-area-inset-top,0px))] pb-14 sm:pb-20 md:pt-40 md:pb-32 overflow-hidden">
+  <section
+    id="hero-conductores"
+    class="relative pt-[calc(7.5rem+env(safe-area-inset-top,0px))] pb-14 sm:pb-20 md:pt-40 md:pb-32 overflow-hidden"
+  >
     <div class="absolute inset-0 z-0">
       <img
         alt="Trayko Background"
@@ -17,7 +29,10 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
         data-alt="Modern car traveling on highway at sunset"
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuANLm7IQZmqMejOeSPGWyyAM9HUF0oF2d3bnYkG4jjxF8laEua86LYk57cBc1KjRKJe-V-mlRljOl7gkibBmv9iZ3eCosLI09IM7Yc4yLl3JmDyaQ6TeyyNyrbE9R_Xn9ETd0S139r2TU0AXcsiK_gNti0QFkFkffZCfgNNkyfHDlp_B45naRmNs65X3Qlzu4SwjJfbDbY5SlRvkaeZSSlFFkMCXwo7v9Tq7APYI01tny6UBfl9qmeyyOM24WSod06sM4EPJwBUCqY"
       />
-      <div class="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background"
+      >
+      </div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -28,9 +43,12 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
             Publica tu ruta en
             <span class="text-gradient">Trayko</span>.
           </h1>
-          <p class="text-lg sm:text-xl md:text-2xl text-on-surface-variant max-w-xl leading-relaxed">
-            Conecta con pasajeros verificados que van a tu mismo destino en Colombia y recupera parte de
-            gasolina y peajes de manera colaborativa.
+          <p
+            class="text-lg sm:text-xl md:text-2xl text-on-surface-variant max-w-xl leading-relaxed"
+          >
+            Conecta con pasajeros verificados que van a tu mismo destino en
+            Colombia y recupera parte de gasolina y peajes de manera
+            colaborativa.
           </p>
           <div class="flex items-center gap-4 text-secondary font-bold">
             <ShieldCheck size={24} weight="fill" />
@@ -39,40 +57,64 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
         </div>
 
         <!-- Registration Form Card -->
-        <div class="glass-card p-6 sm:p-8 md:p-10 rounded-xl shadow-trayko-xl border border-white/20">
-          <h3 class="text-2xl font-bold mb-6 font-headline">Publica tu próximo viaje</h3>
-          <form class="space-y-4">
+        <div
+          class="glass-card p-6 sm:p-8 md:p-10 rounded-xl shadow-trayko-xl border border-white/20"
+        >
+          <h3 class="text-2xl font-bold mb-6 font-headline">
+            Publica tu próximo viaje
+          </h3>
+          <form id="driver-lead-form" class="space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="space-y-1.5">
-                <label class="text-sm font-bold text-on-surface-variant px-1">Nombre Completo</label>
+                <label class="text-sm font-bold text-on-surface-variant px-1"
+                  >Nombre Completo</label
+                >
                 <input
+                  id="driver-lead-name"
+                  name="name"
                   class="w-full bg-surface-container border-none rounded-lg p-4 focus:ring-2 focus:ring-primary-container transition-all"
                   placeholder="Ej: Juan Pérez"
                   type="text"
+                  required
                 />
               </div>
               <div class="space-y-1.5">
-                <label class="text-sm font-bold text-on-surface-variant px-1">Email</label>
+                <label class="text-sm font-bold text-on-surface-variant px-1"
+                  >Email</label
+                >
                 <input
+                  id="driver-lead-email"
+                  name="email"
                   class="w-full bg-surface-container border-none rounded-lg p-4 focus:ring-2 focus:ring-primary-container transition-all"
                   placeholder="juan@ejemplo.com"
                   type="email"
+                  required
                 />
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="space-y-1.5">
-                <label class="text-sm font-bold text-on-surface-variant px-1">Teléfono</label>
+                <label class="text-sm font-bold text-on-surface-variant px-1"
+                  >Teléfono</label
+                >
                 <input
+                  id="driver-lead-phone"
+                  name="phone"
                   class="w-full bg-surface-container border-none rounded-lg p-4 focus:ring-2 focus:ring-primary-container transition-all"
                   placeholder="+57 300 123 4567"
                   type="tel"
+                  required
                 />
               </div>
               <div class="space-y-1.5">
-                <label class="text-sm font-bold text-on-surface-variant px-1">Ciudad de Origen</label>
+                <label class="text-sm font-bold text-on-surface-variant px-1"
+                  >Ciudad de Origen</label
+                >
                 <select
+                  id="driver-lead-city"
+                  name="city"
                   class="w-full bg-surface-container border-none rounded-lg p-4 focus:ring-2 focus:ring-primary-container transition-all"
+                  required
                 >
                   <option>Bogota</option>
                   <option>Medellin</option>
@@ -82,14 +124,23 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
               </div>
             </div>
             <button
-              class="w-full text-on-secondary-container py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all shadow-trayko-md mt-4"
+              id="driver-lead-submit"
+              class="w-full text-on-secondary-container py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all shadow-trayko-md mt-4 disabled:opacity-60"
               style="background: linear-gradient(180deg, #2e2e2e 0%, #222222 60%, #2a2a2a 100%);"
               type="submit"
             >
               Empezar a compartir
             </button>
+            <p
+              id="driver-lead-status"
+              class="text-xs text-center mt-4"
+              role="status"
+              aria-live="polite"
+            >
+            </p>
             <p class="text-xs text-center text-on-surface-variant mt-4">
-              Trayko es una plataforma de carpooling para compartir gastos de viaje entre particulares.
+              Trayko es una plataforma de carpooling para compartir gastos de
+              viaje entre particulares.
             </p>
           </form>
         </div>
@@ -98,13 +149,19 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
   </section>
 
   <!-- Beneficios para conductores -->
-  <section id="beneficios" class="py-14 sm:py-20 md:py-24 bg-surface-container-low">
+  <section
+    id="beneficios"
+    class="py-14 sm:py-20 md:py-24 bg-surface-container-low"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 sm:mb-20">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline tracking-tight mb-4">
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline tracking-tight mb-4"
+        >
           ¿Por qué compartir en Trayko?
         </h2>
-        <div class="h-1.5 w-24 bg-secondary-container mx-auto rounded-full"></div>
+        <div class="h-1.5 w-24 bg-secondary-container mx-auto rounded-full">
+        </div>
       </div>
       <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
         <!-- Card 1 -->
@@ -116,9 +173,12 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
           >
             <PiggyBank size={36} className="text-on-secondary-container" />
           </div>
-          <h3 class="text-2xl font-bold mb-4 font-headline">Ahorro inteligente</h3>
+          <h3 class="text-2xl font-bold mb-4 font-headline">
+            Ahorro inteligente
+          </h3>
           <p class="text-on-surface-variant leading-relaxed">
-            Recupera parte de gasolina y peajes compartiendo cupos con personas que ya van a tu misma ruta.
+            Recupera parte de gasolina y peajes compartiendo cupos con personas
+            que ya van a tu misma ruta.
           </p>
         </div>
         <!-- Card 2 -->
@@ -132,8 +192,8 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
           </div>
           <h3 class="text-2xl font-bold mb-4 font-headline">Sostenibilidad</h3>
           <p class="text-on-surface-variant leading-relaxed">
-            Reduce la huella de carbono y ayuda a descongestionar las carreteras al usar mejor los asientos
-            disponibles de tu vehiculo.
+            Reduce la huella de carbono y ayuda a descongestionar las carreteras
+            al usar mejor los asientos disponibles de tu vehiculo.
           </p>
         </div>
         <!-- Card 3 -->
@@ -145,9 +205,12 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
           >
             <Users size={36} weight="fill" className="text-tertiary" />
           </div>
-          <h3 class="text-2xl font-bold mb-4 font-headline">Compañía en la ruta</h3>
+          <h3 class="text-2xl font-bold mb-4 font-headline">
+            Compañía en la ruta
+          </h3>
           <p class="text-on-surface-variant leading-relaxed">
-            Haz que tus viajes largos sean más amenos compartiendo con personas que viajan a tu mismo destino.
+            Haz que tus viajes largos sean más amenos compartiendo con personas
+            que viajan a tu mismo destino.
           </p>
         </div>
       </div>
@@ -167,23 +230,34 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1UOZthd1YOjYAiDTx05lRi33PtcRnq5gNBXnu_JwcREy3pjNEgv9DRZ93kMbQ4dxELsZiZDjRcf33spuGVwSUK0I6jq8fdQ0lZSyybdbu2ErERNcPO-6m_NOev6v1CbM3aujJozOXO6MuDPYOerHH4VdCEsJ_gZEehvW3UsO9pY173kVdlOG57OMuF5NfRgVF2ZQ5QvyqJbbqm4u_HTawDKhRbCtExHY9QFQbvD17aFHgNf7Mx3ZW01Qe6U3KIm3hds0ihktsZUc"
             />
           </div>
-          <div class="absolute -bottom-8 -right-8 glass-card p-6 rounded-lg shadow-trayko-md hidden md:block">
+          <div
+            class="absolute -bottom-8 -right-8 glass-card p-6 rounded-lg shadow-trayko-md hidden md:block"
+          >
             <div class="flex items-center gap-4">
-              <div class="bg-primary-container w-12 h-12 rounded-full flex items-center justify-center">
-                <CheckCircle size={24} weight="fill" className="text-secondary-fixed" />
+              <div
+                class="bg-primary-container w-12 h-12 rounded-full flex items-center justify-center"
+              >
+                <CheckCircle
+                  size={24}
+                  weight="fill"
+                  className="text-secondary-fixed"
+                />
               </div>
               <div>
                 <p class="text-sm font-bold">Viaje Colaborativo</p>
-                <p class="text-xs text-on-surface-variant">Sin fines de lucro</p>
               </div>
             </div>
           </div>
         </div>
         <div class="order-1 lg:order-2 space-y-8">
-          <h2 class="text-3xl sm:text-4xl font-bold font-headline tracking-tight">¿Cómo funciona?</h2>
+          <h2
+            class="text-3xl sm:text-4xl font-bold font-headline tracking-tight"
+          >
+            ¿Cómo funciona?
+          </h2>
           <p class="text-lg text-on-surface-variant">
-            Trayko no es un servicio de transporte profesional. Somos una comunidad que conecta a particulares
-            para optimizar sus traslados.
+            Trayko no es un servicio de transporte profesional. Somos una
+            comunidad que conecta a particulares para optimizar sus traslados.
           </p>
           <ul class="space-y-6">
             <li class="flex items-start gap-4">
@@ -191,7 +265,8 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
               <div>
                 <h4 class="font-bold text-lg">Vehículo Particular</h4>
                 <p class="text-on-surface-variant">
-                  Utiliza tu propio auto para tus viajes habituales o viajes especiales programados.
+                  Utiliza tu propio auto para tus viajes habituales o viajes
+                  especiales programados.
                 </p>
               </div>
             </li>
@@ -200,17 +275,22 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
               <div>
                 <h4 class="font-bold text-lg">Costo Compartido</h4>
                 <p class="text-on-surface-variant">
-                  La plataforma calcula una contribución sugerida para cubrir proporcionalmente el gasto del
-                  viaje.
+                  Comparte los gastos de gasolina y peajes con personas que van
+                  en tu misma ruta.
                 </p>
               </div>
             </li>
             <li class="flex items-start gap-4">
-              <ShieldCheck size={24} weight="fill" className="text-secondary mt-1" />
+              <ShieldCheck
+                size={24}
+                weight="fill"
+                className="text-secondary mt-1"
+              />
               <div>
                 <h4 class="font-bold text-lg">Seguridad Comunitaria</h4>
                 <p class="text-on-surface-variant">
-                  Perfiles verificados y sistema de valoraciones para construir una red de confianza.
+                  Perfiles verificados y sistema de valoraciones para construir
+                  una red de confianza.
                 </p>
               </div>
             </li>
@@ -221,13 +301,17 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
   </section>
 
   <!-- Testimonios -->
-  <section id="testimonios" class="py-14 sm:py-20 md:py-24 bg-secondary text-white overflow-hidden relative">
-    <div class="absolute top-0 right-0 w-96 h-96 bg-primary-container opacity-10 blur-[100px] -mr-48 -mt-48"></div>
+  <section
+    id="testimonios"
+    class="py-14 sm:py-20 md:py-24 bg-secondary text-white overflow-hidden relative"
+  >
     <div class="max-w-4xl mx-auto px-4 sm:px-8 text-center relative z-10">
-      <Quotes size={60} weight="fill" className="mb-8 text-primary-container opacity-50" />
-      <p class="text-2xl sm:text-3xl md:text-4xl font-bold font-headline italic leading-snug mb-10">
-        "Ahora viajar entre ciudades es mucho mas economico. Compartiendo mi viaje, recupero mis costos de
-        gasolina facilmente."
+      <Quotes size={60} weight="fill" className="mb-8 mx-auto text-white" />
+      <p
+        class="text-2xl sm:text-3xl md:text-4xl font-bold font-headline italic leading-snug mb-10"
+      >
+        "Ahora viajar entre ciudades es mucho mas economico. Compartiendo mi
+        viaje, recupero mis costos de gasolina facilmente."
       </p>
       <div class="flex flex-col items-center gap-4">
         <img
@@ -252,13 +336,18 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
       >
         <div
           class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 transition-opacity duration-700"
-        ></div>
-        <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold font-headline tracking-tighter mb-6 sm:mb-8">
+        >
+        </div>
+        <h2
+          class="text-3xl sm:text-4xl md:text-6xl font-bold font-headline tracking-tighter mb-6 sm:mb-8"
+        >
           ¿Listo para compartir tu ruta?
         </h2>
-        <p class="text-lg sm:text-xl text-on-surface-variant max-w-2xl mx-auto mb-8 sm:mb-12">
-          Unete a miles de personas que ya estan transformando la forma de viajar en Colombia a traves de la
-          economía colaborativa.
+        <p
+          class="text-lg sm:text-xl text-on-surface-variant max-w-2xl mx-auto mb-8 sm:mb-12"
+        >
+          Unete a miles de personas que ya estan transformando la forma de
+          viajar en Colombia a traves de la economía colaborativa.
         </p>
         <a
           href="/#descargar-app"
@@ -272,3 +361,58 @@ import { ShieldCheck, PiggyBank, Leaf, Users, CheckCircle, Car, Receipt, Quotes 
 
   <Footer />
 </Layout>
+
+<script>
+  import { submitDriverLead } from "../scripts/driver-lead";
+
+  const form = document.getElementById(
+    "driver-lead-form",
+  ) as HTMLFormElement | null;
+  const submitBtn = document.getElementById(
+    "driver-lead-submit",
+  ) as HTMLButtonElement | null;
+  const statusEl = document.getElementById("driver-lead-status");
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!submitBtn || !statusEl) return;
+
+    const nameInput = document.getElementById(
+      "driver-lead-name",
+    ) as HTMLInputElement;
+    const emailInput = document.getElementById(
+      "driver-lead-email",
+    ) as HTMLInputElement;
+    const phoneInput = document.getElementById(
+      "driver-lead-phone",
+    ) as HTMLInputElement;
+    const cityInput = document.getElementById(
+      "driver-lead-city",
+    ) as HTMLSelectElement;
+
+    submitBtn.disabled = true;
+    const originalLabel = submitBtn.textContent;
+    submitBtn.textContent = "Enviando...";
+    statusEl.textContent = "";
+    statusEl.classList.remove("text-red-600", "text-green-600");
+
+    try {
+      await submitDriverLead({
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        city: cityInput.value,
+      });
+      statusEl.textContent = "¡Listo! Nuestro equipo te contactará pronto.";
+      statusEl.classList.add("text-green-600");
+      form.reset();
+    } catch {
+      statusEl.textContent =
+        "No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos a soporte@trayko.co.";
+      statusEl.classList.add("text-red-600");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
+  });
+</script>

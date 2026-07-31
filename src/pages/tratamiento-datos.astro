@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { WhatsappLogo, Envelope } from '@phosphor-icons/react/dist/ssr';
+
+const LINK = 'underline decoration-primary-container/50 hover:decoration-primary-container text-inherit';
+
+const TABLE_WRAP = 'overflow-x-auto mb-3 rounded-xl border border-surface-container-low';
+const TABLE = 'w-full text-sm';
+const TH = 'text-left font-bold p-3';
+const TD = 'p-3 align-top';
+const TR = 'border-t border-surface-container-low';
+
+const SECTIONS = [
+    {
+        title: 'Introducción',
+        body: `
+            <p class="mb-3">Somos una plataforma que reconoce la importancia de proteger la privacidad y los datos personales de todas las personas que utilizan nuestros servicios. En desarrollo de nuestra actividad como intermediario digital que facilita la conexión entre Conductores que disponen de cupos en sus vehículos particulares y Pasajeros que requieren realizar el mismo recorrido bajo un modelo de viajes compartidos (carpooling), tratamos datos personales de nuestros usuarios con estricto respeto por los principios de legalidad, transparencia, seguridad, confidencialidad y responsabilidad.</p>
+            <p class="mb-3">La presente Política de Tratamiento de Datos Personales tiene como finalidad informar a los titulares sobre la forma en que Trayko recolecta, almacena, usa, actualiza, comparte, conserva y protege la información personal suministrada a través de nuestra aplicación móvil y demás canales habilitados, garantizando el ejercicio de los derechos que les reconoce la legislación colombiana.</p>
+            <p class="mb-3">Trayko actúa exclusivamente como una plataforma tecnológica de intermediación y, en consecuencia, no presta el servicio de transporte, no posee vehículos ni mantiene una relación laboral o contractual de transporte con los Conductores. Su función consiste en facilitar la publicación, búsqueda, reserva, coordinación y pago de los viajes compartidos entre Conductores y Pasajeros, razón por la cual el tratamiento de los datos personales se limita a las finalidades necesarias para el correcto funcionamiento de la plataforma, la gestión de las reservas, la seguridad de los usuarios, la atención de solicitudes y el cumplimiento de las obligaciones legales y contractuales aplicables.</p>
+            <p class="mb-3">Esta política ha sido elaborada de conformidad con la Constitución Política de Colombia, la Ley 1581 de 2012, el Decreto 1074 de 2015, sus modificaciones y/o adiciones, y demás normas concordantes, reafirmando el compromiso de Trayko con la protección de la información personal y la confianza de sus usuarios.</p>
+            <p><strong>Propósito del tratamiento.</strong> El tratamiento de los datos personales en Trayko tiene como propósito garantizar el funcionamiento seguro y eficiente de la plataforma, facilitar la conexión entre Conductores y Pasajeros, gestionar las reservas y pagos, y cumplir con las obligaciones legales aplicables.</p>
+        `,
+    },
+    {
+        title: '1. Identificación del Responsable del Tratamiento',
+        body: `
+            <p class="mb-3"><strong>Responsable:</strong> Luis Enrique Soraca Benthan, persona natural identificada con cédula de ciudadanía No. 1.007.819.421, quien actúa bajo el nombre comercial <strong>Trayko</strong>.</p>
+            <p class="mb-1"><strong>Domicilio:</strong> Barranquilla, Atlántico, Colombia.</p>
+            <p class="mb-1"><strong>Correo electrónico para asuntos de datos personales:</strong> <a class="${LINK}" href="mailto:privacidad@trayko.co">privacidad@trayko.co</a></p>
+            <p class="mb-3"><strong>Teléfono/WhatsApp:</strong> <a class="${LINK}" href="https://wa.me/573017727930" target="_blank" rel="noopener noreferrer">+57 301 772 7930</a></p>
+            <p>Cuando Trayko se constituya como sociedad, esta identificación será reemplazada por la razón social, NIT y domicilio de dicha sociedad, quien asumirá la calidad de Responsable del Tratamiento sin afectar la validez de las autorizaciones ya otorgadas por los Titulares.</p>
+        `,
+    },
+    {
+        title: '2. Marco legal',
+        body: `
+            <p>La presente Política de Tratamiento de Datos Personales se fundamenta en lo dispuesto en el artículo 15 de la Constitución Política de Colombia, la Ley Estatutaria 1581 de 2012, el Decreto 1074 de 2015 y las demás normas que las modifiquen, adicionen o sustituyan, así como en las directrices impartidas por la Superintendencia de Industria y Comercio (SIC), autoridad encargada de velar por la protección de los datos personales en Colombia.</p>
+        `,
+    },
+    {
+        title: '3. Definiciones',
+        body: `
+            <ul class="list-disc pl-5 space-y-1.5">
+                <li><strong>Datos personales:</strong> son cualquier información relativa a una persona física viva identificada o identificable.</li>
+                <li><strong>Titular:</strong> persona natural cuyos datos personales son objeto de tratamiento.</li>
+                <li><strong>Política de tratamiento:</strong> documento que establece las reglas para la recolección, uso, almacenamiento y protección de los datos personales de los usuarios de Trayko, de conformidad con la legislación colombiana.</li>
+                <li><strong>Tratamiento:</strong> cualquier operación realizada sobre datos personales, incluyendo recolección, almacenamiento, uso, circulación, actualización o supresión.</li>
+                <li><strong>Responsable del Tratamiento:</strong> quien decide sobre la finalidad y el tratamiento de los datos personales.</li>
+                <li><strong>Encargado del Tratamiento:</strong> quien realiza el tratamiento por cuenta del Responsable.</li>
+                <li><strong>Dato sensible:</strong> dato que afecta la intimidad del Titular o cuyo uso indebido puede generar discriminación.</li>
+                <li><strong>Autorización:</strong> consentimiento previo, expreso e informado del Titular para el tratamiento de sus datos personales.</li>
+            </ul>
+        `,
+    },
+    {
+        title: '4. Tratamiento y finalidades',
+        body: `
+            <p class="mb-3">Cuando el tratamiento sea necesario para cumplir obligaciones legales, prevenir fraude, atender requerimientos de autoridades o ejercer la defensa de Trayko frente a reclamaciones, podremos tratar determinados datos personales con fundamento en dichas finalidades, en los casos permitidos por la legislación aplicable.</p>
+            <div class="${TABLE_WRAP}">
+                <table class="${TABLE}">
+                    <thead><tr class="bg-surface-container-low"><th class="${TH}">Categoría de dato</th><th class="${TH}">Finalidad del tratamiento</th><th class="${TH}">Base del tratamiento</th></tr></thead>
+                    <tbody>
+                        <tr class="${TR}"><td class="${TD}">Identidad básica (nombre, teléfono, correo, foto)</td><td class="${TD}">Creación y administración de la cuenta; identificación entre Usuarios; comunicaciones operativas</td><td class="${TD}">Autorización + ejecución de la relación contractual</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Verificación de Conductor (documento, licencia, antecedentes, biometría)</td><td class="${TD}">Verificación de identidad y prevención de fraude</td><td class="${TD}">Autorización expresa para datos sensibles</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Vehículo (placa, documentos)</td><td class="${TD}">Verificación del vehículo e identificación del Viaje</td><td class="${TD}">Autorización + ejecución de la relación contractual</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Información financiera y transaccional</td><td class="${TD}">Pagos, reembolsos, billetera y cumplimiento de obligaciones contables</td><td class="${TD}">Autorización + ejecución contractual + obligación legal</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Comunicaciones (chat y notificaciones)</td><td class="${TD}">Coordinación de Viajes, soporte y resolución de disputas</td><td class="${TD}">Autorización + ejecución contractual</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Contactos de emergencia</td><td class="${TD}">Atención de incidentes relacionados con la seguridad del Usuario</td><td class="${TD}">Autorización</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Reputación (calificaciones y reseñas)</td><td class="${TD}">Funcionamiento del sistema de confianza de la Plataforma</td><td class="${TD}">Autorización + interés legítimo</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Reportes e incidencias</td><td class="${TD}">Seguridad, prevención de fraude y resolución de conflictos</td><td class="${TD}">Autorización + obligación legal cuando corresponda</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        `,
+    },
+    {
+        title: '5. Datos sensibles',
+        body: `
+            <p class="mb-3">Los documentos de verificación de Conductores, los antecedentes penales y los datos biométricos utilizados durante los procesos de validación constituyen datos sensibles conforme a la Ley 1581 de 2012.</p>
+            <p class="mb-3">El Titular no está obligado a autorizar el tratamiento de estos datos. Sin embargo, la negativa a suministrarlos impedirá registrarse o permanecer como Conductor en la Plataforma.</p>
+            <p class="mb-3">La negativa a suministrar dichos datos no impide utilizar la Plataforma como Pasajero.</p>
+            <p>Estos datos serán tratados únicamente con una autorización específica, expresa y separada de la autorización general para el tratamiento de datos personales.</p>
+        `,
+    },
+    {
+        title: '6. Derechos del Titular',
+        body: `
+            <p class="mb-2">Como Titular de datos personales, usted tiene derecho a:</p>
+            <ol class="list-decimal pl-5 space-y-1.5">
+                <li>Conocer, actualizar y rectificar sus datos personales frente a los Responsables del Tratamiento o Encargados del Tratamiento.</li>
+                <li>Solicitar prueba de la autorización otorgada al Responsable del Tratamiento, salvo cuando expresamente se exceptúe como requisito para el Tratamiento, de conformidad con lo previsto en el artículo 10 de la Ley 1581 de 2012.</li>
+                <li>Ser informado por el Responsable del Tratamiento o el Encargado del Tratamiento, previa solicitud, respecto del uso que le ha dado a sus datos personales.</li>
+                <li>Presentar ante la Superintendencia de Industria y Comercio quejas por infracciones a lo dispuesto en la Ley 1581 de 2012 y las demás normas que la modifiquen, adicionen o complementen.</li>
+                <li>Revocar la autorización y/o solicitar la supresión del dato cuando en el Tratamiento no se respeten los principios, derechos y garantías constitucionales y legales. La revocatoria y/o supresión procederá cuando la Superintendencia de Industria y Comercio haya determinado que en el Tratamiento el Responsable o Encargado han incurrido en conductas contrarias a esta ley y a la Constitución.</li>
+                <li>Acceder en forma gratuita a sus datos personales que hayan sido objeto de Tratamiento.</li>
+            </ol>
+        `,
+    },
+    {
+        title: '7. Procedimiento para ejercer sus derechos',
+        body: `
+            <p class="mb-3">Las consultas y solicitudes relacionadas con el tratamiento de datos personales serán atendidas dentro de los términos establecidos por la legislación colombiana vigente, en especial la Ley 1581 de 2012 y el Decreto 1074 de 2015.</p>
+            <p class="mb-3">Los reclamos referentes a la actualización, rectificación, supresión de datos personales o revocatoria de la autorización para su tratamiento serán tramitados de conformidad con el procedimiento y los plazos previstos en la normativa aplicable.</p>
+            <p class="mb-3">Las solicitudes podrán enviarse a: <a class="${LINK}" href="mailto:privacidad@trayko.co">privacidad@trayko.co</a></p>
+            <p>Mientras Trayko sea operada por una persona natural, el Responsable del Tratamiento atenderá directamente las consultas y reclamos presentados por los titulares de los datos personales, garantizando una respuesta oportuna, transparente y conforme a la ley.</p>
+        `,
+    },
+    {
+        title: '8. Transmisión y transferencia a terceros',
+        body: `
+            <p class="mb-3">Trayko podrá transmitir datos personales a proveedores que prestan servicios necesarios para la operación de la Plataforma, incluyendo procesamiento de pagos, verificación de identidad, autenticación, mensajería, correo electrónico, almacenamiento de archivos, infraestructura tecnológica y servicios de mapas o geolocalización.</p>
+            <p class="mb-3">Estos terceros actuarán como Encargados del Tratamiento cuando corresponda.</p>
+            <p>Algunos proveedores pueden procesar información fuera de Colombia. En esos casos, las transferencias internacionales se realizarán conforme a la legislación aplicable y a las autorizaciones otorgadas por el Titular.</p>
+        `,
+    },
+    {
+        title: '9. Medidas de seguridad',
+        body: `
+            <p class="mb-3">Trayko implementa medidas técnicas, administrativas y organizativas razonables para proteger los datos personales frente a pérdida, acceso no autorizado, alteración, divulgación o destrucción.</p>
+            <p class="mb-3">Entre otras medidas, podrán utilizarse controles de acceso, autenticación, cifrado de información sensible, segregación de permisos y procedimientos internos de seguridad.</p>
+            <p>Sin embargo, ningún sistema puede garantizar una seguridad absoluta.</p>
+        `,
+    },
+    {
+        title: '10. Conservación de los datos personales',
+        body: `
+            <div class="${TABLE_WRAP}">
+                <table class="${TABLE}">
+                    <thead><tr class="bg-surface-container-low"><th class="${TH}">Categoría de dato</th><th class="${TH}">Plazo de conservación</th></tr></thead>
+                    <tbody>
+                        <tr class="${TR}"><td class="${TD}">Código OTP</td><td class="${TD}">Hasta su uso o expiración</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Documentos de verificación de Conductores</td><td class="${TD}">Se eliminan una vez concluido el proceso de verificación, conservando únicamente la información estrictamente necesaria para acreditar dicha validación, prevenir fraude, atender reclamaciones o cumplir obligaciones legales</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Mensajes y comunicaciones</td><td class="${TD}">Mientras sean necesarios para la operación de la Plataforma, atención de incidentes o cumplimiento de obligaciones legales</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Historial de pagos y transacciones</td><td class="${TD}">Durante el plazo exigido por la legislación contable, tributaria o financiera aplicable</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Identidad básica, reputación y demás datos asociados a la cuenta</td><td class="${TD}">Mientras la cuenta permanezca activa y posteriormente durante el tiempo necesario para cumplir obligaciones legales, prevenir fraude, atender reclamaciones o ejercer la defensa de Trayko</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-3">Una vez finalizados los plazos de conservación, los datos serán eliminados o anonimizados cuando sea legalmente posible.</p>
+        `,
+    },
+    {
+        title: '11. Eliminación de la cuenta',
+        body: `
+            <p class="mb-3">El Titular puede eliminar su cuenta directamente desde la aplicación, en <strong>Perfil &rarr; Eliminar cuenta</strong>. La eliminación es definitiva y no puede deshacerse.</p>
+
+            <p class="mb-2 font-bold">Qué se elimina</p>
+            <p class="mb-3">Nombre, apellidos, correo electrónico, número de teléfono, fecha de nacimiento, género, foto de perfil, credenciales de acceso, contactos de emergencia, rutas guardadas, notificaciones y, en el caso de Conductores, los documentos de verificación de identidad y del vehículo.</p>
+
+            <p class="mb-2 font-bold">Qué se conserva y por qué</p>
+            <p class="mb-3">El registro de los viajes, reservas, pagos, mensajes, calificaciones y reportes en los que el Titular participó se conserva <strong>disociado de los datos que lo identifican</strong>, durante los plazos indicados en la sección anterior. Ese registro no le pertenece únicamente al Titular: las calificaciones que otorgó sostienen la reputación de otras personas, los pagos están sujetos a obligaciones contables y tributarias, y las conversaciones y reportes son necesarios para atender reclamaciones e incidentes de seguridad de las otras partes involucradas.</p>
+            <p class="mb-3">Se conserva también la prueba de la autorización otorgada, por exigirlo el artículo 17 literal b de la Ley 1581 de 2012.</p>
+
+            <p class="mb-2 font-bold">Cuándo no procede de inmediato</p>
+            <p class="mb-3">La eliminación no puede completarse mientras el Titular tenga un viaje en curso, viajes publicados pendientes, reservas activas o una revisión abierta sobre su cuenta. En esos casos deberá cerrarlas primero o esperar a que concluyan.</p>
+            <p class="mb-3">Si la cuenta se encuentra suspendida, la eliminación se tramita escribiendo a <a class="${LINK}" href="mailto:privacidad@trayko.co">privacidad@trayko.co</a>. Conforme al artículo 8 literal e de la Ley 1581 de 2012 y al artículo 9 del Decreto 1377 de 2013, la supresión no procede mientras exista un deber legal o contractual de conservar la información o un asunto en trámite; en tales casos se informará al Titular el motivo y el plazo aplicable.</p>
+
+            <p class="mb-2 font-bold">Otros efectos</p>
+            <p class="mb-3">Los créditos disponibles en la cuenta se pierden al eliminarla; la Plataforma no ofrece retiro ni transferencia de saldo.</p>
+            <p>El número de teléfono y el correo quedan liberados, de modo que el Titular puede registrarse nuevamente con los mismos datos. Se tratará de una cuenta nueva, sin historial ni calificaciones previas.</p>
+        `,
+    },
+    {
+        title: '12. Área responsable',
+        body: `
+            <p>Mientras Trayko sea operada por una persona natural, el Responsable del Tratamiento identificado en esta política atenderá directamente las consultas, peticiones y reclamos relacionados con datos personales.</p>
+        `,
+    },
+    {
+        title: '13. Vigencia y cambios',
+        body: `
+            <p class="mb-3">Esta política rige a partir de su publicación.</p>
+            <p class="mb-3">Cualquier cambio sustancial será comunicado a los Titulares a través de la Plataforma o de los canales de contacto registrados con una antelación razonable.</p>
+            <p>La versión vigente estará permanentemente disponible y reemplazará las versiones anteriores desde su entrada en vigor.</p>
+        `,
+    },
+    {
+        title: '14. Registro Nacional de Bases de Datos (RNBD)',
+        body: `
+            <p>Trayko evaluará periódicamente sus obligaciones frente al Registro Nacional de Bases de Datos (RNBD) y cumplirá los requisitos que resulten aplicables conforme a la legislación vigente.</p>
+        `,
+    },
+];
+---
+
+<Layout>
+    <Navbar />
+
+    <section class="pt-[calc(7.5rem+env(safe-area-inset-top,0px))] pb-14 sm:pb-20 md:pt-40 md:pb-24 px-4 sm:px-6 bg-background">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10 sm:mb-16">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Política de tratamiento de datos personales</h1>
+                <p class="text-on-surface-variant text-base sm:text-lg font-medium">
+                    Cómo tratamos tus datos personales conforme a la Ley 1581 de 2012 y el Decreto 1074 de 2015.
+                </p>
+                <p class="text-outline text-xs font-semibold uppercase tracking-wide mt-4">Última actualización: 29 de julio de 2026</p>
+            </div>
+
+            <div class="space-y-8 sm:space-y-10">
+                {SECTIONS.map((section) => (
+                    <div class="bg-surface-container-lowest rounded-2xl border border-surface-container-low p-6 sm:p-8">
+                        <h2 class="text-lg sm:text-xl font-bold mb-3">{section.title}</h2>
+                        <div class="text-on-surface-variant leading-relaxed" set:html={section.body} />
+                    </div>
+                ))}
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 sm:p-8 mt-10 sm:mt-14 text-center">
+                <h3 class="font-bold text-lg mb-1.5">¿Quieres ejercer tus derechos sobre tus datos?</h3>
+                <p class="text-on-surface-variant text-sm mb-5">Escríbenos y te ayudamos directamente.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                        href="https://wa.me/573017727930"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-container text-on-primary font-bold text-sm px-6 min-h-[44px] hover:bg-primary transition-all w-full sm:w-auto"
+                    >
+                        <WhatsappLogo size={18} weight="fill" />
+                        Escribir por WhatsApp
+                    </a>
+                    <a
+                        href="mailto:privacidad@trayko.co"
+                        class="inline-flex items-center justify-center gap-2 rounded-full border px-6 min-h-[44px] font-bold text-sm hover:bg-surface-container-low transition-all w-full sm:w-auto"
+                    >
+                        <Envelope size={18} />
+                        Enviar correo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

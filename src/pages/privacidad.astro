@@ -4,46 +4,180 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import { WhatsappLogo, Envelope } from '@phosphor-icons/react/dist/ssr';
 
+const LINK = 'underline decoration-primary-container/50 hover:decoration-primary-container text-inherit';
+
+const TABLE_WRAP = 'overflow-x-auto mb-3 rounded-xl border border-surface-container-low';
+const TABLE = 'w-full text-sm';
+const TH = 'text-left font-bold p-3';
+const TD = 'p-3 align-top';
+const TR = 'border-t border-surface-container-low';
+
 const SECTIONS = [
     {
-        title: '1. Responsable del tratamiento',
-        body: 'Texto de prueba. Trayko, en calidad de responsable del tratamiento de datos personales, recolecta y trata la información de sus usuarios conforme a la Ley 1581 de 2012 y demás normas colombianas aplicables.',
+        title: '1. Introducción y alcance',
+        body: `
+            <p class="mb-3">Esta Política de Privacidad tiene como finalidad informar a los usuarios sobre la forma en que Trayko recopila, utiliza, almacena, protege, comparte y, cuando corresponda, elimina la información personal obtenida a través de su aplicación móvil y demás canales habilitados (la "Plataforma"). Asimismo, describe los derechos de los titulares de los datos personales y los mecanismos disponibles para ejercerlos, de conformidad con la legislación colombiana aplicable en materia de protección de datos personales.</p>
+            <p>Esta Política es aplicable a Conductores, Pasajeros y cualquier otra persona que acceda, se registre o utilice la Plataforma, independientemente del dispositivo o medio empleado para ello.</p>
+        `,
     },
     {
-        title: '2. Datos que recopilamos',
-        body: 'Texto de prueba. Aquí se detallará qué información se recopila: datos de identificación, contacto, ubicación, documentos de verificación, información de pago y datos de uso de la aplicación.',
+        title: '2. Responsable del tratamiento',
+        body: `
+            <p class="mb-3">El responsable del tratamiento de los datos personales es Trayko, conforme a la identificación incluida en la <a class="${LINK}" href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a>.</p>
+            <p>Para consultas relacionadas con privacidad o protección de datos puede escribir a <a class="${LINK}" href="mailto:privacidad@trayko.co">privacidad@trayko.co</a> o comunicarse a través del WhatsApp oficial de la Plataforma.</p>
+        `,
     },
     {
-        title: '3. Finalidad del tratamiento',
-        body: 'Texto de prueba. Los datos se utilizan para prestar el servicio de conexión entre conductores y pasajeros, verificar identidad, procesar pagos, brindar soporte y mejorar la plataforma.',
+        title: '3. Información que recopilamos',
+        body: `
+            <p class="mb-2 font-bold text-on-surface">3.1. Información proporcionada por el Usuario</p>
+            <div class="${TABLE_WRAP}">
+                <table class="${TABLE}">
+                    <thead><tr class="bg-surface-container-low"><th class="${TH}">Categoría</th><th class="${TH}">Ejemplos</th><th class="${TH}">¿Quiénes?</th></tr></thead>
+                    <tbody>
+                        <tr class="${TR}"><td class="${TD}">Identidad básica</td><td class="${TD}">Nombre, teléfono, correo electrónico (opcional), foto de perfil</td><td class="${TD}">Todos los Usuarios</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Verificación del Conductor</td><td class="${TD}">Documento de identidad, fecha de nacimiento, licencia de conducción, antecedentes penales, biometría</td><td class="${TD}">Conductores</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Vehículo</td><td class="${TD}">Placa, marca, modelo, año, fotografías, SOAT y tarjeta de propiedad</td><td class="${TD}">Conductores</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Contacto de emergencia</td><td class="${TD}">Nombre y teléfono</td><td class="${TD}">Opcional</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Comunicaciones</td><td class="${TD}">Mensajes del chat entre Conductores y Pasajeros</td><td class="${TD}">Todos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-2 font-bold text-on-surface">3.2. Información generada por el uso de la Plataforma</p>
+            <div class="${TABLE_WRAP}">
+                <table class="${TABLE}">
+                    <thead><tr class="bg-surface-container-low"><th class="${TH}">Categoría</th><th class="${TH}">Ejemplos</th></tr></thead>
+                    <tbody>
+                        <tr class="${TR}"><td class="${TD}">Viajes y Reservas</td><td class="${TD}">Viajes publicados, Reservas realizadas, historial de viajes</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Pagos</td><td class="${TD}">Saldo de Billetera, historial de transacciones, referencias de pago</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Reputación</td><td class="${TD}">Calificaciones y reseñas</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Reportes</td><td class="${TD}">Incidentes reportados y evidencias aportadas</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Notificaciones</td><td class="${TD}">Tokens para el envío de notificaciones push</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-2 font-bold text-on-surface">3.3. Información obtenida de terceros</p>
+            <div class="${TABLE_WRAP}">
+                <table class="${TABLE}">
+                    <thead><tr class="bg-surface-container-low"><th class="${TH}">Fuente</th><th class="${TH}">Información</th></tr></thead>
+                    <tbody>
+                        <tr class="${TR}"><td class="${TD}">Wompi</td><td class="${TD}">Confirmación del estado de los pagos</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Didit</td><td class="${TD}">Resultado del proceso de verificación de identidad</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Google o Apple</td><td class="${TD}">Información necesaria para la autenticación cuando el Usuario inicia sesión mediante estos servicios</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Para un detalle completo de los datos tratados puede consultar la <a class="${LINK}" href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a>.</p>
+        `,
     },
     {
-        title: '4. Con quién compartimos tu información',
-        body: 'Texto de prueba. En esta sección se listarán los terceros con quienes se comparte información (pasarelas de pago, proveedores de verificación de identidad, autoridades cuando la ley lo exija).',
+        title: '4. Base para el tratamiento de los datos',
+        body: `
+            <p>Tratamos los datos personales con fundamento en la autorización otorgada por el Usuario, la ejecución de la relación derivada del uso de la Plataforma y las demás bases legales previstas en la legislación colombiana aplicable.</p>
+        `,
     },
     {
-        title: '5. Almacenamiento y seguridad',
-        body: 'Texto de prueba. Trayko implementa medidas técnicas y administrativas razonables para proteger los datos personales frente a accesos no autorizados, pérdida o alteración.',
+        title: '5. Finalidades del tratamiento',
+        body: `
+            <p class="mb-2">Utilizamos la información personal para:</p>
+            <ul class="list-disc pl-5 space-y-1.5 mb-3">
+                <li>Crear y administrar la cuenta del Usuario.</li>
+                <li>Verificar la identidad y documentación de los Conductores.</li>
+                <li>Facilitar la publicación, búsqueda y reserva de Viajes.</li>
+                <li>Procesar pagos, reembolsos y créditos de la Billetera.</li>
+                <li>Enviar comunicaciones operativas relacionadas con la Plataforma.</li>
+                <li>Prevenir fraude y fortalecer la seguridad.</li>
+                <li>Gestionar reportes e incidencias.</li>
+                <li>Cumplir obligaciones legales y regulatorias.</li>
+            </ul>
+            <p>Cuando el Usuario haya otorgado la autorización correspondiente, también podremos enviar comunicaciones comerciales sobre novedades, funcionalidades, promociones, programas de referidos y demás servicios de Trayko. El Usuario podrá retirar esta autorización en cualquier momento.</p>
+        `,
     },
     {
-        title: '6. Derechos del titular',
-        body: 'Texto de prueba. El usuario puede conocer, actualizar, rectificar y solicitar la supresión de sus datos personales, así como revocar la autorización otorgada, conforme a la ley colombiana.',
+        title: '6. Con quién compartimos la información',
+        body: `
+            <p class="mb-2 font-bold text-on-surface">Entre Usuarios</p>
+            <p class="mb-3">Con el fin de permitir la correcta ejecución de un Viaje, determinados datos podrán ser visibles entre Conductores y Pasajeros que compartan una Reserva, tales como el nombre, la foto de perfil, el teléfono y, en el caso del Conductor, la información básica del vehículo.</p>
+            <p class="mb-2 font-bold text-on-surface">Con proveedores que apoyan la operación</p>
+            <div class="${TABLE_WRAP}">
+                <table class="${TABLE}">
+                    <thead><tr class="bg-surface-container-low"><th class="${TH}">Servicio</th><th class="${TH}">Finalidad</th></tr></thead>
+                    <tbody>
+                        <tr class="${TR}"><td class="${TD}">Procesamiento de pagos</td><td class="${TD}">Gestión de pagos y reembolsos</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Verificación de identidad</td><td class="${TD}">Validación documental y biométrica</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Autenticación</td><td class="${TD}">Inicio de sesión y seguridad</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Infraestructura tecnológica</td><td class="${TD}">Funcionamiento de la Plataforma</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Mensajería</td><td class="${TD}">Envío de SMS y WhatsApp</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Correo electrónico</td><td class="${TD}">Envío de notificaciones</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Almacenamiento de archivos</td><td class="${TD}">Conservación de imágenes y documentos</td></tr>
+                        <tr class="${TR}"><td class="${TD}">Mapas y rutas</td><td class="${TD}">Cálculo de trayectos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-3">Estos proveedores actúan como encargados del tratamiento de los datos personales. No vendemos información personal a terceros con fines comerciales.</p>
+            <p>También podremos compartir información cuando exista una obligación legal o una solicitud válida de una autoridad competente.</p>
+        `,
     },
     {
-        title: '7. Cómo ejercer tus derechos',
-        body: 'Texto de prueba. Aquí se describirá el canal y procedimiento para que el usuario presente solicitudes relacionadas con sus datos personales (correo, formulario o línea de contacto).',
+        title: '7. Transferencias internacionales',
+        body: `
+            <p class="mb-3">Algunos proveedores tecnológicos procesan información en servidores ubicados fuera de Colombia.</p>
+            <p>Al utilizar la Plataforma y otorgar la autorización para el tratamiento de datos personales, el Usuario autoriza las transferencias internacionales necesarias para la prestación del servicio, conforme a la legislación aplicable.</p>
+        `,
     },
     {
-        title: '8. Uso de cookies y tecnologías similares',
-        body: 'Texto de prueba. Esta sección explicará el uso de cookies u otras tecnologías de rastreo en el sitio web y la aplicación móvil de Trayko.',
+        title: '8. Seguridad de la información',
+        body: `
+            <p class="mb-3">Trayko implementa medidas técnicas, administrativas y organizacionales razonables para proteger los datos personales contra la pérdida, acceso no autorizado, alteración, uso indebido, divulgación o destrucción, en cumplimiento de los principios y obligaciones establecidos en la Ley 1581 de 2012 y el Decreto 1074 de 2015.</p>
+            <p class="mb-3">Entre otras medidas, la Plataforma utiliza controles de acceso basados en roles, mecanismos de autenticación, cifrado para documentos e información sensible, monitoreo de accesos y demás mecanismos de seguridad orientados a preservar la confidencialidad, integridad y disponibilidad de los datos personales.</p>
+            <p>Si bien ningún sistema informático puede garantizar una seguridad absoluta, Trayko adopta las medidas razonables exigidas por la normativa vigente para reducir los riesgos asociados al tratamiento de la información. En caso de presentarse un incidente de seguridad que comprometa los datos personales, Trayko actuará conforme a lo dispuesto en la Ley 1581 de 2012, el Decreto 1074 de 2015 y las instrucciones impartidas por la Superintendencia de Industria y Comercio (SIC), implementando las acciones necesarias para mitigar sus efectos y atender las obligaciones legales que resulten aplicables.</p>
+        `,
     },
     {
-        title: '9. Transferencia internacional de datos',
-        body: 'Texto de prueba. Si aplica, aquí se detallará si los datos se almacenan o procesan fuera de Colombia y bajo qué garantías.',
+        title: '9. Menores de edad',
+        body: `
+            <p class="mb-3">La Plataforma está dirigida exclusivamente a personas mayores de 18 años.</p>
+            <p>Si detectamos que una cuenta pertenece a un menor de edad, podremos suspenderla o eliminarla y adoptar las medidas necesarias respecto de la información recopilada.</p>
+        `,
     },
     {
-        title: '10. Cambios a esta política',
-        body: 'Texto de prueba. Trayko podrá actualizar esta política de tratamiento de datos periódicamente. Los cambios relevantes se comunicarán a los usuarios registrados.',
+        title: '10. Conservación de la información',
+        body: `
+            <p>Conservaremos la información únicamente durante el tiempo necesario para cumplir las finalidades descritas en esta Política, la <a class="${LINK}" href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a> y las obligaciones legales aplicables.</p>
+        `,
+    },
+    {
+        title: '11. Derechos del titular',
+        body: `
+            <p class="mb-3">El Usuario podrá conocer, actualizar, rectificar, suprimir sus datos personales y revocar la autorización otorgada, de conformidad con la legislación colombiana.</p>
+            <p>El procedimiento para ejercer estos derechos se encuentra descrito en la <a class="${LINK}" href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a>.</p>
+        `,
+    },
+    {
+        title: '12. Eliminación de la cuenta',
+        body: `
+            <p class="mb-3">Puedes eliminar tu cuenta en cualquier momento desde la aplicación, en <strong>Perfil &rarr; Eliminar cuenta</strong>. También puedes solicitarlo desde <a class="${LINK}" href="/eliminar-cuenta">trayko.co/eliminar-cuenta</a>. La eliminación es definitiva.</p>
+            <p class="mb-3">Al eliminar tu cuenta borramos tus datos personales: nombre, correo, teléfono, fecha de nacimiento, foto de perfil, contactos de emergencia y, si eres Conductor, tus documentos de verificación y los de tu vehículo.</p>
+            <p class="mb-3">Conservamos el registro de los viajes, pagos, mensajes, calificaciones y reportes en los que participaste, <strong>sin los datos que te identifican</strong>. Ese historial también le pertenece a las otras personas involucradas y está sujeto a obligaciones legales y contables.</p>
+            <p>El detalle completo —qué se elimina, qué se conserva, por cuánto tiempo y en qué casos la eliminación no procede de inmediato— está en la sección 11 de la <a class="${LINK}" href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a>.</p>
+        `,
+    },
+    {
+        title: '13. Cambios a esta Política',
+        body: `
+            <p class="mb-3">Podremos modificar esta Política de Privacidad en cualquier momento.</p>
+            <p>Cuando los cambios sean sustanciales, los comunicaremos a través de la Plataforma o mediante los canales de contacto registrados antes de su entrada en vigor.</p>
+        `,
+    },
+    {
+        title: '14. Contacto',
+        body: `
+            <p class="mb-2">Para consultas relacionadas con privacidad o protección de datos personales puede comunicarse a través de:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+                <li><strong>Correo:</strong> <a class="${LINK}" href="mailto:privacidad@trayko.co">privacidad@trayko.co</a></li>
+                <li><strong>WhatsApp:</strong> <a class="${LINK}" href="https://wa.me/573017727930" target="_blank" rel="noopener noreferrer">+57 301 772 7930</a></li>
+            </ul>
+        `,
     },
 ];
 ---
@@ -56,16 +190,16 @@ const SECTIONS = [
             <div class="text-center mb-10 sm:mb-16">
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Política de privacidad</h1>
                 <p class="text-on-surface-variant text-base sm:text-lg font-medium">
-                    Texto de prueba — este contenido es provisional y será reemplazado próximamente.
+                    Cómo recopilamos, usamos y protegemos tu información personal en Trayko.
                 </p>
-                <p class="text-outline text-xs font-semibold uppercase tracking-wide mt-4">Última actualización: texto de prueba</p>
+                <p class="text-outline text-xs font-semibold uppercase tracking-wide mt-4">Última actualización: 29 de julio de 2026</p>
             </div>
 
             <div class="space-y-8 sm:space-y-10">
                 {SECTIONS.map((section) => (
                     <div class="bg-surface-container-lowest rounded-2xl border border-surface-container-low p-6 sm:p-8">
                         <h2 class="text-lg sm:text-xl font-bold mb-3">{section.title}</h2>
-                        <p class="text-on-surface-variant leading-relaxed">{section.body}</p>
+                        <div class="text-on-surface-variant leading-relaxed" set:html={section.body} />
                     </div>
                 ))}
             </div>

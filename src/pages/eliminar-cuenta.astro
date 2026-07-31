@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { WhatsappLogo, Envelope } from '@phosphor-icons/react/dist/ssr';
+
+/**
+ * Página pública de solicitud de eliminación de cuenta.
+ *
+ * Existe porque Google Play la exige para toda app que permita crear cuenta:
+ * debe ser accesible **sin instalar la app** y explicar qué datos se borran,
+ * cuáles se conservan y por cuánto tiempo. Por eso está enlazada desde la
+ * Política de Privacidad y no depende de estar autenticado.
+ */
+
+const LINK = 'underline decoration-primary-container/50 hover:decoration-primary-container text-inherit';
+
+const CARD = 'bg-surface-container-lowest rounded-2xl border border-surface-container-low p-6 sm:p-8';
+
+const STEPS = [
+    'Abre la app de Trayko e inicia sesión.',
+    'Ve a la pestaña Perfil.',
+    'Toca Eliminar cuenta, en la sección Cuenta.',
+    'Revisa lo que se elimina y escribe ELIMINAR para confirmar.',
+];
+
+const DELETED = [
+    'Nombre, apellidos, correo y número de teléfono',
+    'Fecha de nacimiento, género y foto de perfil',
+    'Credenciales de acceso',
+    'Contactos de emergencia y rutas guardadas',
+    'Documentos de verificación de identidad y del vehículo (Conductores)',
+];
+
+const RETAINED = [
+    {
+        what: 'Viajes, reservas y calificaciones',
+        why: 'Sostienen el historial y la reputación de las otras personas que viajaron contigo.',
+    },
+    {
+        what: 'Historial de pagos y transacciones',
+        why: 'Durante el plazo exigido por la legislación contable y tributaria.',
+    },
+    {
+        what: 'Mensajes y reportes de incidentes',
+        why: 'Para atender reclamaciones e incidentes de seguridad de las otras partes involucradas.',
+    },
+    {
+        what: 'Prueba de la autorización de tratamiento',
+        why: 'Lo exige el artículo 17 literal b de la Ley 1581 de 2012.',
+    },
+];
+
+const BLOCKERS = [
+    'Tienes un viaje en curso.',
+    'Tienes viajes publicados pendientes como Conductor.',
+    'Tienes reservas activas como Pasajero.',
+    'Hay una revisión abierta sobre tu cuenta.',
+];
+---
+
+<Layout>
+    <Navbar />
+
+    <section class="pt-[calc(7.5rem+env(safe-area-inset-top,0px))] pb-14 sm:pb-20 md:pt-40 md:pb-24 px-4 sm:px-6 bg-background">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10 sm:mb-16">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Eliminar tu cuenta</h1>
+                <p class="text-on-surface-variant text-base sm:text-lg font-medium">
+                    Cómo eliminar tu cuenta de Trayko y qué pasa con tus datos.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 sm:p-6 mb-10 sm:mb-14 text-sm text-on-surface-variant leading-relaxed">
+                La eliminación es <strong>definitiva y no se puede deshacer</strong>. Antes de continuar,
+                revisa qué conservamos y por qué en nuestra
+                <a class={LINK} href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a>.
+            </div>
+
+            <div class="space-y-8 sm:space-y-10">
+                <div class={CARD}>
+                    <h2 class="text-lg sm:text-xl font-bold mb-3">Desde la app</h2>
+                    <ol class="list-decimal pl-5 space-y-1.5 text-on-surface-variant leading-relaxed">
+                        {STEPS.map((step) => <li>{step}</li>)}
+                    </ol>
+                </div>
+
+                <div class={CARD}>
+                    <h2 class="text-lg sm:text-xl font-bold mb-3">Qué se elimina</h2>
+                    <ul class="list-disc pl-5 space-y-1.5 text-on-surface-variant leading-relaxed">
+                        {DELETED.map((item) => <li>{item}</li>)}
+                    </ul>
+                    <p class="text-on-surface-variant leading-relaxed mt-3">
+                        Tu número de teléfono y tu correo quedan liberados, así que puedes registrarte de
+                        nuevo con los mismos datos. Será una cuenta nueva, sin historial ni calificaciones.
+                    </p>
+                </div>
+
+                <div class={CARD}>
+                    <h2 class="text-lg sm:text-xl font-bold mb-3">Qué conservamos y por qué</h2>
+                    <p class="text-on-surface-variant leading-relaxed mb-4">
+                        Lo siguiente se conserva <strong>sin los datos que te identifican</strong>, durante
+                        los plazos indicados en la
+                        <a class={LINK} href="/tratamiento-datos">Política de Tratamiento de Datos Personales</a>:
+                    </p>
+                    <ul class="space-y-3">
+                        {RETAINED.map((item) => (
+                            <li>
+                                <p class="font-bold text-sm">{item.what}</p>
+                                <p class="text-on-surface-variant text-sm leading-relaxed">{item.why}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div class={CARD}>
+                    <h2 class="text-lg sm:text-xl font-bold mb-3">Cuándo no se puede eliminar todavía</h2>
+                    <p class="text-on-surface-variant leading-relaxed mb-3">
+                        Para no dejar a nadie a mitad de un viaje, la eliminación no se completa si:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-on-surface-variant leading-relaxed">
+                        {BLOCKERS.map((item) => <li>{item}</li>)}
+                    </ul>
+                    <p class="text-on-surface-variant leading-relaxed mt-3">
+                        Cierra o espera a que concluyan y vuelve a intentarlo. La app te dice exactamente
+                        qué tienes abierto.
+                    </p>
+                </div>
+
+                <div class={CARD}>
+                    <h2 class="text-lg sm:text-xl font-bold mb-3">Si no puedes acceder a la app</h2>
+                    <p class="text-on-surface-variant leading-relaxed mb-3">
+                        Si perdiste el acceso o tu cuenta está suspendida, escríbenos desde el correo o el
+                        número asociado a tu cuenta y tramitamos la eliminación por ti.
+                    </p>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Ten en cuenta que, conforme al artículo 8 literal e de la Ley 1581 de 2012, la
+                        supresión no procede mientras exista un deber legal o contractual de conservar la
+                        información o un asunto en trámite. En ese caso te informaremos el motivo y el plazo.
+                    </p>
+                </div>
+
+                <div class={CARD}>
+                    <h2 class="text-lg sm:text-xl font-bold mb-3">Tus créditos</h2>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Los créditos disponibles en tu cuenta se pierden al eliminarla. Trayko no ofrece
+                        retiro ni transferencia de saldo, así que úsalos antes si te quedan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 sm:p-8 mt-10 sm:mt-14 text-center">
+                <h3 class="font-bold text-lg mb-1.5">Solicitar la eliminación por soporte</h3>
+                <p class="text-on-surface-variant text-sm mb-5">
+                    Respondemos dentro de los plazos que fija la Ley 1581 de 2012.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                        href="mailto:privacidad@trayko.co?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20cuenta"
+                        class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-container text-on-primary font-bold text-sm px-6 min-h-[44px] hover:bg-primary transition-all w-full sm:w-auto"
+                    >
+                        <Envelope size={18} />
+                        privacidad@trayko.co
+                    </a>
+                    <a
+                        href="https://wa.me/573017727930"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 rounded-full border px-6 min-h-[44px] font-bold text-sm hover:bg-surface-container-low transition-all w-full sm:w-auto"
+                    >
+                        <WhatsappLogo size={18} weight="fill" />
+                        Escribir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-outline text-xs font-semibold uppercase tracking-wide mt-10 text-center">Última actualización: 29 de julio de 2026</p>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
