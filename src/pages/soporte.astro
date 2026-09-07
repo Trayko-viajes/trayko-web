@@ -1,0 +1,312 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import {
+    ArrowRight,
+    Car,
+    ChatCircleDots,
+    CreditCard,
+    Envelope,
+    ShieldCheck,
+    Siren,
+    Ticket,
+    UserCircle,
+    Wallet,
+    WhatsappLogo,
+} from "@phosphor-icons/react/dist/ssr";
+
+/**
+ * Versión web de la pantalla "Ayuda y Soporte" de la app (`app/(app)/support.tsx`).
+ *
+ * Existe para quien no puede abrir la app —cuenta suspendida, sesión perdida,
+ * teléfono sin la app instalada— y necesita los mismos canales de contacto.
+ * Los datos de contacto son los mismos de `features/support/contact.ts`.
+ */
+
+const SUPPORT_EMAIL = "soporte@trayko.co";
+const SUPPORT_MAILTO = "mailto:soporte@trayko.co?subject=Soporte%20Trayko";
+const WHATSAPP_URL =
+    "https://wa.me/573017727930?text=Hola%2C%20necesito%20ayuda%20con%20Trayko.";
+
+const LINK =
+    "underline decoration-primary-container/50 hover:decoration-primary-container text-inherit";
+
+const CARD =
+    "bg-surface-container-lowest rounded-2xl border border-surface-container-low p-6 sm:p-8";
+
+const TOPICS = [
+    {
+        Icon: CreditCard,
+        title: "Pagos y comisión",
+        description:
+            "El viaje se paga en efectivo al conductor. Dentro de la app solo se cobra la comisión de la plataforma, cuando el conductor acepta tu solicitud.",
+    },
+    {
+        Icon: Ticket,
+        title: "Reservas y cancelaciones",
+        description:
+            "Puedes cancelar mientras el viaje siga programado. El reembolso de la comisión depende de la anticipación con la que canceles.",
+    },
+    {
+        Icon: Wallet,
+        title: "Créditos y reembolsos",
+        description:
+            "Tu saldo de créditos paga automáticamente la comisión de los próximos viajes. No es un monto que se pueda retirar en efectivo.",
+    },
+    {
+        Icon: Car,
+        title: "Ser conductor y documentos",
+        description:
+            "Identidad, licencia, pasado judicial, tarjeta de propiedad y SOAT. Cada documento pasa por una revisión antes de quedar aprobado.",
+    },
+    {
+        Icon: ChatCircleDots,
+        title: "Chat y código de abordaje",
+        description:
+            "El chat está disponible mientras el viaje esté programado o en curso. El código de 4 dígitos se lo muestras al conductor al subir.",
+    },
+    {
+        Icon: UserCircle,
+        title: "Cuenta y perfil",
+        description:
+            "Una sola cuenta para pasajero y conductor. Desde el perfil cambias de modo, actualizas tus datos o eliminas la cuenta.",
+    },
+];
+
+const BEFORE_WRITING = [
+    "El correo o el número de teléfono con el que te registraste.",
+    "La fecha y la ruta del viaje (origen, destino y hora de salida).",
+    "Si eras Pasajero o Conductor en ese viaje.",
+    "Capturas de pantalla del error o del cobro, si las tienes.",
+];
+---
+
+<Layout>
+    <Navbar />
+
+    <section
+        class="pt-[calc(7.5rem+env(safe-area-inset-top,0px))] pb-14 sm:pb-20 md:pt-40 md:pb-24 px-4 sm:px-6 bg-background"
+    >
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10 sm:mb-16">
+                <h1
+                    class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4"
+                >
+                    ¿Cómo podemos ayudarte?
+                </h1>
+                <p
+                    class="text-on-surface-variant text-base sm:text-lg font-medium"
+                >
+                    Escríbenos por el canal que prefieras. Nuestro equipo está
+                    listo para asistirte.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 sm:mb-14">
+                <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group bg-surface-container-lowest rounded-2xl border border-surface-container-low p-6 flex items-start gap-4 hover:border-primary-container transition-all"
+                >
+                    <span
+                        class="shrink-0 w-11 h-11 rounded-full bg-primary-fixed flex items-center justify-center"
+                    >
+                        <WhatsappLogo
+                            size={22}
+                            weight="fill"
+                            className="text-primary"
+                        />
+                    </span>
+                    <span class="min-w-0">
+                        <span class="block font-bold text-base mb-0.5"
+                            >Chat por WhatsApp</span
+                        >
+                        <span
+                            class="block text-on-surface-variant text-sm leading-relaxed"
+                        >
+                            Respuesta rápida en minutos.
+                        </span>
+                        <span
+                            class="inline-flex items-center gap-1.5 mt-3 text-sm font-bold text-primary"
+                        >
+                            +57 301 772 7930
+                            <ArrowRight
+                                size={14}
+                                className="group-hover:translate-x-0.5 transition-transform"
+                            />
+                        </span>
+                    </span>
+                </a>
+
+                <a
+                    href={SUPPORT_MAILTO}
+                    class="group bg-surface-container-lowest rounded-2xl border border-surface-container-low p-6 flex items-start gap-4 hover:border-primary-container transition-all"
+                >
+                    <span
+                        class="shrink-0 w-11 h-11 rounded-full bg-primary-fixed flex items-center justify-center"
+                    >
+                        <Envelope size={22} className="text-primary" />
+                    </span>
+                    <span class="min-w-0">
+                        <span class="block font-bold text-base mb-0.5"
+                            >Enviar correo</span
+                        >
+                        <span
+                            class="block text-on-surface-variant text-sm leading-relaxed"
+                        >
+                            Para consultas detalladas o con documentos adjuntos.
+                        </span>
+                        <span
+                            class="inline-flex items-center gap-1.5 mt-3 text-sm font-bold text-primary break-all"
+                        >
+                            {SUPPORT_EMAIL}
+                            <ArrowRight
+                                size={14}
+                                className="shrink-0 group-hover:translate-x-0.5 transition-transform"
+                            />
+                        </span>
+                    </span>
+                </a>
+            </div>
+
+            <div class="space-y-8 sm:space-y-10">
+                <div>
+                    <h2 class="text-lg sm:text-xl font-bold mb-4">
+                        Temas frecuentes
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {
+                            TOPICS.map(({ Icon, title, description }) => (
+                                <div class="bg-surface-container-lowest rounded-2xl border border-surface-container-low p-5">
+                                    <Icon
+                                        size={22}
+                                        className="text-primary mb-3"
+                                    />
+                                    <h3 class="font-bold text-sm mb-1.5">
+                                        {title}
+                                    </h3>
+                                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                                        {description}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <a
+                        href="/preguntas-frecuentes"
+                        class="inline-flex items-center gap-1.5 mt-5 text-sm font-bold text-primary hover:text-primary-container transition-colors"
+                    >
+                        Ver todas las preguntas frecuentes
+                        <ArrowRight size={14} />
+                    </a>
+                </div>
+
+                <div class={CARD}>
+                    <h2 class="text-lg sm:text-xl font-bold mb-3">
+                        Para que lo resolvamos más rápido
+                    </h2>
+                    <p class="text-on-surface-variant leading-relaxed mb-3">
+                        Cuando nos escribas por un viaje o un cobro concreto,
+                        cuéntanos:
+                    </p>
+                    <ul
+                        class="list-disc pl-5 space-y-1.5 text-on-surface-variant leading-relaxed"
+                    >
+                        {BEFORE_WRITING.map((item) => <li>{item}</li>)}
+                    </ul>
+                </div>
+
+                <div class={CARD}>
+                    <h2 class="text-lg sm:text-xl font-bold mb-3">
+                        Reportar una incidencia de un viaje
+                    </h2>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Si el problema ya pasó —un mal comportamiento, algo que
+                        no salió como esperabas— usa <strong
+                            >Reportar incidencia</strong
+                        > dentro del viaje en la app. Así el reporte queda asociado
+                        al viaje y a las personas involucradas, y lo revisamos con
+                        ese contexto. Si no puedes abrir la app, escríbenos por WhatsApp
+                        o al correo.
+                    </p>
+                </div>
+
+                <div class={CARD}>
+                    <div class="flex items-start gap-3 mb-3">
+                        <ShieldCheck
+                            size={22}
+                            weight="fill"
+                            className="text-primary shrink-0 mt-0.5"
+                        />
+                        <h2 class="text-lg sm:text-xl font-bold">
+                            Cuenta, datos y privacidad
+                        </h2>
+                    </div>
+                    <p class="text-on-surface-variant leading-relaxed mb-3">
+                        Para ejercer tus derechos de acceso, corrección o
+                        supresión de datos personales, escribe a <a
+                            class={LINK}
+                            href="mailto:privacidad@trayko.co"
+                            >privacidad@trayko.co</a
+                        >. Respondemos dentro de los plazos que fija la Ley 1581
+                        de 2012.
+                    </p>
+                    <ul
+                        class="list-disc pl-5 space-y-1.5 text-on-surface-variant leading-relaxed"
+                    >
+                        <li>
+                            <a class={LINK} href="/eliminar-cuenta"
+                                >Cómo eliminar tu cuenta</a
+                            > y qué pasa con tus datos
+                        </li>
+                        <li>
+                            <a class={LINK} href="/tratamiento-datos"
+                                >Política de Tratamiento de Datos Personales</a>
+                        </li>
+                        <li>
+                            <a class={LINK} href="/privacidad"
+                                >Política de Privacidad</a>
+                        </li>
+                        <li>
+                            <a class={LINK} href="/terminos"
+                                >Términos y Condiciones</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="glass-card rounded-2xl p-6 sm:p-8 mt-10 sm:mt-14 text-center"
+            >
+                <h3 class="font-bold text-lg mb-1.5">¿Sigues con la duda?</h3>
+                <p class="text-on-surface-variant text-sm mb-5">
+                    Escríbenos y te ayudamos directamente.
+                </p>
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-center gap-3"
+                >
+                    <a
+                        href={WHATSAPP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-container text-on-primary font-bold text-sm px-6 min-h-[44px] hover:bg-primary transition-all w-full sm:w-auto"
+                    >
+                        <WhatsappLogo size={18} weight="fill" />
+                        Escribir por WhatsApp
+                    </a>
+                    <a
+                        href={SUPPORT_MAILTO}
+                        class="inline-flex items-center justify-center gap-2 rounded-full border px-6 min-h-[44px] font-bold text-sm hover:bg-surface-container-low transition-all w-full sm:w-auto"
+                    >
+                        <Envelope size={18} />
+                        Enviar correo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
