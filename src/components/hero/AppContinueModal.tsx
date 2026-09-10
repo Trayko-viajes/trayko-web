@@ -8,7 +8,7 @@ type Props = {
 };
 
 const APP_STORE = 'https://apps.apple.com/';
-const PLAY_STORE = 'https://play.google.com/store';
+const PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.trayko.app';
 
 export function AppContinueModal({ trip, onClose }: Props) {
   useEffect(() => {
