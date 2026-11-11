@@ -5,9 +5,26 @@ import Footer from '../components/Footer.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import { FAQ_ITEMS } from '../data/faq';
 import { WhatsappLogo, Envelope } from '@phosphor-icons/react/dist/ssr';
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQ_ITEMS.map((item) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer,
+        },
+    })),
+};
 ---
 
-<Layout>
+<Layout
+    title="Preguntas Frecuentes | Trayko Carpooling Colombia"
+    description="Resuelve tus dudas sobre viajes compartidos en Colombia: cómo reservar, pagar, usar códigos de abordaje o conducir con Trayko."
+    schema={faqSchema}
+>
     <Navbar />
 
     <section class="pt-[calc(7.5rem+env(safe-area-inset-top,0px))] pb-14 sm:pb-20 md:pt-40 md:pb-24 px-4 sm:px-6 bg-background">

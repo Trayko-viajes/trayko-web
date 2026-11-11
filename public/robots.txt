@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /eliminar-cuenta
+
+Sitemap: https://trayko.co/sitemap-index.xml

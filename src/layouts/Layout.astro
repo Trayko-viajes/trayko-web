@@ -1,5 +1,66 @@
 ---
 import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: string;
+  noindex?: boolean;
+  schema?: Record<string, any> | Array<Record<string, any>>;
+}
+
+const {
+  title = "Trayko | Viajes compartidos y carpooling en Colombia",
+  description = "Ahorra en tus viajes intermunicipales compartiendo carro en Colombia. Viaja cómodo, seguro y económico entre Bogotá, Medellín, Cali, Eje Cafetero y más.",
+  image = "/hero.webp",
+  canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://trayko.co').href,
+  type = "website",
+  noindex = false,
+  schema,
+} = Astro.props;
+
+const siteName = "Trayko";
+const siteOrigin = (Astro.site ? Astro.site.origin : 'https://trayko.co').replace(/\/$/, '');
+const ogImageUrl = new URL(image, siteOrigin).href;
+
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteOrigin}/#organization`,
+      "name": "Trayko",
+      "url": siteOrigin,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteOrigin}/logo.png`,
+      },
+      "sameAs": [
+        "https://play.google.com/store/apps/details?id=com.trayko.app"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "soporte@trayko.co",
+        "contactType": "customer service",
+        "areaServed": "CO",
+        "availableLanguage": "Spanish"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteOrigin}/#website`,
+      "url": siteOrigin,
+      "name": "Trayko",
+      "description": "Plataforma de carpooling y viajes compartidos en Colombia",
+      "publisher": {
+        "@id": `${siteOrigin}/#organization`
+      },
+      "inLanguage": "es-CO"
+    }
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -8,11 +69,46 @@ import '../styles/global.css';
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta name="theme-color" content="#FAFAFA"/>
+    
+    <!-- Metadatos de SEO Principal -->
+    <title>{title}</title>
+    <meta name="description" content={description}/>
+    <link rel="canonical" href={canonicalURL}/>
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}/>
+    <meta name="author" content="Trayko"/>
+    <meta name="geo.region" content="CO"/>
+    
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:site_name" content={siteName}/>
+    <meta property="og:type" content={type}/>
+    <meta property="og:url" content={canonicalURL}/>
+    <meta property="og:title" content={title}/>
+    <meta property="og:description" content={description}/>
+    <meta property="og:image" content={ogImageUrl}/>
+    <meta property="og:locale" content="es_CO"/>
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content={title}/>
+    <meta name="twitter:description" content={description}/>
+    <meta name="twitter:image" content={ogImageUrl}/>
+
+    <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon.png"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="apple-touch-icon" href="/favicon.png"/>
+
+    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-    <title>Trayko</title>
+
+    <!-- Datos estructurados base (Schema.org) -->
+    <script type="application/ld+json" set:html={JSON.stringify(defaultSchema)} />
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
+    <slot name="head" />
 </head>
 <body class="bg-background text-on-surface">
     <slot />

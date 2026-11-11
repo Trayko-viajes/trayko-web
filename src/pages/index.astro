@@ -10,9 +10,27 @@ import Testimonials from '../components/Testimonials.astro';
 import AppDownload from '../components/AppDownload.astro';
 import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
+
+const appSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Trayko",
+  "operatingSystem": "Android, iOS",
+  "applicationCategory": "TravelApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "COP"
+  },
+  "description": "Plataforma de carpooling y viajes compartidos entre ciudades en Colombia."
+};
 ---
 
-<Layout>
+<Layout
+    title="Trayko | Viajes compartidos y carpooling en Colombia"
+    description="Viaja barato, cómodo y seguro entre ciudades de Colombia compartiendo carro con Trayko. Conecta con conductores y pasajeros en Bogotá, Medellín, Cali, Eje Cafetero y más."
+    schema={appSchema}
+>
     <Navbar />
     <Hero />
     <Features />
