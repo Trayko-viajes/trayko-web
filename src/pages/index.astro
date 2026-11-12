@@ -6,17 +6,18 @@ import Features from '../components/Features.astro';
 import Destinations from '../components/Destinations.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import DriverBenefits from '../components/DriverBenefits.astro';
-import Testimonials from '../components/Testimonials.astro';
 import AppDownload from '../components/AppDownload.astro';
 import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
+import { PLAY_STORE_URL } from '../data/site';
 
 const appSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Trayko",
-  "operatingSystem": "Android, iOS",
+  "operatingSystem": "Android",
   "applicationCategory": "TravelApplication",
+  "url": PLAY_STORE_URL,
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -27,8 +28,8 @@ const appSchema = {
 ---
 
 <Layout
-    title="Trayko | Viajes compartidos y carpooling en Colombia"
-    description="Viaja barato, cómodo y seguro entre ciudades de Colombia compartiendo carro con Trayko. Conecta con conductores y pasajeros en Bogotá, Medellín, Cali, Eje Cafetero y más."
+    title="Viajes compartidos entre ciudades de Colombia | Trayko"
+    description="Encuentra viajes compartidos entre ciudades de Colombia o publica cupos en tu carro. Con Trayko puedes coordinar tu ruta y compartir gastos desde la app."
     schema={appSchema}
 >
     <Navbar />
@@ -37,7 +38,6 @@ const appSchema = {
     <Destinations />
     <HowItWorks />
     <DriverBenefits />
-    <Testimonials />
     <AppDownload />
     <FAQ />
     <Footer />

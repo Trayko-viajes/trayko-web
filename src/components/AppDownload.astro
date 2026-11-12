@@ -1,6 +1,9 @@
 ---
 import macOsIconUrl from "../assets/icons8-mac-os.svg?url";
 import googlePlayIconUrl from "../assets/icons8-google-play.svg?url";
+import { PLAY_STORE_URL, appStoreUrl } from '../data/site';
+
+const iosUrl = appStoreUrl();
 ---
 
 <section id="descargar-app" class="py-14 sm:py-20 md:py-24 px-4 sm:px-6">
@@ -15,7 +18,7 @@ import googlePlayIconUrl from "../assets/icons8-google-play.svg?url";
                     <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 sm:mb-6 leading-tight">Trayko te acompaña en cada ruta por Colombia</h2>
                     <p class="text-primary-fixed text-base sm:text-lg mb-8 sm:mb-10 font-medium">Descarga la app para reservar viajes, publicar cupos como conductor y compartir gastos de forma simple y segura.</p>
                     <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center md:justify-start">
-                        <a class="bg-secondary text-on-secondary px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-3 hover:opacity-90 transition-opacity w-full sm:w-auto" href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer">
+                        {iosUrl ? <a class="bg-secondary text-on-secondary px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-3 hover:opacity-90 transition-opacity w-full sm:w-auto" href={iosUrl} target="_blank" rel="noopener noreferrer">
                             <img
                                 src={macOsIconUrl}
                                 alt=""
@@ -27,8 +30,8 @@ import googlePlayIconUrl from "../assets/icons8-google-play.svg?url";
                                 <p class="text-[10px] uppercase font-bold leading-none">Descargar en</p>
                                 <p class="text-lg font-bold leading-none">App Store</p>
                             </div>
-                        </a>
-                        <a class="bg-secondary text-on-secondary px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-3 hover:opacity-90 transition-opacity w-full sm:w-auto" href="https://play.google.com/store/apps/details?id=com.trayko.app" target="_blank" rel="noopener noreferrer">
+                        </a> : <span class="bg-secondary/60 text-white/80 px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center font-bold w-full sm:w-auto">iOS próximamente</span>}
+                        <a class="bg-secondary text-on-secondary px-5 sm:px-6 py-3 min-h-[48px] rounded-xl flex items-center justify-center gap-3 hover:opacity-90 transition-opacity w-full sm:w-auto" href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
                             <img
                                 src={googlePlayIconUrl}
                                 alt=""

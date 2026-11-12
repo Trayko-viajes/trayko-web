@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 
-Disallow: /eliminar-cuenta
+# /eliminar-cuenta NO se bloquea: la página se excluye del sitemap y declara
+# `noindex` en su <head>. Si se bloquea aquí, Google no la rastrea y nunca
+# llega a leer ese `noindex`.
 
 Sitemap: https://trayko.co/sitemap-index.xml

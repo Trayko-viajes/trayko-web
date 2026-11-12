@@ -1,83 +1,123 @@
 ---
 import '../styles/global.css';
+import {
+  SITE_NAME,
+  SITE_URL,
+  SITE_LOCALE,
+  SUPPORT_EMAIL,
+  PHONE_E164,
+  ORGANIZATION_ADDRESS,
+  SAME_AS_PROFILES,
+} from '../data/site';
+
+interface Breadcrumb {
+  name: string;
+  url: string;
+}
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageAlt?: string;
   canonicalURL?: string;
   type?: string;
   noindex?: boolean;
   schema?: Record<string, any> | Array<Record<string, any>>;
+  breadcrumbs?: Breadcrumb[];
 }
 
 const {
-  title = "Trayko | Viajes compartidos y carpooling en Colombia",
-  description = "Ahorra en tus viajes intermunicipales compartiendo carro en Colombia. Viaja cómodo, seguro y económico entre Bogotá, Medellín, Cali, Eje Cafetero y más.",
-  image = "/hero.webp",
-  canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://trayko.co').href,
-  type = "website",
+  title = 'Trayko | Viajes compartidos y carpooling en Colombia',
+  description = 'Ahorra en tus viajes intermunicipales compartiendo carro en Colombia. Viaja cómodo, seguro y económico entre Bogotá, Medellín, Cali, Eje Cafetero y más.',
+  image = '/hero.jpg',
+  imageWidth = 1672,
+  imageHeight = 941,
+  imageAlt = 'Trayko, plataforma de viajes compartidos y carpooling en Colombia',
+  canonicalURL = new URL(Astro.url.pathname, Astro.site ?? SITE_URL).href,
+  type = 'website',
   noindex = false,
   schema,
+  breadcrumbs,
 } = Astro.props;
 
-const siteName = "Trayko";
-const siteOrigin = (Astro.site ? Astro.site.origin : 'https://trayko.co').replace(/\/$/, '');
+const siteName = SITE_NAME;
+const siteOrigin = (Astro.site ? Astro.site.origin : SITE_URL).replace(/\/$/, '');
 const ogImageUrl = new URL(image, siteOrigin).href;
 
 const defaultSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
+  '@context': 'https://schema.org',
+  '@graph': [
     {
-      "@type": "Organization",
-      "@id": `${siteOrigin}/#organization`,
-      "name": "Trayko",
-      "url": siteOrigin,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${siteOrigin}/logo.png`,
+      '@type': 'Organization',
+      '@id': `${siteOrigin}/#organization`,
+      name: SITE_NAME,
+      url: siteOrigin,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteOrigin}/logo.png`,
       },
-      "sameAs": [
-        "https://play.google.com/store/apps/details?id=com.trayko.app"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "soporte@trayko.co",
-        "contactType": "customer service",
-        "areaServed": "CO",
-        "availableLanguage": "Spanish"
-      }
+      image: `${siteOrigin}/logo.png`,
+      address: {
+        '@type': 'PostalAddress',
+        ...ORGANIZATION_ADDRESS,
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: PHONE_E164,
+        email: SUPPORT_EMAIL,
+        contactType: 'customer service',
+        areaServed: 'CO',
+        availableLanguage: 'Spanish',
+      },
+      sameAs: SAME_AS_PROFILES,
     },
     {
-      "@type": "WebSite",
-      "@id": `${siteOrigin}/#website`,
-      "url": siteOrigin,
-      "name": "Trayko",
-      "description": "Plataforma de carpooling y viajes compartidos en Colombia",
-      "publisher": {
-        "@id": `${siteOrigin}/#organization`
+      '@type': 'WebSite',
+      '@id': `${siteOrigin}/#website`,
+      url: siteOrigin,
+      name: SITE_NAME,
+      description: 'Plataforma de carpooling y viajes compartidos en Colombia',
+      publisher: {
+        '@id': `${siteOrigin}/#organization`,
       },
-      "inLanguage": "es-CO"
-    }
-  ]
+      inLanguage: SITE_LOCALE,
+    },
+  ],
 };
+
+const breadcrumbSchema = breadcrumbs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((crumb, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: crumb.name,
+        item: new URL(crumb.url, siteOrigin).href,
+      })),
+    }
+  : null;
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang={SITE_LOCALE}>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta name="theme-color" content="#FAFAFA"/>
-    
+
     <!-- Metadatos de SEO Principal -->
     <title>{title}</title>
     <meta name="description" content={description}/>
     <link rel="canonical" href={canonicalURL}/>
-    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}/>
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}/>
     <meta name="author" content="Trayko"/>
     <meta name="geo.region" content="CO"/>
-    
+    <meta name="geo.placename" content="Barranquilla, Atlántico, Colombia"/>
+
     <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
     <meta property="og:site_name" content={siteName}/>
     <meta property="og:type" content={type}/>
@@ -85,6 +125,10 @@ const defaultSchema = {
     <meta property="og:title" content={title}/>
     <meta property="og:description" content={description}/>
     <meta property="og:image" content={ogImageUrl}/>
+    <meta property="og:image:width" content={String(imageWidth)}/>
+    <meta property="og:image:height" content={String(imageHeight)}/>
+    <meta property="og:image:alt" content={imageAlt}/>
+    <meta property="og:image:type" content="image/jpeg"/>
     <meta property="og:locale" content="es_CO"/>
 
     <!-- Twitter Cards -->
@@ -92,6 +136,7 @@ const defaultSchema = {
     <meta name="twitter:title" content={title}/>
     <meta name="twitter:description" content={description}/>
     <meta name="twitter:image" content={ogImageUrl}/>
+    <meta name="twitter:image:alt" content={imageAlt}/>
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon.png"/>
@@ -107,6 +152,9 @@ const defaultSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(defaultSchema)} />
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
+    {breadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     )}
     <slot name="head" />
 </head>

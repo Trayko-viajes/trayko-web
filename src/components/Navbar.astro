@@ -1,5 +1,6 @@
 ---
 import { List, X } from '@phosphor-icons/react/dist/ssr';
+const downloadHref = Astro.url.pathname === '/' ? '#descargar-app' : '/#descargar-app';
 ---
 
 <nav
@@ -22,13 +23,13 @@ import { List, X } from '@phosphor-icons/react/dist/ssr';
             </a>
             <div class="flex items-center gap-2 sm:gap-3 shrink-0">
                 <a
-                    href="/conductores"
+                    href="/conductores/"
                     class="nav-publish hidden md:inline-flex items-center px-4 sm:px-5 min-h-[44px] rounded-full font-bold text-sm transition-all active:scale-95"
                 >
                     Publicar viaje
                 </a>
                 <a
-                    href="#descargar-app"
+                    href={downloadHref}
                     class="nav-cta inline-flex items-center px-3 sm:px-6 min-h-[36px] sm:min-h-[44px] rounded-full font-bold text-xs sm:text-sm transition-all active:scale-95 hover:scale-105 shadow-trayko-md"
                 >
                     Descargar app
@@ -54,7 +55,7 @@ import { List, X } from '@phosphor-icons/react/dist/ssr';
             aria-label="Navegación"
         >
             <a
-                href="/conductores"
+                href="/conductores/"
                 class="flex items-center min-h-[48px] px-4 text-on-surface font-bold hover:bg-surface-container-low active:bg-surface-container transition-colors"
             >
                 Publicar viaje
